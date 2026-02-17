@@ -1,828 +1,1969 @@
 <!DOCTYPE html>
-<!-- saved from url=(0047)file:///C:/Users/FX707/Downloads/18semanas.html -->
+<!-- saved from url=(0049)file:///C:/Users/FX707/Downloads/18semanas_4.html -->
 <html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Sanaa</title>
+<title>18 Semanas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com/">
-<link href="./Borrador_files/css2" rel="stylesheet">
-
+<link href="./index_files/css2" rel="stylesheet">
 <style>
+  /* ===================== VARIABLES & RESET ===================== */
   :root {
-    --bg-deep:      #0d0b14;
-    --bg-mid:       #13101f;
-    --bg-surface:   #1a1630;
-    --accent-teal:  #3ddccc;
-    --accent-violet:#7c5cbf;
-    --accent-lime:  #b8f55a;
-    --accent-gold:  #e8c97a;
-    --accent-rose:  #d96fa0;
-    --text-primary: #f0eaf8;
-    --text-soft:    #a89ec0;
-    --text-muted:   #5e5478;
-    --border:       rgba(125, 100, 200, 0.18);
+    --lime: #9EF01A;
+    --teal: #00C9A7;
+    --cyan: #48CAE4;
+    --blue: #1B4FD8;
+    --purple: #5B2D8E;
+    --deep: #1A0A2E;
+    --pink: #E040A0;
+    --rose: #FF6B9D;
+    --gold: #C9A84C;
+    --cream: #FAF7F2;
 
-    --font-display: 'DM Serif Display', serif;
-    --font-body:    'Cormorant Garamond', serif;
-    --font-ui:      'Montserrat', sans-serif;
+    --grad-main: linear-gradient(135deg, #9EF01A 0%, #00C9A7 30%, #1B4FD8 65%, #5B2D8E 100%);
+    --grad-warm: linear-gradient(135deg, #5B2D8E 0%, #E040A0 50%, #C9A84C 100%);
+    --grad-soft: linear-gradient(160deg, #F0EDF8 0%, #E8F4F0 50%, #EDF1FC 100%);
+
+    /* LIGHT MODE TOKENS */
+    --bg:           #F7F5FB;
+    --bg-surface:   #FFFFFF;
+    --text-light:   #18122B;
+    --text-muted:   rgba(24,18,43,0.5);
+    --border:       rgba(24,18,43,0.1);
+    --surface:      rgba(255,255,255,0.8);
+    --surface-hover: rgba(255,255,255,0.95);
+
+    --radius-sm: 12px;
+    --radius-md: 20px;
+    --radius-lg: 32px;
+    --radius-xl: 48px;
+
+    --font-display: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-accent: 'Plus Jakarta Sans', sans-serif;
+
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html, body {
-    height: 100%;
-    background: var(--bg-deep);
-    color: var(--text-primary);
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
     font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text-light);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* ===================== ANIMATED BACKGROUND ===================== */
+  .bg-canvas {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
     overflow: hidden;
-  }
-
-  /* ── CANVAS DE FONDO ── */
-  #bg-canvas {
-    position: fixed; inset: 0; z-index: 0;
     pointer-events: none;
   }
 
-  /* ── PANTALLAS ── */
+  .bg-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.18;
+    animation: drift 20s ease-in-out infinite alternate;
+  }
+
+  .bg-orb-1 {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, var(--purple), transparent 70%);
+    top: -200px; left: -100px;
+    animation-duration: 18s;
+  }
+  .bg-orb-2 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, var(--blue), transparent 70%);
+    top: 30%; right: -150px;
+    animation-duration: 22s; animation-delay: -5s;
+  }
+  .bg-orb-3 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, var(--teal), transparent 70%);
+    bottom: -100px; left: 30%;
+    animation-duration: 16s; animation-delay: -10s;
+  }
+  .bg-orb-4 {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, var(--pink), transparent 70%);
+    bottom: 20%; left: -80px;
+    animation-duration: 24s; animation-delay: -3s;
+    opacity: 0.1;
+  }
+
+  @keyframes drift {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -40px) scale(1.05); }
+    66% { transform: translate(-20px, 20px) scale(0.97); }
+    100% { transform: translate(15px, -15px) scale(1.02); }
+  }
+
+  /* Flowing wave decoration */
+  .bg-wave {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.025;
+  }
+
+  /* ===================== APP WRAPPER ===================== */
+  #app {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ===================== SCREENS ===================== */
   .screen {
-    position: fixed; inset: 0; z-index: 10;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    padding: 2rem;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.9s cubic-bezier(0.4,0,0.2,1);
-  }
-  .screen.active {
-    opacity: 1;
-    pointer-events: all;
-  }
-  .screen.exit {
-    opacity: 0;
-    pointer-events: none;
+    display: none;
+    width: 100%;
+    max-width: 480px;
+    min-height: 100vh;
+    padding: 24px 20px 40px;
+    flex-direction: column;
+    align-items: center;
+    animation: screenIn 0.6s cubic-bezier(0.4,0,0.2,1) both;
   }
 
-  /* ── PANTALLA 1: BIENVENIDA ── */
-  #screen-welcome {
-    gap: 2.5rem;
+  .screen.active {
+    display: flex;
+  }
+
+  @keyframes screenIn {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Desktop adaptation */
+  @media (min-width: 600px) {
+    .screen {
+      max-width: 560px;
+      padding: 40px 32px 60px;
+    }
+  }
+
+  /* ===================== TYPOGRAPHY ===================== */
+  .title-main {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 8vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    text-align: center;
+    background: var(--grad-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .title-sub {
+    font-family: var(--font-display);
+    font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+    font-weight: 400;
+    color: var(--text-muted);
+    text-align: center;
+    letter-spacing: 0.01em;
+    margin-top: 8px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.15;
+    color: var(--text-light);
+    letter-spacing: -0.01em;
+  }
+
+  .body-text {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--text-muted);
     text-align: center;
   }
 
   .ornament {
-    width: 60px; height: 2px;
-    background: linear-gradient(90deg, transparent, var(--accent-teal), transparent);
-    margin: 0 auto;
-  }
-  .ornament-v {
-    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-  }
-  .ornament-dot {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: var(--accent-violet);
+    display: block;
+    height: 1px;
+    width: 48px;
+    background: var(--border);
+    margin: 20px auto;
   }
 
-  #welcome-greeting {
-    font-family: var(--font-ui);
-    font-size: 0.7rem;
-    font-weight: 300;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    opacity: 0;
-    animation: fadeUp 1s 0.3s ease forwards;
-  }
-  #welcome-title {
-    font-family: var(--font-display);
-    font-size: clamp(2.8rem, 8vw, 5rem);
-    line-height: 1.05;
-    color: var(--text-primary);
-    opacity: 0;
-    animation: fadeUp 1s 0.6s ease forwards;
-  }
-  #welcome-title em {
-    font-style: italic;
-    color: var(--accent-teal);
-  }
-  #welcome-sub {
-    font-family: var(--font-body);
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
-    font-weight: 300;
-    color: var(--text-soft);
-    max-width: 420px;
-    line-height: 1.7;
-    opacity: 0;
-    animation: fadeUp 1s 1s ease forwards;
-  }
-  #btn-start {
-    margin-top: 1rem;
-    opacity: 0;
-    animation: fadeUp 1s 1.4s ease forwards;
-  }
+  .ornament-dot { display: none; }
 
-  /* ── BOTONES ── */
+  /* ===================== BUTTONS ===================== */
   .btn {
-    font-family: var(--font-ui);
-    font-size: 0.72rem;
-    font-weight: 400;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    padding: 0.9rem 2.4rem;
-    border: 1px solid var(--accent-teal);
-    background: transparent;
-    color: var(--accent-teal);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border-radius: var(--radius-xl);
+    border: none;
     cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: color 0.3s, border-color 0.3s;
-    border-radius: 2px;
-  }
-  .btn::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: var(--accent-teal);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
-    z-index: -1;
-  }
-  .btn:hover { color: var(--bg-deep); }
-  .btn:hover::before { transform: scaleX(1); }
-
-  .btn-gold {
-    border-color: var(--accent-gold);
-    color: var(--accent-gold);
-  }
-  .btn-gold::before { background: var(--accent-gold); }
-
-  .btn-violet {
-    border-color: var(--accent-violet);
-    color: var(--accent-violet);
-  }
-  .btn-violet::before { background: var(--accent-violet); }
-
-  /* ── PANTALLA 2: MINIJUEGO ── */
-  #screen-game {
-    gap: 2rem;
-    text-align: center;
-    max-width: 560px;
-    margin: 0 auto;
-  }
-
-  #game-label {
-    font-family: var(--font-ui);
-    font-size: 0.65rem;
-    letter-spacing: 0.4em;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    transition: var(--transition);
+    text-decoration: none;
+    white-space: nowrap;
   }
-  #game-prompt {
-    font-family: var(--font-display);
-    font-size: clamp(1.6rem, 5vw, 2.4rem);
-    line-height: 1.2;
-    color: var(--text-primary);
-    max-width: 420px;
-  }
-  #game-prompt em { font-style: italic; color: var(--accent-teal); }
 
-  /* BLANKS */
-  #blanks-container {
+  .btn-primary {
+    background: var(--grad-main);
+    color: var(--deep);
+    box-shadow: 0 8px 32px rgba(0,201,167,0.3);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(0,201,167,0.45);
+  }
+
+  .btn-warm {
+    background: var(--grad-warm);
+    color: var(--text-light);
+    box-shadow: 0 8px 32px rgba(224,64,160,0.3);
+  }
+  .btn-warm:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(224,64,160,0.45);
+  }
+
+  .btn-ghost {
+    background: var(--bg-surface);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 4px rgba(24,18,43,0.06);
+  }
+  .btn-ghost:hover {
+    background: var(--surface-hover);
+    color: var(--text-light);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(24,18,43,0.1);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    font-size: 0.8rem;
+    padding: 10px 20px;
+  }
+  .btn-outline:hover {
+    border-color: rgba(24,18,43,0.25);
+    color: var(--text-light);
+  }
+
+  .btn-lg {
+    font-size: 1rem;
+    padding: 18px 40px;
+    letter-spacing: 0.1em;
+  }
+
+  /* ===================== CARDS & SURFACES ===================== */
+  .card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    box-shadow: 0 2px 16px rgba(24,18,43,0.06);
+    width: 100%;
+  }
+
+  /* ===================== COUNTDOWN ===================== */
+  .countdown-wrapper {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+  .countdown-unit {
     display: flex;
     flex-direction: column;
-    gap: 1.4rem;
     align-items: center;
-    width: 100%;
+    gap: 4px;
   }
 
-  .blank-group {
-    display: flex;
-    gap: 0.5rem;
-    align-items: flex-end;
-    justify-content: center;
-    flex-wrap: wrap;
+  .countdown-number {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 700;
+    line-height: 1;
+    background: var(--grad-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    min-width: 60px;
+    text-align: center;
+    letter-spacing: -0.02em;
   }
-  .blank-group-label {
-    font-family: var(--font-ui);
-    font-size: 0.55rem;
-    letter-spacing: 0.2em;
+
+  .countdown-label {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--text-muted);
-    width: 100%;
-    text-align: center;
-    margin-bottom: -0.6rem;
   }
 
-  .letter-box {
-    position: relative;
-  }
-  .letter-box input {
-    width: 2.2rem; height: 2.8rem;
-    background: transparent;
-    border: none;
-    border-bottom: 1.5px solid var(--text-muted);
-    color: var(--text-primary);
+  .countdown-sep {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--border);
+    align-self: flex-start;
+    padding-top: 4px;
+  }
+
+  /* ===================== MINIJUEGO ===================== */
+  .game-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 24px;
+    letter-spacing: 0.06em;
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin: 8px 0;
+  }
+
+  .input-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-family: var(--font-body);
+  }
+
+  .char-inputs {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+  }
+
+  .char-input {
+    width: 40px;
+    height: 48px;
+    background: var(--bg-surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-light);
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 600;
     text-align: center;
     text-transform: uppercase;
+    transition: var(--transition);
     outline: none;
-    transition: border-color 0.2s;
-    padding: 0;
-    caret-color: var(--accent-teal);
+    letter-spacing: 0.05em;
+    caret-color: var(--teal);
+    box-shadow: 0 1px 4px rgba(24,18,43,0.06);
   }
-  .letter-box input:focus {
-    border-bottom-color: var(--accent-teal);
+
+  .char-input:focus {
+    border-color: var(--teal);
+    background: rgba(0,201,167,0.08);
+    box-shadow: 0 0 0 3px rgba(0,201,167,0.15);
   }
-  .letter-box input.correct {
-    color: var(--accent-teal);
-    border-bottom-color: var(--accent-teal);
+
+  .char-input.correct {
+    border-color: #4ade80;
+    color: #4ade80;
+    background: rgba(74,222,128,0.08);
   }
-  .letter-box input.wrong {
-    color: var(--accent-rose);
-    border-bottom-color: var(--accent-rose);
+
+  .char-input.incorrect {
+    border-color: var(--rose);
     animation: shake 0.4s ease;
   }
 
-  /* número separador */
-  .separator {
-    font-family: var(--font-ui);
-    font-size: 0.6rem;
-    color: var(--text-muted);
-    padding: 0 0.3rem 0.6rem;
-    letter-spacing: 0.1em;
-    align-self: flex-end;
-  }
-
-  #game-hint {
-    font-family: var(--font-body);
-    font-size: 1rem;
-    font-style: italic;
-    color: var(--text-muted);
-    min-height: 1.5rem;
-    transition: color 0.4s;
-  }
-  #game-hint.visible { color: var(--accent-gold); }
-
-  #btn-check { margin-top: 0.5rem; }
-
-  /* ── PANTALLA 3: ÉXITO DEL MINIJUEGO ── */
-  #screen-success {
-    gap: 2rem;
-    text-align: center;
-    max-width: 480px;
-  }
-
-  .big-title {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 10vw, 6rem);
-    line-height: 1;
-    letter-spacing: -0.01em;
-  }
-  .big-title .word-18 {
-    display: block;
-    font-size: 0.7em;
-    font-style: italic;
-    color: var(--accent-teal);
-  }
-  .big-title .word-semanas {
-    display: block;
-    color: var(--text-primary);
-  }
-
-  #success-text {
-    font-family: var(--font-body);
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
-    font-weight: 300;
-    color: var(--text-soft);
-    line-height: 1.75;
-    max-width: 380px;
-  }
-
-  #countdown-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.3rem;
-    padding: 1.2rem 2rem;
-    border: 1px solid var(--border);
-    background: rgba(124, 92, 191, 0.07);
-  }
-  #countdown-label {
-    font-family: var(--font-ui);
-    font-size: 0.6rem;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
-  #countdown-time {
-    font-family: var(--font-display);
-    font-size: 1.8rem;
-    color: var(--accent-gold);
-    font-variant-numeric: tabular-nums;
-  }
-  #countdown-sub {
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-    font-style: italic;
-    color: var(--text-muted);
-  }
-
-  /* ── PANTALLA 4: ESPERA (modo lunes+) ── */
-  #screen-wait {
-    gap: 2rem;
-    text-align: center;
-    max-width: 480px;
-  }
-  #wait-eyebrow {
-    font-family: var(--font-ui);
-    font-size: 0.65rem;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
-  #wait-title {
-    font-family: var(--font-display);
-    font-size: clamp(2.2rem, 7vw, 4rem);
-    color: var(--text-primary);
-    line-height: 1.1;
-  }
-  #wait-title em { color: var(--accent-teal); font-style: italic; }
-  #wait-sub {
-    font-family: var(--font-body);
-    font-size: 1.1rem;
-    font-weight: 300;
-    color: var(--text-soft);
-    line-height: 1.8;
-    max-width: 380px;
-  }
-  #wait-countdown {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    color: var(--accent-gold);
-  }
-  #wait-note {
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    font-style: italic;
-    color: var(--text-muted);
-  }
-
-  /* ── ANIMACIONES ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(22px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
   @keyframes shake {
     0%, 100% { transform: translateX(0); }
-    25%  { transform: translateX(-5px); }
-    75%  { transform: translateX(5px); }
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 0.6; }
-    50%  { opacity: 1; }
-  }
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50%  { transform: translateY(-8px); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
   }
 
-  .anim-fadeup {
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards;
+  /* ===================== HINTS ===================== */
+  .hints-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
   }
 
-  /* ── PARTÍCULAS DE CELEBRACIÓN ── */
+  .hint-item {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    animation: hintIn 0.5s ease both;
+    text-align: left;
+    box-shadow: 0 1px 4px rgba(24,18,43,0.04);
+  }
+
+  .hint-item .hint-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  @keyframes hintIn {
+    from { opacity: 0; transform: translateX(-12px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  /* ===================== SUCCESS SCREEN ===================== */
+  .success-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 4vw, 1.6rem);
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.01em;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .success-big {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 10vw, 5rem);
+    font-weight: 700;
+    text-align: center;
+    line-height: 1;
+    background: var(--grad-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.03em;
+  }
+
+  /* ===================== GIFTS GRID ===================== */
+  .gifts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  @media (min-width: 480px) {
+    .gifts-grid { grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  }
+
+  .gift-card {
+    aspect-ratio: 1;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    border: 1.5px solid var(--border);
+    background: var(--bg-surface);
+    box-shadow: 0 2px 8px rgba(24,18,43,0.06);
+  }
+
+  .gift-card.locked {
+    opacity: 0.35;
+    cursor: not-allowed;
+    filter: grayscale(0.5);
+  }
+
+  .gift-card.hint-active {
+    border-color: var(--gold);
+    box-shadow: 0 0 20px rgba(201,168,76,0.35), 0 0 0 3px rgba(201,168,76,0.1);
+    animation: pulse-gold 2.5s ease-in-out infinite;
+  }
+
+  .gift-card.week-active {
+    border-color: var(--teal);
+    box-shadow: 0 0 20px rgba(0,201,167,0.35);
+  }
+
+  .gift-card.completed {
+    border-color: var(--border);
+    opacity: 0.7;
+  }
+
+  @keyframes pulse-gold {
+    0%, 100% { box-shadow: 0 0 20px rgba(201,168,76,0.35), 0 0 0 3px rgba(201,168,76,0.1); }
+    50% { box-shadow: 0 0 30px rgba(201,168,76,0.55), 0 0 0 5px rgba(201,168,76,0.15); }
+  }
+
+  .gift-card:not(.locked):hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 12px 32px rgba(24,18,43,0.12);
+  }
+
+  .gift-number {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 4vw, 1.9rem);
+    font-weight: 600;
+    color: var(--text-muted);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .gift-card.hint-active .gift-number { color: var(--gold); }
+  .gift-card.week-active .gift-number { color: var(--teal); }
+
+  /* ===================== WEEK SCREEN ===================== */
+  .week-dates {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 6px;
+  }
+
+  .week-status-box {
+    width: 100%;
+    padding: 20px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    margin: 16px 0;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(24,18,43,0.05);
+  }
+
+  /* ===================== PASSWORD INPUT ===================== */
+  .pw-input {
+    background: var(--bg-surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+    color: var(--text-light);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    padding: 12px 20px;
+    width: 100%;
+    outline: none;
+    transition: var(--transition);
+    text-align: center;
+    letter-spacing: 0.1em;
+    box-shadow: 0 1px 4px rgba(24,18,43,0.05);
+  }
+  .pw-input:focus {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(0,201,167,0.12);
+  }
+  .pw-input::placeholder { color: var(--text-muted); letter-spacing: 0.08em; }
+
+  /* ===================== MODAL / POPUP ===================== */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(24,18,43,0.45);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .modal-overlay.hidden { display: none; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; }
+  }
+
+  .modal-box {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 36px 28px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    animation: modalIn 0.5s cubic-bezier(0.4,0,0.2,1) both;
+    box-shadow: 0 24px 60px rgba(24,18,43,0.15);
+  }
+
+  @keyframes modalIn {
+    from { transform: scale(0.9) translateY(20px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+  }
+
+  /* ===================== CONFETTI ===================== */
   #confetti-canvas {
-    position: fixed; inset: 0; z-index: 5;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
     pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.5s;
   }
-  #confetti-canvas.active { opacity: 1; }
 
-  /* Scrollbar */
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: var(--bg-deep); }
-  ::-webkit-scrollbar-thumb { background: var(--accent-violet); border-radius: 2px; }
+  /* ===================== NAV ===================== */
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 32px;
+    padding-top: 8px;
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: -0.01em;
+  }
+
+  .nav-logo.revealed {
+    background: var(--grad-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ===================== SPACERS ===================== */
+  .spacer-sm { height: 12px; }
+  .spacer-md { height: 24px; }
+  .spacer-lg { height: 40px; }
+
+  /* ===================== ADMIN CONSOLE ===================== */
+  .admin-panel {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(24,18,43,0.97);
+    border-top: 1px solid rgba(250,247,242,0.1);
+    padding: 16px 20px;
+    z-index: 999;
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    backdrop-filter: blur(20px);
+    animation: slideUp 0.3s ease;
+  }
+
+  .admin-panel.open { display: flex; }
+
+  @keyframes slideUp {
+    from { transform: translateY(100%); } to { transform: translateY(0); }
+  }
+
+  .admin-title {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .admin-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .admin-input {
+    background: rgba(250,247,242,0.08);
+    border: 1px solid rgba(250,247,242,0.15);
+    border-radius: var(--radius-sm);
+    color: #FAF7F2;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    padding: 8px 12px;
+    flex: 1;
+    outline: none;
+    min-width: 180px;
+  }
+
+  .admin-indicator {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    background: var(--gold);
+    color: var(--deep);
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    border-radius: 99px;
+    z-index: 1000;
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+
+  /* ===================== PRESENTATION TEXT ===================== */
+  .prose {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--text-muted);
+    text-align: left;
+    width: 100%;
+  }
+
+  .prose p { margin-bottom: 16px; }
+  .prose p:last-child { margin-bottom: 0; }
+
+  .prose .salutation {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--text-light);
+  }
+
+  /* ===================== LOADING STATE ===================== */
+  .loading-dots {
+    display: flex; gap: 6px; justify-content: center; margin: 16px 0;
+  }
+  .loading-dots span {
+    width: 6px; height: 6px;
+    background: var(--teal);
+    border-radius: 50%;
+    animation: blink 1.2s ease infinite;
+  }
+  .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes blink {
+    0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); }
+    40% { opacity: 1; transform: scale(1); }
+  }
+
+  /* ===================== STAGGERED REVEAL ===================== */
+  .reveal { opacity: 0; animation: screenIn 0.6s ease forwards; }
+  .reveal-1 { animation-delay: 0.1s; }
+  .reveal-2 { animation-delay: 0.2s; }
+  .reveal-3 { animation-delay: 0.3s; }
+  .reveal-4 { animation-delay: 0.4s; }
+  .reveal-5 { animation-delay: 0.5s; }
+  .reveal-6 { animation-delay: 0.6s; }
+
+  /* ===================== NOTIFY BANNER ===================== */
+  .notify-banner {
+    background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(224,64,160,0.06));
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .notify-text {
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+
+  .notify-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gold);
+  }
 </style>
 </head>
 <body>
 
-<canvas id="bg-canvas" width="1912" height="948"></canvas>
+<!-- Background -->
+<div class="bg-canvas">
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <div class="bg-orb bg-orb-3"></div>
+  <div class="bg-orb bg-orb-4"></div>
+  <svg class="bg-wave" viewBox="0 0 1200 800" preserveAspectRatio="none">
+    <path d="M0,400 C200,300 400,500 600,400 C800,300 1000,500 1200,400 L1200,800 L0,800 Z" fill="url(#waveGrad)" opacity="0.4">
+      <animate attributeName="d" dur="12s" repeatCount="indefinite" values="M0,400 C200,300 400,500 600,400 C800,300 1000,500 1200,400 L1200,800 L0,800 Z;
+                M0,420 C200,340 400,480 600,420 C800,340 1000,480 1200,420 L1200,800 L0,800 Z;
+                M0,400 C200,300 400,500 600,400 C800,300 1000,500 1200,400 L1200,800 L0,800 Z"></animate>
+    </path>
+    <defs>
+      <lineargradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:#5B2D8E;stop-opacity:1"></stop>
+        <stop offset="50%" style="stop-color:#1B4FD8;stop-opacity:1"></stop>
+        <stop offset="100%" style="stop-color:#00C9A7;stop-opacity:1"></stop>
+      </lineargradient>
+    </defs>
+  </svg>
+</div>
+
 <canvas id="confetti-canvas"></canvas>
 
-<!-- ══════════════════════════════════════
-     PANTALLA 1 · BIENVENIDA
-═══════════════════════════════════════ -->
-<div id="screen-welcome" class="screen exit">
-  <p id="welcome-greeting">Para Sanaa</p>
+<!-- Admin Indicator -->
+<div class="admin-indicator" id="adminIndicator">⚙ ADMIN</div>
 
-  <div class="ornament-v">
-    <div class="ornament"></div>
-    <div class="ornament-dot"></div>
-  </div>
+<!-- App -->
+<div id="app">
 
-  <h1 id="welcome-title">
-    Hay algo<br>que quiero<br><em>regalarte.</em>
-  </h1>
-
-  <p id="welcome-sub">
-    No cabe en una caja.<br>
-    Se irá desarrollando poco a poco,<br>
-    como todo lo que vale la pena.
-  </p>
-
-  <div id="btn-start">
-    <button class="btn" onclick="goToGame()">Descubrir</button>
-  </div>
-</div>
-
-
-<!-- ══════════════════════════════════════
-     PANTALLA 2 · MINIJUEGO
-═══════════════════════════════════════ -->
-<div id="screen-game" class="screen active">
-
-  <p id="game-label">Primer paso</p>
-
-  <h2 id="game-prompt">
-    Este regalo tiene un nombre.<br>
-    <em>¿Puedes adivinarlo?</em>
-  </h2>
-
-  <div id="blanks-container">
-
-    <!-- "18" -->
-    <div class="blank-group">
-      <span class="blank-group-label">un número</span>
-      <div class="letter-box"><input type="text" maxlength="1" data-index="0" data-word="0" autocomplete="off" spellcheck="false"></div>
-      <div class="letter-box"><input type="text" maxlength="1" data-index="1" data-word="0" autocomplete="off" spellcheck="false"></div>
+  <!-- ===== SCREEN: MAIN MENU ===== -->
+  <div class="screen active" id="screen-menu">
+    <div class="nav-bar">
+      <span class="nav-logo" id="navLogo">❧</span>
+      <span style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);" id="navDate">miércoles, 18 de febrero</span>
     </div>
 
-    <div class="separator">·</div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;width:100%;">
+      
+      <!-- State A: Before Sun 22 Feb 00:00 -->
+      <div id="menu-state-a" style="display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%;">
+        <div class="reveal reveal-1">
+          <div class="title-sub">algo está llegando</div>
+        </div>
+        <div class="reveal reveal-2" style="text-align:center;">
+          <div class="countdown-wrapper" id="countdown-to-sunday">
+            <div class="countdown-unit"><span class="countdown-number" id="ctd-days">03</span><span class="countdown-label">días</span></div>
+            <div class="countdown-sep">·</div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctd-hours">23</span><span class="countdown-label">horas</span></div>
+            <div class="countdown-sep">·</div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctd-mins">22</span><span class="countdown-label">min</span></div>
+            <div class="countdown-sep">·</div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctd-secs">33</span><span class="countdown-label">seg</span></div>
+          </div>
+          <div class="body-text" style="font-size:0.8rem;margin-top:8px;">hasta que algo se desvele</div>
+        </div>
+        <div class="reveal reveal-3">
+          <button class="btn btn-ghost" onclick="goTo(&#39;screen-presentation&#39;)">¿Qué es esto?</button>
+        </div>
+      </div>
 
-    <!-- "SEMANAS" -->
-    <div class="blank-group">
-      <span class="blank-group-label">una unidad de tiempo</span>
-      <div class="letter-box"><input type="text" maxlength="1" data-index="0" data-word="1" autocomplete="off" spellcheck="false"></div>
-      <div class="letter-box"><input type="text" maxlength="1" data-index="1" data-word="1" autocomplete="off" spellcheck="false"></div>
-      <div class="letter-box"><input type="text" maxlength="1" data-index="2" data-word="1" autocomplete="off" spellcheck="false"></div>
-      <div class="letter-box"><input type="text" maxlength="1" data-index="3" data-word="1" autocomplete="off" spellcheck="false"></div>
-      <div class="letter-box"><input type="text" maxlength="1" data-index="4" data-word="1" autocomplete="off" spellcheck="false"></div>
-      <div class="letter-box"><input type="text" maxlength="1" data-index="5" data-word="1" autocomplete="off" spellcheck="false"></div>
-      <div class="letter-box"><input type="text" maxlength="1" data-index="6" data-word="1" autocomplete="off" spellcheck="false"></div>
+      <!-- State B: After Sun 22, title not guessed -->
+      <div id="menu-state-b" style="display:none;flex-direction:column;align-items:center;gap:24px;width:100%;">
+        <div class="reveal reveal-1">
+          <div class="title-sub">un regalo espera</div>
+        </div>
+        <div class="reveal reveal-2">
+          <button class="btn btn-primary btn-lg" onclick="goTo(&#39;screen-game&#39;)">
+            Averigua el título del regalo
+          </button>
+        </div>
+        <div class="reveal reveal-3" style="width:100%;text-align:center;">
+          <div class="body-text" style="font-size:0.75rem;margin-bottom:8px;">El regalo se desvela el</div>
+          <div class="countdown-wrapper" id="countdown-to-friday">
+            <div class="countdown-unit"><span class="countdown-number" id="ctf-days">09</span><span class="countdown-label">días</span></div>
+            <div class="countdown-sep">·</div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctf-hours">10</span><span class="countdown-label">horas</span></div>
+            <div class="countdown-sep">·</div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctf-mins">52</span><span class="countdown-label">min</span></div>
+            <div class="countdown-sep">·</div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctf-secs">33</span><span class="countdown-label">seg</span></div>
+          </div>
+          <div class="body-text" style="font-size:0.75rem;margin-top:8px;">viernes 27 · 11:30</div>
+        </div>
+        <div class="reveal reveal-4">
+          <button class="btn btn-ghost" onclick="goTo(&#39;screen-presentation&#39;)">¿Qué es esto?</button>
+        </div>
+      </div>
+
+      <!-- State C: Title guessed, before Fri 27 11:30 -->
+      <div id="menu-state-c" style="display:none;flex-direction:column;align-items:center;gap:24px;width:100%;">
+        <div class="reveal reveal-1">
+          <div class="title-main" id="main-title-c">18 Semanas</div>
+        </div>
+        <div class="ornament reveal reveal-2"><div class="ornament-dot"></div></div>
+        <div class="reveal reveal-3" style="text-align:center;">
+          <div class="body-text">El viernes descubrirás en qué consiste</div>
+          <div class="countdown-wrapper" style="margin-top:16px;" id="countdown-to-friday-c">
+            <div class="countdown-unit"><span class="countdown-number" id="ctfc-days">09</span><span class="countdown-label">días</span></div>
+            <div class="countdown-sep">·</div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctfc-hours">10</span><span class="countdown-label">horas</span></div>
+            <div class="countdown-sep">·</div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctfc-mins">52</span><span class="countdown-label">min</span></div>
+            <div class="countdown-sep">·</div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctfc-secs">33</span><span class="countdown-label">seg</span></div>
+          </div>
+          <div class="body-text" style="font-size:0.75rem;margin-top:8px;">viernes 27 · 11:30</div>
+        </div>
+        <div class="reveal reveal-4">
+          <button class="btn btn-ghost" onclick="goTo(&#39;screen-game&#39;)">Ver el título</button>
+        </div>
+      </div>
+
+      <!-- State D: After Fri 27 11:30 — full menu -->
+      <div id="menu-state-d" style="display:none;flex-direction:column;align-items:center;gap:28px;width:100%;">
+        <div class="reveal reveal-1">
+          <div class="title-main">18 Semanas</div>
+          <div class="title-sub">tu proceso hacia la libertad</div>
+        </div>
+        <div class="ornament reveal reveal-2"><div class="ornament-dot"></div></div>
+        <div class="reveal reveal-3" style="width:100%;display:flex;flex-direction:column;gap:12px;align-items:center;">
+          <button class="btn btn-warm btn-lg" style="width:100%;max-width:280px;" onclick="goTo(&#39;screen-gifts&#39;)">
+            Tus regalos ✦
+          </button>
+          <button class="btn btn-ghost" style="width:100%;max-width:280px;" onclick="goTo(&#39;screen-presentation&#39;)">
+            Presentación
+          </button>
+        </div>
+        <div class="reveal reveal-4" id="menu-next-gift" style="text-align:center;width:100%;">
+          <!-- Next gift countdown injected here -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== SCREEN: PRESENTATION ===== -->
+  <div class="screen" id="screen-presentation">
+    <div class="nav-bar">
+      <button class="btn btn-outline" onclick="goTo(&#39;screen-menu&#39;)">← Inicio</button>
+    </div>
+
+    <!-- Before Sun 22 -->
+    <div id="pres-state-a" style="display:none;flex-direction:column;align-items:center;gap:24px;width:100%;text-align:center;">
+      <div class="reveal reveal-1">
+        <div class="section-title" style="font-style:italic;color:var(--text-muted);">Algo está por llegar</div>
+      </div>
+      <div class="ornament reveal reveal-2"><div class="ornament-dot"></div></div>
+      <div class="reveal reveal-3">
+        <p class="body-text">Este regalo todavía no está listo para desvelarse.<br>Vuelve el domingo para descubrir su título.</p>
+      </div>
+      <div class="reveal reveal-4">
+        <div class="countdown-wrapper">
+          <div class="countdown-unit"><span class="countdown-number" id="pctd-days">03</span><span class="countdown-label">días</span></div>
+          <div class="countdown-sep">·</div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctd-hours">23</span><span class="countdown-label">horas</span></div>
+          <div class="countdown-sep">·</div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctd-mins">22</span><span class="countdown-label">min</span></div>
+          <div class="countdown-sep">·</div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctd-secs">33</span><span class="countdown-label">seg</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- After Sun 22, before guessing -->
+    <div id="pres-state-b" style="display:none;flex-direction:column;align-items:center;gap:24px;width:100%;text-align:center;">
+      <div class="reveal reveal-1">
+        <div class="section-title">Descubrir el título<br>es el primer paso</div>
+      </div>
+      <div class="ornament reveal reveal-2"><div class="ornament-dot"></div></div>
+      <div class="reveal reveal-3">
+        <p class="body-text">Ve al menú principal para intentar adivinar el nombre de tu regalo.</p>
+      </div>
+      <div class="reveal reveal-4">
+        <button class="btn btn-primary" onclick="goTo(&#39;screen-game&#39;)">Ir al minijuego</button>
+      </div>
+    </div>
+
+    <!-- After guessing, before Fri 27 -->
+    <div id="pres-state-c" style="display:none;flex-direction:column;align-items:center;gap:24px;width:100%;text-align:center;">
+      <div class="reveal reveal-1">
+        <div class="title-main" style="font-size:clamp(2rem,6vw,3.5rem);">18 Semanas</div>
+      </div>
+      <div class="ornament reveal reveal-2"><div class="ornament-dot"></div></div>
+      <div class="reveal reveal-3">
+        <p class="body-text">Ahora que has descubierto el título,<br>tendrás que esperar hasta el viernes.</p>
+      </div>
+      <div class="reveal reveal-4">
+        <div class="countdown-wrapper">
+          <div class="countdown-unit"><span class="countdown-number" id="pctf-days">09</span><span class="countdown-label">días</span></div>
+          <div class="countdown-sep">·</div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctf-hours">10</span><span class="countdown-label">horas</span></div>
+          <div class="countdown-sep">·</div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctf-mins">52</span><span class="countdown-label">min</span></div>
+          <div class="countdown-sep">·</div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctf-secs">33</span><span class="countdown-label">seg</span></div>
+        </div>
+        <div class="body-text" style="margin-top:8px;font-size:0.75rem;">viernes 27 · 11:30</div>
+      </div>
+    </div>
+
+    <!-- After Fri 27 11:30 -->
+    <div id="pres-state-d" style="display:none;flex-direction:column;align-items:center;gap:20px;width:100%;">
+      <div class="reveal reveal-1" style="text-align:center;">
+        <div class="title-main" style="font-size:clamp(2.2rem,7vw,4rem);">18 Semanas</div>
+      </div>
+      <div class="ornament reveal reveal-2"><div class="ornament-dot"></div></div>
+      <div class="reveal reveal-3 prose">
+        <p class="salutation">Hola.</p>
+        <p>La intención de este regalo es acompañarte durante tu proceso de independencia. He estimado que, según lo que tú me has contado, ese proceso durará unas <strong style="color:var(--text-light);">18 semanas</strong>.</p>
+        <p>En cada una de ellas recibirás un pequeño regalo relacionado con tu proceso hacia la libertad. Cada detalle estará esperándote en tu cajón de mi habitación a partir del lunes de esa semana.</p>
+        <p>El domingo anterior a cada semana recibirás una pista sobre lo que te espera. No será fácil, tendrás que tener paciencia —que al fin y al cabo es justo lo que este proceso te está pidiendo también a ti.</p>
+        <p>No sé exactamente qué va a pasar en estas 18 semanas. Pero sé que voy a estar aquí, y que cada lunes va a haber algo esperándote. Semana a semana, un paso más hacia ti.</p>
+      </div>
+      <div class="ornament reveal reveal-4"><div class="ornament-dot"></div></div>
+      <div class="reveal reveal-5" id="pres-start-btn-wrapper">
+        <button class="btn btn-warm btn-lg" onclick="unlockGiftsScreen()">Estoy lista ✦</button>
+      </div>
+      <div class="reveal reveal-6" id="pres-gifts-btn-wrapper" style="display:none;">
+        <button class="btn btn-primary" onclick="goTo(&#39;screen-gifts&#39;)">Ver mis regalos</button>
+      </div>
     </div>
 
   </div>
 
-  <p id="game-hint">Pista: cuenta cuántas semanas tiene 4 meses y medio… más o menos.</p>
+  <!-- ===== SCREEN: GAME ===== -->
+  <div class="screen" id="screen-game">
+    <div class="nav-bar">
+      <button class="btn btn-outline" onclick="goTo(&#39;screen-menu&#39;)">← Inicio</button>
+    </div>
 
-  <button id="btn-check" class="btn btn-gold" onclick="checkAnswer()">Comprobar</button>
-</div>
+    <!-- Before title guessed -->
+    <div id="game-active" style="display:none;flex-direction:column;align-items:center;gap:20px;width:100%;">
+      <div class="reveal reveal-1" style="text-align:center;">
+        <div class="section-title">Este regalo tiene un nombre</div>
+        <div class="spacer-sm"></div>
+        <p class="body-text">¿Puedes adivinarlo?</p>
+      </div>
 
+      <div class="ornament reveal reveal-2"><div class="ornament-dot"></div></div>
 
-<!-- ══════════════════════════════════════
-     PANTALLA 3 · ÉXITO
-═══════════════════════════════════════ -->
-<div id="screen-success" class="screen exit">
+      <div class="reveal reveal-3" style="width:100%;">
+        <div class="input-group">
+          <span class="input-label">un número</span>
+          <div class="char-inputs" id="inputs-number">
+            <input class="char-input" maxlength="1" data-group="number" data-index="0" type="text" inputmode="numeric" autocomplete="off">
+            <input class="char-input" maxlength="1" data-group="number" data-index="1" type="text" inputmode="numeric" autocomplete="off">
+          </div>
+        </div>
+      </div>
 
-  <p class="anim-fadeup" style="font-family:var(--font-ui);font-size:0.65rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--text-muted);">
-    ¡Lo has adivinado!
-  </p>
+      <div class="reveal reveal-4" style="width:100%;">
+        <div class="input-group">
+          <div class="char-inputs" id="inputs-word">
+            <input class="char-input" maxlength="1" data-group="word" data-index="0" type="text" autocomplete="off">
+            <input class="char-input" maxlength="1" data-group="word" data-index="1" type="text" autocomplete="off">
+            <input class="char-input" maxlength="1" data-group="word" data-index="2" type="text" autocomplete="off">
+            <input class="char-input" maxlength="1" data-group="word" data-index="3" type="text" autocomplete="off">
+            <input class="char-input" maxlength="1" data-group="word" data-index="4" type="text" autocomplete="off">
+            <input class="char-input" maxlength="1" data-group="word" data-index="5" type="text" autocomplete="off">
+            <input class="char-input" maxlength="1" data-group="word" data-index="6" type="text" autocomplete="off">
+          </div>
+          <span class="input-label">una palabra</span>
+        </div>
+      </div>
 
-  <div class="big-title anim-fadeup" style="animation-delay:0.2s">
-    <span class="word-18">18</span>
-    <span class="word-semanas">Semanas</span>
+      <div class="reveal reveal-5" style="display:flex;gap:10px;">
+        <button class="btn btn-ghost" onclick="clearInputs()">Borrar</button>
+        <button class="btn btn-primary" onclick="checkAnswer()">Comprobar</button>
+      </div>
+
+      <div id="game-hints" class="hints-container reveal reveal-6"></div>
+    </div>
+
+    <!-- Before Sun 22 -->
+    <div id="game-locked" style="display:none;flex-direction:column;align-items:center;gap:24px;width:100%;text-align:center;">
+      <div class="reveal reveal-1">
+        <div class="section-title" style="color:var(--text-muted);">Aún no es el momento</div>
+      </div>
+      <div class="reveal reveal-2">
+        <p class="body-text">El minijuego se desbloqueará el domingo 22 a las 0:00.</p>
+      </div>
+      <div class="reveal reveal-3">
+        <div class="countdown-wrapper">
+          <div class="countdown-unit"><span class="countdown-number" id="gctd-days">03</span><span class="countdown-label">días</span></div>
+          <div class="countdown-sep">·</div>
+          <div class="countdown-unit"><span class="countdown-number" id="gctd-hours">23</span><span class="countdown-label">horas</span></div>
+          <div class="countdown-sep">·</div>
+          <div class="countdown-unit"><span class="countdown-number" id="gctd-mins">22</span><span class="countdown-label">min</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- After guessing -->
+    <div id="game-success" style="display:none;flex-direction:column;align-items:center;gap:20px;width:100%;text-align:center;">
+      <div class="reveal reveal-1">
+        <div class="success-title">¡Ya lo adivinaste!</div>
+        <div class="success-big">18<br>Semanas</div>
+      </div>
+      <div class="ornament reveal reveal-2"><div class="ornament-dot"></div></div>
+      <div class="reveal reveal-3">
+        <div class="char-inputs" style="gap:4px;margin-bottom:8px;">
+          <span class="char-input" style="display:flex;align-items:center;justify-content:center;border-color:#4ade80;color:#4ade80;background:rgba(74,222,128,0.08);">1</span>
+          <span class="char-input" style="display:flex;align-items:center;justify-content:center;border-color:#4ade80;color:#4ade80;background:rgba(74,222,128,0.08);">8</span>
+        </div>
+        <div class="char-inputs" style="gap:4px;flex-wrap:wrap;justify-content:center;">
+          <span class="char-input" style="display:flex;align-items:center;justify-content:center;border-color:#4ade80;color:#4ade80;background:rgba(74,222,128,0.08);">S</span>
+          <span class="char-input" style="display:flex;align-items:center;justify-content:center;border-color:#4ade80;color:#4ade80;background:rgba(74,222,128,0.08);">E</span>
+          <span class="char-input" style="display:flex;align-items:center;justify-content:center;border-color:#4ade80;color:#4ade80;background:rgba(74,222,128,0.08);">M</span>
+          <span class="char-input" style="display:flex;align-items:center;justify-content:center;border-color:#4ade80;color:#4ade80;background:rgba(74,222,128,0.08);">A</span>
+          <span class="char-input" style="display:flex;align-items:center;justify-content:center;border-color:#4ade80;color:#4ade80;background:rgba(74,222,128,0.08);">N</span>
+          <span class="char-input" style="display:flex;align-items:center;justify-content:center;border-color:#4ade80;color:#4ade80;background:rgba(74,222,128,0.08);">A</span>
+          <span class="char-input" style="display:flex;align-items:center;justify-content:center;border-color:#4ade80;color:#4ade80;background:rgba(74,222,128,0.08);">S</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <p id="success-text" class="anim-fadeup" style="animation-delay:0.5s">
-    Durante las próximas 18 semanas<br>
-    recibirás un regalo cada semana.<br><br>
-    Pequeños detalles pensados para ti,<br>
-    para acompañarte en este proceso<br>
-    y para ir llenando de cosas nuestro espacio.
-  </p>
-
-  <div id="countdown-block" class="anim-fadeup" style="animation-delay:0.8s">
-    <span id="countdown-label">El primer regalo llegará en</span>
-    <span id="countdown-time">–</span>
-    <span id="countdown-sub">El lunes se abre todo</span>
+  <!-- ===== SCREEN: SUCCESS ===== -->
+  <div class="screen" id="screen-success">
+    <div class="nav-bar">
+      <button class="btn btn-outline" onclick="goTo(&#39;screen-menu&#39;)">← Inicio</button>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;width:100%;text-align:center;">
+      <div class="reveal reveal-1">
+        <div class="success-title" style="font-size:clamp(1.1rem,3.5vw,1.5rem);">¡Lo has adivinado!</div>
+      </div>
+      <div class="reveal reveal-2">
+        <div class="success-big">18<br>Semanas</div>
+      </div>
+      <div class="ornament reveal reveal-3"><div class="ornament-dot"></div></div>
+      <div class="reveal reveal-4">
+        <p class="body-text">Has descubierto el título de tu regalo.</p>
+        <div class="spacer-sm"></div>
+        <p class="body-text" style="font-size:0.85rem;">El viernes 27 de febrero a las 11:30<br>sabrás exactamente en qué consiste.</p>
+      </div>
+      <div class="reveal reveal-5" id="success-countdown-wrapper" style="display: flex;">
+        <div class="countdown-wrapper">
+          <div class="countdown-unit"><span class="countdown-number" id="sctf-days">09</span><span class="countdown-label">días</span></div>
+          <div class="countdown-sep">·</div>
+          <div class="countdown-unit"><span class="countdown-number" id="sctf-hours">10</span><span class="countdown-label">horas</span></div>
+          <div class="countdown-sep">·</div>
+          <div class="countdown-unit"><span class="countdown-number" id="sctf-mins">52</span><span class="countdown-label">min</span></div>
+          <div class="countdown-sep">·</div>
+          <div class="countdown-unit"><span class="countdown-number" id="sctf-secs">33</span><span class="countdown-label">seg</span></div>
+        </div>
+      </div>
+      <div class="reveal reveal-6" id="success-save-btn">
+        <button class="btn btn-primary btn-lg" onclick="saveSuccess()">Guardar ✓</button>
+      </div>
+      <div id="success-after-save" style="display:none;flex-direction:column;align-items:center;gap:12px;" class="reveal reveal-1">
+        <div class="spacer-sm"></div>
+        <button class="btn btn-ghost" onclick="goTo(&#39;screen-game&#39;)">Ver el minijuego</button>
+        <button class="btn btn-warm" onclick="goTo(&#39;screen-menu&#39;)">Ir al inicio</button>
+      </div>
+    </div>
   </div>
 
-  <button class="btn btn-violet anim-fadeup" style="animation-delay:1.1s" onclick="saveAndWait()">
-    Guardar y seguir
-  </button>
+  <!-- ===== SCREEN: GIFTS ===== -->
+  <div class="screen" id="screen-gifts">
+    <div class="nav-bar">
+      <button class="btn btn-outline" onclick="goTo(&#39;screen-menu&#39;)">← Inicio</button>
+    </div>
+    <div style="width:100%;text-align:center;" class="reveal reveal-1">
+      <div class="section-title">Tus 18 semanas<br><em style="font-family:var(--font-accent);font-weight:400;font-size:0.75em;color:var(--text-muted);">hacia la libertad</em></div>
+    </div>
+    <div class="spacer-md"></div>
+    <div class="gifts-grid reveal reveal-2" id="gifts-grid"><div class="gift-card locked" data-week="1"><span class="gift-number">1</span></div><div class="gift-card locked" data-week="2"><span class="gift-number">2</span></div><div class="gift-card locked" data-week="3"><span class="gift-number">3</span></div><div class="gift-card locked" data-week="4"><span class="gift-number">4</span></div><div class="gift-card locked" data-week="5"><span class="gift-number">5</span></div><div class="gift-card locked" data-week="6"><span class="gift-number">6</span></div><div class="gift-card locked" data-week="7"><span class="gift-number">7</span></div><div class="gift-card locked" data-week="8"><span class="gift-number">8</span></div><div class="gift-card locked" data-week="9"><span class="gift-number">9</span></div><div class="gift-card locked" data-week="10"><span class="gift-number">10</span></div><div class="gift-card locked" data-week="11"><span class="gift-number">11</span></div><div class="gift-card locked" data-week="12"><span class="gift-number">12</span></div><div class="gift-card locked" data-week="13"><span class="gift-number">13</span></div><div class="gift-card locked" data-week="14"><span class="gift-number">14</span></div><div class="gift-card locked" data-week="15"><span class="gift-number">15</span></div><div class="gift-card locked" data-week="16"><span class="gift-number">16</span></div><div class="gift-card locked" data-week="17"><span class="gift-number">17</span></div><div class="gift-card locked" data-week="18"><span class="gift-number">18</span></div></div>
+    <div class="spacer-sm"></div>
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:center;" class="reveal reveal-3">
+      <div style="display:flex;align-items:center;gap:6px;"><div style="width:12px;height:12px;border-radius:3px;border:2px solid var(--gold);box-shadow:0 0 8px rgba(201,168,76,0.4);"></div><span style="font-size:0.7rem;color:var(--text-muted);">Pista disponible</span></div>
+      <div style="display:flex;align-items:center;gap:6px;"><div style="width:12px;height:12px;border-radius:3px;border:2px solid var(--teal);box-shadow:0 0 8px rgba(0,201,167,0.4);"></div><span style="font-size:0.7rem;color:var(--text-muted);">Semana activa</span></div>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN: WEEK ===== -->
+  <div class="screen" id="screen-week">
+    <div class="nav-bar">
+      <button class="btn btn-outline" onclick="goTo(&#39;screen-gifts&#39;)">← Regalos</button>
+      <button class="btn btn-outline" onclick="goTo(&#39;screen-menu&#39;)">Inicio</button>
+    </div>
+    <div id="week-content" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:20px;">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+
 </div>
 
-
-<!-- ══════════════════════════════════════
-     PANTALLA 4 · MODO ESPERA (lunes+)
-═══════════════════════════════════════ -->
-<div id="screen-wait" class="screen exit">
-  <p id="wait-eyebrow">18 Semanas</p>
-  <h2 id="wait-title">El lunes<br>empieza <em>todo.</em></h2>
-  <p id="wait-sub">
-    Ya sabes lo que viene.<br>
-    Solo falta que llegue el momento.<br><br>
-    Vuelve el lunes y encontrarás<br>
-    la primera sorpresa esperándote.
-  </p>
-  <div id="wait-countdown">–</div>
-  <p id="wait-note">Tiempo hasta el lunes</p>
+<!-- Notification Modal -->
+<div class="modal-overlay hidden" id="notify-modal">
+  <div class="modal-box">
+    <div style="font-size:1.8rem;margin-bottom:12px;">✨</div>
+    <div class="notify-title">¡Novedad!</div>
+    <div class="spacer-sm"></div>
+    <p class="body-text" style="font-size:0.88rem;">Ya puedes descubrir en qué consiste tu regalo.</p>
+    <div class="spacer-md"></div>
+    <button class="btn btn-warm" onclick="closeNotifyGoPresentation()">Ver la presentación</button>
+    <div class="spacer-sm"></div>
+    <button class="btn btn-ghost" style="font-size:0.75rem;" onclick="closeNotify()">Más tarde</button>
+  </div>
 </div>
 
+<!-- Admin Panel -->
+<div class="admin-panel" id="adminPanel">
+  <div class="admin-title">⚙ Consola de administrador</div>
+  <div class="admin-row">
+    <input class="admin-input" type="datetime-local" id="adminDateInput" placeholder="Fecha simulada">
+    <button class="btn btn-ghost" style="font-size:0.75rem;padding:8px 14px;" onclick="applyAdminDate()">Aplicar</button>
+    <button class="btn btn-ghost" style="font-size:0.75rem;padding:8px 14px;" onclick="clearAdminDate()">Real</button>
+  </div>
+  <div class="admin-row" style="flex-wrap:wrap;gap:6px;">
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-21T23:00&#39;)">Feb 21</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-22T01:00&#39;)">Dom 22</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-23T01:00&#39;)">Lun 23</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-24T01:00&#39;)">Mar 24</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-24T12:30&#39;)">Mar 12:00</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-25T01:00&#39;)">Mié 25</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-26T01:00&#39;)">Jue 26</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-27T01:00&#39;)">Vie 27 01h</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-27T12:00&#39;)">Vie 27 12h</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-03-02T01:00&#39;)">Lun 2 Mar</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-03-08T01:00&#39;)">Dom 8 Mar</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;background:rgba(255,107,157,0.1);border-color:rgba(255,107,157,0.3);color:#FF6B9D;" onclick="adminReset()">⚠ Reset estado</button>
+  </div>
+  <div class="admin-row" id="adminResetConfirm" style="display:none;align-items:center;gap:6px;">
+    <span style="font-size:0.75rem;color:#4ade80;">✓ Estado reseteado correctamente</span>
+  </div>
+  <div class="admin-row">
+    <span style="font-size:0.7rem;color:var(--text-muted);">Fecha activa: <strong id="adminCurrentDate" style="color:var(--text-light);">real</strong></span>
+    <span style="font-size:0.65rem;color:var(--text-muted);margin-left:4px;" id="adminStateDebug"></span>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;margin-left:auto;" onclick="closeAdmin()">Cerrar</button>
+  </div>
+</div>
 
 <script>
-// ══════════════════════════════════════════════════════
-// FONDO ANIMADO (formas orgánicas como en la carta)
-// ══════════════════════════════════════════════════════
-(function initBg() {
-  const canvas = document.getElementById('bg-canvas');
-  const ctx = canvas.getContext('2d');
-  let W, H, t = 0;
+// ===================== DATES =====================
+const DATES = {
+  giftQR:       new Date('2026-02-20T00:00:00'),
+  gameUnlock:   new Date('2026-02-22T00:00:00'),
+  presUnlock:   new Date('2026-02-27T11:30:00'),
+  satUnlock:    new Date('2026-02-28T00:00:00'),
+  hints: [
+    { date: new Date('2026-02-22T00:00:00'), text: 'Son dos cifras y siete letras.' },
+    { date: new Date('2026-02-23T00:00:00'), text: 'La N es una de las letras.' },
+    { date: new Date('2026-02-24T00:00:00'), text: 'La última letra es una S.' },
+    { date: new Date('2026-02-24T12:00:00'), text: 'La tercera letra es una E.' },
+    { date: new Date('2026-02-25T00:00:00'), text: 'Hay una letra que se repite dos veces: la A.' },
+    { date: new Date('2026-02-26T00:00:00'), text: 'La palabra es una unidad de tiempo.' },
+    { date: new Date('2026-02-26T12:00:00'), text: 'Viene del latín: septem, que significa siete días.' },
+    { date: new Date('2026-02-27T00:00:00'), text: 'Piensa en cuántas semanas tienen 4 meses y medio.' },
+  ],
+  weeks: generateWeeks()
+};
 
-  const blobs = [
-    { x: 0.25, y: 0.3,  r: 0.35, hue: 180, speed: 0.0008 }, // teal
-    { x: 0.75, y: 0.65, r: 0.40, hue: 270, speed: 0.0006 }, // violet
-    { x: 0.5,  y: 0.85, r: 0.28, hue: 320, speed: 0.001  }, // rose
-    { x: 0.1,  y: 0.75, r: 0.22, hue: 80,  speed: 0.0012 }, // lime
-  ];
-
-  function resize() {
-    W = canvas.width  = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-  }
-
-  function lerp(a,b,t){ return a + (b-a)*t; }
-  function easeInOut(t){ return t<0.5 ? 2*t*t : -1+(4-2*t)*t; }
-
-  function draw() {
-    t += 1;
-    ctx.clearRect(0, 0, W, H);
-
-    // fondo base oscuro con gradiente sutil
-    const gBg = ctx.createRadialGradient(W*0.5, H*0.5, 0, W*0.5, H*0.5, W*0.7);
-    gBg.addColorStop(0, '#13101f');
-    gBg.addColorStop(1, '#0a0812');
-    ctx.fillStyle = gBg;
-    ctx.fillRect(0, 0, W, H);
-
-    // blobs
-    blobs.forEach((b, i) => {
-      const ox = Math.sin(t * b.speed + i * 2.1) * W * 0.08;
-      const oy = Math.cos(t * b.speed * 1.3 + i * 1.7) * H * 0.08;
-      const cx = W * b.x + ox;
-      const cy = H * b.y + oy;
-      const radius = Math.min(W, H) * b.r;
-
-      const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
-
-      if (b.hue === 180) {
-        g.addColorStop(0, 'rgba(61, 220, 204, 0.13)');
-        g.addColorStop(1, 'rgba(61, 220, 204, 0)');
-      } else if (b.hue === 270) {
-        g.addColorStop(0, 'rgba(124, 92, 191, 0.18)');
-        g.addColorStop(1, 'rgba(124, 92, 191, 0)');
-      } else if (b.hue === 320) {
-        g.addColorStop(0, 'rgba(217, 111, 160, 0.10)');
-        g.addColorStop(1, 'rgba(217, 111, 160, 0)');
-      } else {
-        g.addColorStop(0, 'rgba(184, 245, 90, 0.07)');
-        g.addColorStop(1, 'rgba(184, 245, 90, 0)');
-      }
-
-      ctx.fillStyle = g;
-      ctx.beginPath();
-      ctx.arc(cx, cy, radius, 0, Math.PI * 2);
-      ctx.fill();
+function generateWeeks() {
+  const weeks = [];
+  const startMonday = new Date('2026-03-02T00:00:00');
+  for (let i = 0; i < 18; i++) {
+    const monday = new Date(startMonday);
+    monday.setDate(monday.getDate() + i * 7);
+    const sunday = new Date(monday);
+    sunday.setDate(sunday.getDate() + 6);
+    const hintSunday = new Date(monday);
+    hintSunday.setDate(hintSunday.getDate() - 1);
+    weeks.push({
+      number: i + 1,
+      monday, sunday, hintSunday,
+      label: `${formatDayMonth(monday)} — ${formatDayMonth(sunday)}`
     });
+  }
+  return weeks;
+}
 
-    // línea ondulante sutil (alusión a la figura de la carta)
-    ctx.save();
-    ctx.globalAlpha = 0.06;
-    ctx.strokeStyle = '#3ddccc';
-    ctx.lineWidth = 1;
+function formatDayMonth(d) {
+  const months = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  return `${d.getDate()} ${months[d.getMonth()]}`;
+}
 
-    const amplitude = H * 0.15;
-    const freq = 0.003;
-    ctx.beginPath();
-    for (let x = 0; x <= W; x += 2) {
-      const y = H * 0.5 + Math.sin(x * freq + t * 0.004) * amplitude
-                        + Math.sin(x * freq * 1.6 - t * 0.003) * amplitude * 0.4;
-      if (x === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
+// ===================== ADMIN DATE =====================
+let adminDate = null;
+
+function getNow() {
+  return adminDate ? new Date(adminDate) : new Date();
+}
+
+function applyAdminDate() {
+  const val = document.getElementById('adminDateInput').value;
+  if (val) {
+    adminDate = new Date(val);
+    document.getElementById('adminCurrentDate').textContent = adminDate.toLocaleString('es-ES');
+    document.getElementById('adminIndicator').style.display = 'block';
+    refreshAll();
+  }
+}
+
+function clearAdminDate() {
+  adminDate = null;
+  document.getElementById('adminCurrentDate').textContent = 'real';
+  document.getElementById('adminIndicator').style.display = 'none';
+  refreshAll();
+}
+
+function adminSetDate(dateStr) {
+  adminDate = new Date(dateStr);
+  document.getElementById('adminDateInput').value = dateStr;
+  document.getElementById('adminCurrentDate').textContent = adminDate.toLocaleString('es-ES');
+  document.getElementById('adminIndicator').style.display = 'block';
+  refreshAll();
+}
+
+function adminReset() {
+  localStorage.removeItem('titleGuessed');
+  localStorage.removeItem('giftsUnlocked');
+  localStorage.removeItem('notifyShown');
+  localStorage.removeItem('successSaved');
+  Object.keys(localStorage).filter(k => k.startsWith('week-pw-')).forEach(k => localStorage.removeItem(k));
+  // Reset in-memory state too
+  state.titleGuessed = false;
+  state.giftsUnlocked = false;
+  state.notifyShown = false;
+  // Show confirmation inline
+  const row = document.getElementById('adminResetConfirm');
+  if (row) { row.style.display = 'flex'; setTimeout(() => row.style.display = 'none', 2500); }
+  refreshAll();
+  buildGiftsGrid();
+}
+
+function closeAdmin() {
+  document.getElementById('adminPanel').classList.remove('open');
+}
+
+// ===================== STATE =====================
+// Persisted state — always reflects what was actually saved by Sanaa
+const persistedState = {
+  get titleGuessed() { return localStorage.getItem('titleGuessed') === 'true'; },
+  get giftsUnlocked() { return localStorage.getItem('giftsUnlocked') === 'true'; },
+  get notifyShown()   { return localStorage.getItem('notifyShown') === 'true'; },
+};
+
+// Effective state — used everywhere in the UI.
+// When admin date is active, the game-progress flags are DERIVED purely from
+// what the date FORCES, ignoring localStorage completely.
+// Rules:
+//   - titleGuessed is FORCED false  if now < gameUnlock  (impossible to have guessed)
+//   - titleGuessed is FORCED true   if now >= presUnlock  (must be revealed)
+//   - otherwise it uses the real persisted value
+//   - same logic applies to giftsUnlocked
+const state = {
+  get titleGuessed() {
+    if (adminDate) {
+      const now = adminDate;
+      if (now < DATES.gameUnlock) return false;           // Before Sun 22 — impossible
+      if (now >= DATES.presUnlock) return true;           // After Fri 27 11:30 — forced
+      return persistedState.titleGuessed;                 // In between — real value
     }
-    ctx.stroke();
-    ctx.restore();
+    return persistedState.titleGuessed;
+  },
+  set titleGuessed(v) { localStorage.setItem('titleGuessed', v); },
 
-    requestAnimationFrame(draw);
+  get giftsUnlocked() {
+    if (adminDate) {
+      const now = adminDate;
+      if (now < DATES.presUnlock) return false;
+      if (now >= DATES.presUnlock) return persistedState.giftsUnlocked;
+    }
+    return persistedState.giftsUnlocked;
+  },
+  set giftsUnlocked(v) { localStorage.setItem('giftsUnlocked', v); },
+
+  get notifyShown() {
+    if (adminDate) return false; // Always re-trigger notification in admin mode
+    return persistedState.notifyShown;
+  },
+  set notifyShown(v) { localStorage.setItem('notifyShown', v); },
+
+  currentWeek: null
+};
+
+// ===================== ADMIN KEYBOARD SHORTCUT =====================
+let adminBuffer = '';
+const ADMIN_CODE = 'CARCARDA';
+document.addEventListener('keydown', (e) => {
+  adminBuffer += e.key.toUpperCase();
+  if (adminBuffer.length > ADMIN_CODE.length) adminBuffer = adminBuffer.slice(-ADMIN_CODE.length);
+  if (adminBuffer === ADMIN_CODE) {
+    document.getElementById('adminPanel').classList.toggle('open');
+    adminBuffer = '';
+  }
+});
+
+// ===================== NAVIGATION =====================
+let currentScreen = 'screen-menu';
+
+function goTo(screenId) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  const screen = document.getElementById(screenId);
+  if (screen) screen.classList.add('active');
+  currentScreen = screenId;
+  refreshScreen(screenId);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ===================== TIME HELPERS =====================
+function isPast(date) { return getNow() >= date; }
+
+function countdown(target) {
+  const now = getNow();
+  const diff = Math.max(0, target - now);
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  return { d, h, m, s };
+}
+
+function setCD(ids, target) {
+  const ct = countdown(target);
+  const el = (id) => document.getElementById(id);
+  if (el(ids[0])) el(ids[0]).textContent = String(ct.d).padStart(2,'0');
+  if (el(ids[1])) el(ids[1]).textContent = String(ct.h).padStart(2,'0');
+  if (el(ids[2])) el(ids[2]).textContent = String(ct.m).padStart(2,'0');
+  if (el(ids[3])) el(ids[3]).textContent = String(ct.s).padStart(2,'0');
+}
+
+// ===================== REFRESH ALL =====================
+function refreshAll() {
+  updateNavDate();
+  refreshScreen(currentScreen);
+  updateCountdowns();
+  checkNotification();
+  // Admin debug
+  const dbg = document.getElementById('adminStateDebug');
+  if (dbg && adminDate) {
+    dbg.textContent = `| estado: título=${state.titleGuessed?'✓':'✗'} regalos=${state.giftsUnlocked?'✓':'✗'} | menú=${getMenuState()}`;
+  }
+}
+
+function updateNavDate() {
+  const now = getNow();
+  const opts = { weekday: 'long', day: 'numeric', month: 'long' };
+  document.getElementById('navDate').textContent = now.toLocaleDateString('es-ES', opts);
+}
+
+function getMenuState() {
+  const now = getNow();
+  if (!isPast(DATES.gameUnlock)) return 'a';
+  if (isPast(DATES.gameUnlock) && !state.titleGuessed) return 'b';
+  if (state.titleGuessed && !isPast(DATES.presUnlock)) return 'c';
+  return 'd';
+}
+
+function refreshScreen(screenId) {
+  if (screenId === 'screen-menu') refreshMenu();
+  if (screenId === 'screen-presentation') refreshPresentation();
+  if (screenId === 'screen-game') refreshGame();
+  if (screenId === 'screen-success') refreshSuccess();
+  if (screenId === 'screen-gifts') refreshGifts();
+}
+
+// ===================== MENU =====================
+function refreshMenu() {
+  const s = getMenuState();
+  ['a','b','c','d'].forEach(x => {
+    const el = document.getElementById(`menu-state-${x}`);
+    if (el) el.style.display = (s === x) ? 'flex' : 'none';
+  });
+
+  // Update nav logo
+  const logo = document.getElementById('navLogo');
+  if (state.titleGuessed) {
+    logo.textContent = '18 Semanas';
+    logo.classList.add('revealed');
+  } else {
+    logo.textContent = '❧';
+    logo.classList.remove('revealed');
   }
 
-  window.addEventListener('resize', resize);
-  resize();
-  draw();
-})();
+  // Next gift countdown in state D
+  if (s === 'd') {
+    const nextGift = getNextGiftDate();
+    const el = document.getElementById('menu-next-gift');
+    if (el && nextGift) {
+      el.innerHTML = `<div class="body-text" style="font-size:0.75rem;margin-bottom:8px;">Próximo regalo en</div>
+      <div class="countdown-wrapper">
+        <div class="countdown-unit"><span class="countdown-number" id="mnext-d">--</span><span class="countdown-label">días</span></div>
+        <div class="countdown-sep">·</div>
+        <div class="countdown-unit"><span class="countdown-number" id="mnext-h">--</span><span class="countdown-label">horas</span></div>
+        <div class="countdown-sep">·</div>
+        <div class="countdown-unit"><span class="countdown-number" id="mnext-m">--</span><span class="countdown-label">min</span></div>
+      </div>`;
+    } else if (el) {
+      el.innerHTML = '';
+    }
+  }
+}
 
+function getNextGiftDate() {
+  const now = getNow();
+  for (const week of DATES.weeks) {
+    if (week.monday > now) return week.monday;
+  }
+  return null;
+}
 
-// ══════════════════════════════════════════════════════
-// CONFETTI
-// ══════════════════════════════════════════════════════
+// ===================== PRESENTATION =====================
+function refreshPresentation() {
+  const now = getNow();
+  let state_pres;
+  if (!isPast(DATES.gameUnlock)) state_pres = 'a';
+  else if (!state.titleGuessed) state_pres = 'b';
+  else if (!isPast(DATES.presUnlock)) state_pres = 'c';
+  else state_pres = 'd';
+
+  ['a','b','c','d'].forEach(x => {
+    const el = document.getElementById(`pres-state-${x}`);
+    if (el) el.style.display = (state_pres === x) ? 'flex' : 'none';
+  });
+
+  // Show gifts button if already unlocked
+  if (state_pres === 'd') {
+    const startBtn = document.getElementById('pres-start-btn-wrapper');
+    const giftsBtn = document.getElementById('pres-gifts-btn-wrapper');
+    if (state.giftsUnlocked) {
+      if (startBtn) startBtn.style.display = 'none';
+      if (giftsBtn) giftsBtn.style.display = 'flex';
+    }
+  }
+}
+
+// ===================== GAME =====================
+function refreshGame() {
+  const locked = document.getElementById('game-locked');
+  const active = document.getElementById('game-active');
+  const success = document.getElementById('game-success');
+
+  if (!isPast(DATES.gameUnlock)) {
+    locked.style.display = 'flex';
+    active.style.display = 'none';
+    success.style.display = 'none';
+    return;
+  }
+
+  if (state.titleGuessed) {
+    locked.style.display = 'none';
+    active.style.display = 'none';
+    success.style.display = 'flex';
+    return;
+  }
+
+  locked.style.display = 'none';
+  success.style.display = 'none';
+  active.style.display = 'flex';
+
+  // Show available hints
+  renderHints();
+
+  // Autofocus first input
+  setTimeout(() => {
+    const first = document.querySelector('#inputs-number .char-input');
+    if (first) first.focus();
+  }, 300);
+}
+
+function renderHints() {
+  const container = document.getElementById('game-hints');
+  if (!container) return;
+  container.innerHTML = '';
+  const now = getNow();
+  const visibleHints = DATES.hints.filter(h => now >= h.date);
+  visibleHints.forEach((h, i) => {
+    const div = document.createElement('div');
+    div.className = 'hint-item';
+    div.innerHTML = `<span class="hint-label">Pista ${i+1}</span>${h.text}`;
+    container.appendChild(div);
+  });
+}
+
+// Input behavior
+document.addEventListener('DOMContentLoaded', () => {
+  setupCharInputs();
+  refreshAll();
+  buildGiftsGrid();
+  setInterval(updateCountdowns, 1000);
+  setInterval(refreshAll, 60000);
+
+  // Check notification on load
+  setTimeout(checkNotification, 500);
+});
+
+function setupCharInputs() {
+  const allInputs = document.querySelectorAll('.char-input[data-group]');
+  allInputs.forEach(input => {
+    input.addEventListener('input', (e) => {
+      const val = e.target.value.replace(/[^a-zA-Z0-9]/g, '');
+      e.target.value = val.slice(-1).toUpperCase();
+      if (val) {
+        const group = input.dataset.group;
+        const idx = parseInt(input.dataset.index);
+        const next = document.querySelector(`.char-input[data-group="${group}"][data-index="${idx+1}"]`);
+        if (next) next.focus();
+        else {
+          // Move to word group if in number group
+          if (group === 'number') {
+            const firstWord = document.querySelector('.char-input[data-group="word"][data-index="0"]');
+            if (firstWord) firstWord.focus();
+          }
+        }
+      }
+    });
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { checkAnswer(); return; }
+      if (e.key === 'Backspace' && !input.value) {
+        const group = input.dataset.group;
+        const idx = parseInt(input.dataset.index);
+        if (idx > 0) {
+          const prev = document.querySelector(`.char-input[data-group="${group}"][data-index="${idx-1}"]`);
+          if (prev) { prev.value = ''; prev.focus(); }
+        } else if (group === 'word') {
+          const lastNum = document.querySelector('.char-input[data-group="number"][data-index="1"]');
+          if (lastNum) { lastNum.value = ''; lastNum.focus(); }
+        }
+      }
+    });
+    input.addEventListener('focus', () => input.select());
+  });
+}
+
+function getGuess() {
+  const numInputs = document.querySelectorAll('.char-input[data-group="number"]');
+  const wordInputs = document.querySelectorAll('.char-input[data-group="word"]');
+  const num = Array.from(numInputs).map(i => i.value).join('');
+  const word = Array.from(wordInputs).map(i => i.value).join('');
+  return { num, word };
+}
+
+function checkAnswer() {
+  const { num, word } = getGuess();
+  const numCorrect = num.toUpperCase() === '18';
+  const wordCorrect = word.toUpperCase() === 'SEMANAS';
+
+  const numInputs = document.querySelectorAll('.char-input[data-group="number"]');
+  const wordInputs = document.querySelectorAll('.char-input[data-group="word"]');
+
+  numInputs.forEach(i => {
+    i.classList.remove('correct','incorrect');
+    i.classList.add(numCorrect ? 'correct' : 'incorrect');
+  });
+  wordInputs.forEach(i => {
+    i.classList.remove('correct','incorrect');
+    i.classList.add(wordCorrect ? 'correct' : 'incorrect');
+  });
+
+  if (numCorrect && wordCorrect) {
+    setTimeout(() => showSuccess(), 400);
+  }
+}
+
+function clearInputs() {
+  document.querySelectorAll('.char-input[data-group]').forEach(i => {
+    i.value = '';
+    i.classList.remove('correct','incorrect');
+  });
+  const first = document.querySelector('#inputs-number .char-input');
+  if (first) first.focus();
+}
+
+function showSuccess() {
+  state.titleGuessed = true;
+  localStorage.setItem('titleGuessed', 'true');
+  launchConfetti();
+  goTo('screen-success');
+}
+
+// ===================== SUCCESS =====================
+function refreshSuccess() {
+  const saveBtn = document.getElementById('success-save-btn');
+  const afterSave = document.getElementById('success-after-save');
+  // If already saved (giftsUnlocked or titleGuessed previously)
+  if (state.giftsUnlocked || (state.titleGuessed && localStorage.getItem('successSaved'))) {
+    if (saveBtn) saveBtn.style.display = 'none';
+    if (afterSave) afterSave.style.display = 'flex';
+  }
+}
+
+function saveSuccess() {
+  localStorage.setItem('successSaved', 'true');
+  const saveBtn = document.getElementById('success-save-btn');
+  const afterSave = document.getElementById('success-after-save');
+  if (saveBtn) saveBtn.style.display = 'none';
+  if (afterSave) afterSave.style.display = 'flex';
+  refreshMenu();
+  refreshPresentation();
+}
+
+// ===================== GIFTS =====================
+function buildGiftsGrid() {
+  const grid = document.getElementById('gifts-grid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  for (let i = 1; i <= 18; i++) {
+    const week = DATES.weeks[i-1];
+    const card = document.createElement('div');
+    card.className = 'gift-card';
+    card.innerHTML = `<span class="gift-number">${i}</span>`;
+    card.setAttribute('data-week', i);
+    card.addEventListener('click', () => openWeek(i));
+    grid.appendChild(card);
+  }
+  updateGiftCards();
+}
+
+function updateGiftCards() {
+  const now = getNow();
+  for (let i = 1; i <= 18; i++) {
+    const week = DATES.weeks[i-1];
+    const card = document.querySelector(`.gift-card[data-week="${i}"]`);
+    if (!card) continue;
+    card.className = 'gift-card';
+
+    const hintAvailable = now >= week.hintSunday;
+    const giftAvailable = now >= week.monday;
+    const weekPassed = i < DATES.weeks.findIndex(w => now < w.monday) + 1 && now >= week.monday;
+    const isCurrentWeek = now >= week.monday && now <= week.sunday;
+    const isNextWeek = !giftAvailable && hintAvailable;
+
+    if (!hintAvailable) {
+      card.classList.add('locked');
+    } else if (isNextWeek) {
+      card.classList.add('hint-active');
+    } else if (isCurrentWeek) {
+      card.classList.add('week-active');
+    } else if (weekPassed || giftAvailable) {
+      card.classList.add('completed');
+    }
+  }
+}
+
+function refreshGifts() {
+  updateGiftCards();
+}
+
+// ===================== WEEK =====================
+function openWeek(num) {
+  const week = DATES.weeks[num-1];
+  const now = getNow();
+  const hintAvailable = now >= week.hintSunday;
+  const giftAvailable = now >= week.monday;
+
+  // Check if locked
+  if (!hintAvailable) return;
+
+  state.currentWeek = num;
+  const content = document.getElementById('week-content');
+  content.innerHTML = '';
+
+  // Title
+  const titleDiv = document.createElement('div');
+  titleDiv.className = 'reveal reveal-1';
+  titleDiv.style.textAlign = 'center';
+  titleDiv.innerHTML = `
+    <div class="section-title" style="font-size:clamp(2rem,6vw,3rem);">Semana ${num}</div>
+    <div class="week-dates">${week.label}</div>
+  `;
+  content.appendChild(titleDiv);
+
+  const orn = document.createElement('div');
+  orn.className = 'ornament reveal reveal-2';
+  orn.innerHTML = '<div class="ornament-dot"></div>';
+  content.appendChild(orn);
+
+  // Status
+  const statusDiv = document.createElement('div');
+  statusDiv.className = 'week-status-box reveal reveal-3';
+
+  if (!giftAvailable) {
+    // Hint phase
+    statusDiv.innerHTML = `
+      <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Pista de la semana</div>
+      <p class="body-text">Tu regalo estará disponible el lunes ${formatDayMonth(week.monday)}.</p>
+      <div style="margin-top:12px;padding:14px 16px;background:rgba(201,168,76,0.08);border-radius:var(--radius-sm);border:1px solid rgba(201,168,76,0.2);">
+        <p class="body-text" style="font-size:0.85rem;color:rgba(250,247,242,0.8);">La pista de esta semana está esperándote. Pronto podrás descubrir qué hay en tu cajón.</p>
+      </div>
+    `;
+  } else {
+    statusDiv.innerHTML = `
+      <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:10px;">Semana activa</div>
+      <p class="body-text">Tu regalo te espera en <strong style="color:var(--text-light);">tu cajón de mi habitación</strong>.</p>
+    `;
+  }
+  content.appendChild(statusDiv);
+
+  // Password section
+  if (giftAvailable) {
+    const pwDiv = document.createElement('div');
+    pwDiv.className = 'reveal reveal-4';
+    pwDiv.style.width = '100%';
+    pwDiv.id = `week-pw-section-${num}`;
+
+    const savedPw = localStorage.getItem(`week-pw-${num}`);
+    if (savedPw) {
+      pwDiv.innerHTML = `
+        <div class="card">
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Explicación desbloqueada</div>
+          <p class="body-text" style="font-size:0.88rem;text-align:left;">Ya has recibido este regalo. ¡Espero que te haya gustado! 🌿</p>
+        </div>
+      `;
+    } else {
+      pwDiv.innerHTML = `
+        <div class="card" style="display:flex;flex-direction:column;gap:12px;align-items:center;">
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);">Introduce la contraseña</div>
+          <input class="pw-input" id="pw-input-${num}" placeholder="contraseña secreta..." type="password">
+          <button class="btn btn-ghost" style="width:100%;max-width:200px;" onclick="checkWeekPassword(${num})">Desbloquear</button>
+          <div id="pw-error-${num}" style="font-size:0.75rem;color:var(--rose);display:none;">Contraseña incorrecta</div>
+        </div>
+      `;
+    }
+    content.appendChild(pwDiv);
+  }
+
+  goTo('screen-week');
+}
+
+function checkWeekPassword(num) {
+  const input = document.getElementById(`pw-input-${num}`);
+  if (!input) return;
+  // Passwords can be set here - placeholder logic: "SEMANA" + num
+  const validPw = `SEMANA${num}`;
+  if (input.value.toUpperCase() === validPw) {
+    localStorage.setItem(`week-pw-${num}`, 'true');
+    const section = document.getElementById(`week-pw-section-${num}`);
+    if (section) {
+      section.innerHTML = `
+        <div class="card">
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Explicación desbloqueada</div>
+          <p class="body-text" style="font-size:0.88rem;text-align:left;">Ya has recibido este regalo. ¡Espero que te haya gustado! 🌿</p>
+        </div>
+      `;
+    }
+  } else {
+    const err = document.getElementById(`pw-error-${num}`);
+    if (err) { err.style.display = 'block'; }
+    const inp = document.getElementById(`pw-input-${num}`);
+    if (inp) { inp.style.borderColor = 'var(--rose)'; setTimeout(() => inp.style.borderColor = '', 1200); }
+  }
+}
+
+// ===================== NOTIFICATION =====================
+function checkNotification() {
+  const now = getNow();
+  if (now >= DATES.presUnlock && now < DATES.satUnlock && !state.notifyShown) {
+    showNotifyModal();
+  }
+}
+
+function showNotifyModal() {
+  document.getElementById('notify-modal').classList.remove('hidden');
+}
+
+function closeNotify() {
+  document.getElementById('notify-modal').classList.add('hidden');
+  state.notifyShown = true;
+  localStorage.setItem('notifyShown', 'true');
+}
+
+function closeNotifyGoPresentation() {
+  closeNotify();
+  goTo('screen-presentation');
+}
+
+// ===================== UNLOCK GIFTS =====================
+function unlockGiftsScreen() {
+  state.giftsUnlocked = true;
+  localStorage.setItem('giftsUnlocked', 'true');
+  const startBtn = document.getElementById('pres-start-btn-wrapper');
+  const giftsBtn = document.getElementById('pres-gifts-btn-wrapper');
+  if (startBtn) startBtn.style.display = 'none';
+  if (giftsBtn) giftsBtn.style.display = 'flex';
+  refreshMenu();
+  goTo('screen-gifts');
+}
+
+// ===================== COUNTDOWNS =====================
+function updateCountdowns() {
+  const now = getNow();
+  // Menu state A: to Sunday
+  setCD(['ctd-days','ctd-hours','ctd-mins','ctd-secs'], DATES.gameUnlock);
+  // Menu state B: to Friday
+  setCD(['ctf-days','ctf-hours','ctf-mins','ctf-secs'], DATES.presUnlock);
+  // Menu state C: to Friday
+  setCD(['ctfc-days','ctfc-hours','ctfc-mins','ctfc-secs'], DATES.presUnlock);
+  // Presentation A
+  setCD(['pctd-days','pctd-hours','pctd-mins','pctd-secs'], DATES.gameUnlock);
+  // Presentation C
+  setCD(['pctf-days','pctf-hours','pctf-mins','pctf-secs'], DATES.presUnlock);
+  // Game locked
+  setCD(['gctd-days','gctd-hours','gctd-mins'], DATES.gameUnlock);
+  // Success
+  setCD(['sctf-days','sctf-hours','sctf-mins','sctf-secs'], DATES.presUnlock);
+  // Menu next gift
+  const nextGift = getNextGiftDate();
+  if (nextGift) setCD(['mnext-d','mnext-h','mnext-m'], nextGift);
+
+  // Hide success countdown if past Friday
+  const sctfWrapper = document.getElementById('success-countdown-wrapper');
+  if (sctfWrapper) sctfWrapper.style.display = now >= DATES.presUnlock ? 'none' : 'flex';
+
+  updateNavDate();
+}
+
+// ===================== CONFETTI =====================
 function launchConfetti() {
   const canvas = document.getElementById('confetti-canvas');
-  canvas.classList.add('active');
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
-  const colors = ['#3ddccc','#7c5cbf','#b8f55a','#e8c97a','#d96fa0'];
-  const particles = Array.from({length: 80}, () => ({
-    x: Math.random() * canvas.width,
-    y: -10,
-    size: Math.random() * 6 + 3,
-    color: colors[Math.floor(Math.random() * colors.length)],
-    vx: (Math.random() - 0.5) * 2,
-    vy: Math.random() * 3 + 1.5,
-    rot: Math.random() * Math.PI * 2,
-    rotv: (Math.random() - 0.5) * 0.15,
-    alpha: 1
-  }));
+  const colors = ['#9EF01A','#00C9A7','#48CAE4','#5B2D8E','#E040A0','#C9A84C','#1B4FD8'];
+  const pieces = [];
+  for (let i = 0; i < 120; i++) {
+    pieces.push({
+      x: Math.random() * canvas.width,
+      y: -10 - Math.random() * 200,
+      w: 6 + Math.random() * 8,
+      h: 4 + Math.random() * 6,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      vx: (Math.random() - 0.5) * 4,
+      vy: 2 + Math.random() * 4,
+      rot: Math.random() * Math.PI * 2,
+      rotV: (Math.random() - 0.5) * 0.2,
+      opacity: 1
+    });
+  }
 
   let frame = 0;
-  function animConf() {
-    ctx.clearRect(0,0,canvas.width, canvas.height);
-    let alive = false;
-    particles.forEach(p => {
-      p.x += p.vx; p.y += p.vy;
-      p.rot += p.rotv;
-      if (frame > 90) p.alpha -= 0.012;
-      if (p.alpha > 0) {
-        alive = true;
-        ctx.save();
-        ctx.globalAlpha = Math.max(0, p.alpha);
-        ctx.translate(p.x, p.y);
-        ctx.rotate(p.rot);
-        ctx.fillStyle = p.color;
-        ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size);
-        ctx.restore();
-      }
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    pieces.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.rot += p.rotV;
+      if (frame > 60) p.opacity -= 0.01;
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, p.opacity);
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+      ctx.restore();
     });
     frame++;
-    if (alive) requestAnimationFrame(animConf);
-    else canvas.classList.remove('active');
+    if (frame < 160) requestAnimationFrame(draw);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
-  animConf();
+  draw();
 }
 
-
-// ══════════════════════════════════════════════════════
-// NAVEGACIÓN ENTRE PANTALLAS
-// ══════════════════════════════════════════════════════
-function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => {
-    if (s.id === id) { s.classList.add('active'); s.classList.remove('exit'); }
-    else { s.classList.remove('active'); s.classList.add('exit'); }
-  });
-}
-
-function goToGame() {
-  showScreen('screen-game');
-  setTimeout(() => {
-    const first = document.querySelector('#blanks-container input');
-    if (first) first.focus();
-  }, 400);
-  initInputNavigation();
-}
-
-
-// ══════════════════════════════════════════════════════
-// MINIJUEGO: NAVEGACIÓN Y LÓGICA
-// ══════════════════════════════════════════════════════
-const ANSWERS = ['18', 'SEMANAS'];
-
-function initInputNavigation() {
-  const inputs = document.querySelectorAll('.letter-box input');
-  inputs.forEach((inp, idx) => {
-    inp.addEventListener('input', function() {
-      this.value = this.value.replace(/[^a-zA-Z0-9]/g,'').toUpperCase().slice(-1);
-      if (this.value && idx < inputs.length - 1) {
-        inputs[idx + 1].focus();
-      }
-      // Comprobar si están todos rellenos
-      const all = [...inputs].every(i => i.value.length === 1);
-      if (all) checkAnswer();
-    });
-
-    inp.addEventListener('keydown', function(e) {
-      if (e.key === 'Backspace' && !this.value && idx > 0) {
-        inputs[idx - 1].focus();
-        inputs[idx - 1].value = '';
-      }
-      if (e.key === 'Enter') checkAnswer();
-    });
-  });
-}
-
-function checkAnswer() {
-  const words = document.querySelectorAll('.blank-group');
-  let allCorrect = true;
-
-  words.forEach((group, wi) => {
-    const inputs = group.querySelectorAll('input');
-    const typed  = [...inputs].map(i => i.value.toUpperCase()).join('');
-    const correct = ANSWERS[wi];
-
-    if (typed === correct) {
-      inputs.forEach(i => { i.classList.add('correct'); i.classList.remove('wrong'); });
-    } else {
-      inputs.forEach(i => { i.classList.add('wrong'); i.classList.remove('correct'); });
-      allCorrect = false;
-      setTimeout(() => inputs.forEach(i => i.classList.remove('wrong')), 600);
-    }
-  });
-
-  if (allCorrect) {
-    launchConfetti();
-    setTimeout(() => {
-      showSuccess();
-    }, 800);
-  } else {
-    const hint = document.getElementById('game-hint');
-    hint.classList.add('visible');
-  }
-}
-
-
-// ══════════════════════════════════════════════════════
-// PANTALLA ÉXITO
-// ══════════════════════════════════════════════════════
-function showSuccess() {
-  showScreen('screen-success');
-  startCountdownTo('monday', 'countdown-time');
-}
-
-// Guardar en localStorage que ya adivinó el título
-function saveAndWait() {
-  try {
-    localStorage.setItem('18semanas_discovered', 'true');
-    localStorage.setItem('18semanas_start', getNextMonday().toISOString());
-  } catch(e) {}
-  showScreen('screen-wait');
-  startCountdownTo('monday', 'wait-countdown');
-}
-
-
-// ══════════════════════════════════════════════════════
-// CUENTA ATRÁS
-// ══════════════════════════════════════════════════════
-function getNextMonday() {
-  const now = new Date();
-  const day = now.getDay(); // 0=dom, 1=lun...
-  const daysUntil = day === 0 ? 1 : (8 - day) % 7 || 7;
-  const monday = new Date(now);
-  monday.setDate(now.getDate() + daysUntil);
-  monday.setHours(0, 0, 0, 0);
-  return monday;
-}
-
-function formatCountdown(ms) {
-  if (ms <= 0) return '00:00:00';
-  const totalSec = Math.floor(ms / 1000);
-  const d = Math.floor(totalSec / 86400);
-  const h = Math.floor((totalSec % 86400) / 3600);
-  const m = Math.floor((totalSec % 3600) / 60);
-  const s = totalSec % 60;
-  if (d > 0) return `${d}d ${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m`;
-  return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-}
-
-function startCountdownTo(target, elementId) {
-  function tick() {
-    const el = document.getElementById(elementId);
-    if (!el) return;
-    const now = new Date();
-    const dest = getNextMonday();
-    el.textContent = formatCountdown(dest - now);
-  }
-  tick();
-  setInterval(tick, 1000);
-}
-
-
-// ══════════════════════════════════════════════════════
-// ARRANQUE: ¿ya descubrió el título?
-// ══════════════════════════════════════════════════════
-(function init() {
-  let discovered = false;
-  try { discovered = localStorage.getItem('18semanas_discovered') === 'true'; } catch(e){}
-
-  if (discovered) {
-    // Si ya lo adivinó, va directamente a la pantalla de espera
-    showScreen('screen-wait');
-    startCountdownTo('monday', 'wait-countdown');
-  } else {
-    // Primera vez: bienvenida
-    showScreen('screen-welcome');
-  }
-})();
+// ===================== INIT =====================
+window.addEventListener('resize', () => {
+  const canvas = document.getElementById('confetti-canvas');
+  if (canvas) { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+});
 </script>
 
 
