@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<!-- saved from url=(0052)file:///C:/Users/FX707/Downloads/18semanas_v8_1.html -->
-<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="es">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Juntos llegamos más cerca</title>
-<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link href="./index_files/css2" rel="stylesheet">
-<link rel="manifest" href="file:///C:/Sanaa/manifest.json">
-<script src="./index_files/OneSignalSDK.page.js.descargar" defer=""></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="manifest" href="/Sanaa/manifest.json">
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(async function(OneSignal) {
@@ -883,8 +883,8 @@
     color: var(--gold);
   }
 </style>
-<script src="./index_files/OneSignalSDK.page.es6.js.descargar" defer=""></script></head>
-<body class="light-mode">
+</head>
+<body>
 
 <!-- Background -->
 <div class="bg-canvas">
@@ -894,16 +894,17 @@
   <div class="bg-orb bg-orb-4"></div>
   <svg class="bg-wave" viewBox="0 0 1200 800" preserveAspectRatio="none">
     <path d="M0,400 C200,300 400,500 600,400 C800,300 1000,500 1200,400 L1200,800 L0,800 Z" fill="url(#waveGrad)" opacity="0.4">
-      <animate attributeName="d" dur="12s" repeatCount="indefinite" values="M0,400 C200,300 400,500 600,400 C800,300 1000,500 1200,400 L1200,800 L0,800 Z;
+      <animate attributeName="d" dur="12s" repeatCount="indefinite"
+        values="M0,400 C200,300 400,500 600,400 C800,300 1000,500 1200,400 L1200,800 L0,800 Z;
                 M0,420 C200,340 400,480 600,420 C800,340 1000,480 1200,420 L1200,800 L0,800 Z;
-                M0,400 C200,300 400,500 600,400 C800,300 1000,500 1200,400 L1200,800 L0,800 Z"></animate>
+                M0,400 C200,300 400,500 600,400 C800,300 1000,500 1200,400 L1200,800 L0,800 Z"/>
     </path>
     <defs>
-      <lineargradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" style="stop-color:#5B2D8E;stop-opacity:1"></stop>
-        <stop offset="50%" style="stop-color:#1B4FD8;stop-opacity:1"></stop>
-        <stop offset="100%" style="stop-color:#00C9A7;stop-opacity:1"></stop>
-      </lineargradient>
+      <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:#5B2D8E;stop-opacity:1"/>
+        <stop offset="50%" style="stop-color:#1B4FD8;stop-opacity:1"/>
+        <stop offset="100%" style="stop-color:#00C9A7;stop-opacity:1"/>
+      </linearGradient>
     </defs>
   </svg>
 </div>
@@ -922,50 +923,57 @@
       <span class="nav-logo" id="navLogo">
         <svg id="nav-logo-svg" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <lineargradient id="logoGradMain" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#9EF01A"></stop>
-              <stop offset="40%" stop-color="#00C9A7"></stop>
-              <stop offset="100%" stop-color="#1B4FD8"></stop>
-            </lineargradient>
-            <lineargradient id="logoGradWarm" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#5B2D8E"></stop>
-              <stop offset="50%" stop-color="#E040A0"></stop>
-              <stop offset="100%" stop-color="#C9A84C"></stop>
-            </lineargradient>
+            <linearGradient id="logoGradMain" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#9EF01A"/>
+              <stop offset="40%" stop-color="#00C9A7"/>
+              <stop offset="100%" stop-color="#1B4FD8"/>
+            </linearGradient>
+            <linearGradient id="logoGradWarm" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#5B2D8E"/>
+              <stop offset="50%" stop-color="#E040A0"/>
+              <stop offset="100%" stop-color="#C9A84C"/>
+            </linearGradient>
           </defs>
           <!-- Two organic forms intertwining — imperfect, fluid -->
-          <path d="M8 14 C8 8, 14 6, 16 11 C18 16, 14 20, 12 18 C10 16, 11 12, 14 13" stroke="url(#logoGradMain)" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.9"></path>
-          <path d="M20 14 C20 20, 14 22, 12 17 C10 12, 14 8, 16 10 C18 12, 17 16, 14 15" stroke="url(#logoGradWarm)" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.9"></path>
+          <path d="M8 14 C8 8, 14 6, 16 11 C18 16, 14 20, 12 18 C10 16, 11 12, 14 13" 
+                stroke="url(#logoGradMain)" stroke-width="2" stroke-linecap="round" fill="none"
+                opacity="0.9"/>
+          <path d="M20 14 C20 20, 14 22, 12 17 C10 12, 14 8, 16 10 C18 12, 17 16, 14 15" 
+                stroke="url(#logoGradWarm)" stroke-width="2" stroke-linecap="round" fill="none"
+                opacity="0.9"/>
           <!-- Two small nodes — the meeting points -->
-          <circle cx="14" cy="13.5" r="1.2" fill="url(#logoGradMain)" opacity="0.7"></circle>
-          <circle cx="14" cy="14.5" r="1.2" fill="url(#logoGradWarm)" opacity="0.7"></circle>
-          <animatetransform attributeName="transform" type="translate" values="0,0; 0,-0.6; 0,0; 0,0.4; 0,0" dur="5s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1; 0.4 0 0.6 1; 0.4 0 0.6 1; 0.4 0 0.6 1"></animatetransform>
+          <circle cx="14" cy="13.5" r="1.2" fill="url(#logoGradMain)" opacity="0.7"/>
+          <circle cx="14" cy="14.5" r="1.2" fill="url(#logoGradWarm)" opacity="0.7"/>
+          <animateTransform attributeName="transform" type="translate" 
+            values="0,0; 0,-0.6; 0,0; 0,0.4; 0,0" 
+            dur="5s" repeatCount="indefinite" calcMode="spline"
+            keySplines="0.4 0 0.6 1; 0.4 0 0.6 1; 0.4 0 0.6 1; 0.4 0 0.6 1"/>
         </svg>
       </span>
-      <span style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);" id="navDate">jueves, 19 de febrero</span>
+      <span style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);" id="navDate"></span>
     </div>
 
     <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;width:100%;">
       
       <!-- State A: Before Sun 22 Feb 00:00 -->
-      <div id="menu-state-a" style="display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%;">
+      <div id="menu-state-a" style="display:none;flex-direction:column;align-items:center;gap:24px;width:100%;">
         <div class="reveal reveal-1">
           <div class="title-sub">Algo está llegando…</div>
         </div>
         <div class="reveal reveal-2" style="text-align:center;">
           <div class="countdown-wrapper" id="countdown-to-sunday">
-            <div class="countdown-unit"><span class="countdown-number" id="ctd-days">02</span><span class="countdown-label">días</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctd-days">--</span><span class="countdown-label">días</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctd-hours">09</span><span class="countdown-label">horas</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctd-hours">--</span><span class="countdown-label">horas</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctd-mins">30</span><span class="countdown-label">min</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctd-mins">--</span><span class="countdown-label">min</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctd-secs">46</span><span class="countdown-label">seg</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctd-secs">--</span><span class="countdown-label">seg</span></div>
           </div>
           <div class="body-text" style="font-size:0.8rem;margin-top:8px;">hasta que se desvele</div>
         </div>
         <div class="reveal reveal-3">
-          <button class="btn btn-ghost" onclick="goTo(&#39;screen-presentation&#39;)">¿Qué es esto?</button>
+          <button class="btn btn-ghost" onclick="goTo('screen-presentation')">¿Qué es esto?</button>
         </div>
       </div>
 
@@ -975,25 +983,25 @@
           <div class="title-sub">un regalo espera</div>
         </div>
         <div class="reveal reveal-2">
-          <button class="btn btn-primary btn-lg" onclick="goTo(&#39;screen-game&#39;)">
+          <button class="btn btn-primary btn-lg" onclick="goTo('screen-game')">
             Averigua el título del regalo
           </button>
         </div>
         <div class="reveal reveal-3" style="width:100%;text-align:center;">
           <div class="body-text" style="font-size:0.75rem;margin-bottom:8px;">El regalo se desvela el</div>
           <div class="countdown-wrapper" id="countdown-to-friday">
-            <div class="countdown-unit"><span class="countdown-number" id="ctf-days">07</span><span class="countdown-label">días</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctf-days">--</span><span class="countdown-label">días</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctf-hours">21</span><span class="countdown-label">horas</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctf-hours">--</span><span class="countdown-label">horas</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctf-mins">00</span><span class="countdown-label">min</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctf-mins">--</span><span class="countdown-label">min</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctf-secs">46</span><span class="countdown-label">seg</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctf-secs">--</span><span class="countdown-label">seg</span></div>
           </div>
           <div class="body-text" style="font-size:0.75rem;margin-top:8px;">viernes 27 · 11:30</div>
         </div>
         <div class="reveal reveal-4" style="display:flex;flex-direction:column;gap:10px;align-items:center;">
-          <button class="btn btn-ghost" onclick="goTo(&#39;screen-presentation&#39;)">¿Qué es esto? 🤔</button>
+          <button class="btn btn-ghost" onclick="goTo('screen-presentation')">¿Qué es esto? 🤔</button>
         </div>
       </div>
 
@@ -1006,19 +1014,19 @@
         <div class="reveal reveal-3" style="text-align:center;">
           <div class="body-text">El viernes descubrirás en qué consiste</div>
           <div class="countdown-wrapper" style="margin-top:16px;" id="countdown-to-friday-c">
-            <div class="countdown-unit"><span class="countdown-number" id="ctfc-days">07</span><span class="countdown-label">días</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctfc-days">--</span><span class="countdown-label">días</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctfc-hours">21</span><span class="countdown-label">horas</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctfc-hours">--</span><span class="countdown-label">horas</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctfc-mins">00</span><span class="countdown-label">min</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctfc-mins">--</span><span class="countdown-label">min</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctfc-secs">46</span><span class="countdown-label">seg</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctfc-secs">--</span><span class="countdown-label">seg</span></div>
           </div>
           <div class="body-text" style="font-size:0.75rem;margin-top:8px;">viernes 27 · 11:30</div>
         </div>
         <div class="reveal reveal-4" style="display:flex;flex-direction:column;gap:10px;align-items:center;">
-          <button class="btn btn-primary" onclick="goTo(&#39;screen-success&#39;)">Ver mi progreso ✦</button>
-          <button class="btn btn-ghost" onclick="goTo(&#39;screen-presentation&#39;)">¿Qué es esto? 🤔</button>
+          <button class="btn btn-primary" onclick="goTo('screen-success')">Ver mi progreso ✦</button>
+          <button class="btn btn-ghost" onclick="goTo('screen-presentation')">¿Qué es esto? 🤔</button>
         </div>
       </div>
 
@@ -1030,13 +1038,13 @@
         </div>
         <div class="ornament reveal reveal-2"></div>
         <div class="reveal reveal-3" style="width:100%;display:flex;flex-direction:column;gap:10px;align-items:center;">
-          <button class="btn btn-warm btn-lg" style="width:100%;max-width:280px;" onclick="goTo(&#39;screen-gifts&#39;)">
+          <button class="btn btn-warm btn-lg" style="width:100%;max-width:280px;" onclick="goTo('screen-gifts')">
             Tus regalos 🎁
           </button>
-          <button class="btn btn-ghost" style="width:100%;max-width:280px;" onclick="goTo(&#39;screen-presentation&#39;)">
+          <button class="btn btn-ghost" style="width:100%;max-width:280px;" onclick="goTo('screen-presentation')">
             ¿Qué es esto? 🤔
           </button>
-          <button class="btn btn-outline" style="width:100%;max-width:280px;font-size:0.75rem;" onclick="goTo(&#39;screen-success&#39;)">
+          <button class="btn btn-outline" style="width:100%;max-width:280px;font-size:0.75rem;" onclick="goTo('screen-success')">
             El título 🔤
           </button>
         </div>
@@ -1051,7 +1059,7 @@
   <!-- ===== SCREEN: PRESENTATION ===== -->
   <div class="screen" id="screen-presentation">
     <div class="nav-bar">
-      <button class="btn btn-outline" onclick="goTo(&#39;screen-menu&#39;)">← Inicio</button>
+      <button class="btn btn-outline" onclick="goTo('screen-menu')">← Inicio</button>
     </div>
 
     <!-- Before Sun 22 -->
@@ -1067,18 +1075,18 @@
       </div>
       <div class="reveal reveal-4">
         <div class="countdown-wrapper">
-          <div class="countdown-unit"><span class="countdown-number" id="pctd-days">02</span><span class="countdown-label">días</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctd-days">--</span><span class="countdown-label">días</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctd-hours">09</span><span class="countdown-label">horas</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctd-hours">--</span><span class="countdown-label">horas</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctd-mins">30</span><span class="countdown-label">min</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctd-mins">--</span><span class="countdown-label">min</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctd-secs">46</span><span class="countdown-label">seg</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctd-secs">--</span><span class="countdown-label">seg</span></div>
         </div>
       </div>
       <div class="ornament reveal reveal-5"></div>
       <div class="reveal reveal-5">
-        <button class="btn btn-outline" onclick="goTo(&#39;screen-sabermas&#39;)">Saber más 💬</button>
+        <button class="btn btn-outline" onclick="goTo('screen-sabermas')">Saber más 💬</button>
       </div>
     </div>
 
@@ -1094,11 +1102,11 @@
         <p class="body-text" style="font-size:0.85rem;">Pulsa el botón de abajo para intentar adivinarlo.</p>
       </div>
       <div class="reveal reveal-4">
-        <button class="btn btn-primary" onclick="goTo(&#39;screen-game&#39;)">Descubrir el título</button>
+        <button class="btn btn-primary" onclick="goTo('screen-game')">Descubrir el título</button>
       </div>
       <div class="ornament reveal reveal-5"></div>
       <div class="reveal reveal-5">
-        <button class="btn btn-outline" onclick="goTo(&#39;screen-sabermas&#39;)">Saber más 💬</button>
+        <button class="btn btn-outline" onclick="goTo('screen-sabermas')">Saber más 💬</button>
       </div>
     </div>
 
@@ -1115,19 +1123,19 @@
       </div>
       <div class="reveal reveal-4">
         <div class="countdown-wrapper">
-          <div class="countdown-unit"><span class="countdown-number" id="pctf-days">07</span><span class="countdown-label">días</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctf-days">--</span><span class="countdown-label">días</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctf-hours">21</span><span class="countdown-label">horas</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctf-hours">--</span><span class="countdown-label">horas</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctf-mins">00</span><span class="countdown-label">min</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctf-mins">--</span><span class="countdown-label">min</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctf-secs">46</span><span class="countdown-label">seg</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctf-secs">--</span><span class="countdown-label">seg</span></div>
         </div>
         <div class="body-text" style="margin-top:8px;font-size:0.75rem;">viernes 27 · 11:30</div>
       </div>
       <div class="ornament reveal reveal-5"></div>
       <div class="reveal reveal-5">
-        <button class="btn btn-outline" onclick="goTo(&#39;screen-sabermas&#39;)">Saber más 💬</button>
+        <button class="btn btn-outline" onclick="goTo('screen-sabermas')">Saber más 💬</button>
       </div>
     </div>
 
@@ -1151,11 +1159,11 @@
         <button class="btn btn-warm btn-lg" onclick="unlockGiftsScreen()">Estoy lista ✦</button>
       </div>
       <div class="reveal reveal-6" id="pres-gifts-btn-wrapper" style="display:none;">
-        <button class="btn btn-primary" onclick="goTo(&#39;screen-gifts&#39;)">Ver mis regalos 🎁</button>
+        <button class="btn btn-primary" onclick="goTo('screen-gifts')">Ver mis regalos 🎁</button>
       </div>
       <div class="spacer-sm"></div>
       <div class="reveal reveal-6">
-        <button class="btn btn-outline" onclick="goTo(&#39;screen-sabermas&#39;)">Saber más 💬</button>
+        <button class="btn btn-outline" onclick="goTo('screen-sabermas')">Saber más 💬</button>
       </div>
     </div>
 
@@ -1164,7 +1172,7 @@
   <!-- ===== SCREEN: GAME ===== -->
   <div class="screen" id="screen-game">
     <div class="nav-bar">
-      <button class="btn btn-outline" onclick="goTo(&#39;screen-menu&#39;)">← Inicio</button>
+      <button class="btn btn-outline" onclick="goTo('screen-menu')">← Inicio</button>
     </div>
 
     <!-- Before title guessed -->
@@ -1220,11 +1228,11 @@
       </div>
       <div class="reveal reveal-3">
         <div class="countdown-wrapper">
-          <div class="countdown-unit"><span class="countdown-number" id="gctd-days">02</span><span class="countdown-label">días</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="gctd-days">--</span><span class="countdown-label">días</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="gctd-hours">09</span><span class="countdown-label">horas</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="gctd-hours">--</span><span class="countdown-label">horas</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="gctd-mins">30</span><span class="countdown-label">min</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="gctd-mins">--</span><span class="countdown-label">min</span></div>
         </div>
       </div>
     </div>
@@ -1258,7 +1266,7 @@
   <!-- ===== SCREEN: SUCCESS ===== -->
   <div class="screen" id="screen-success">
     <div class="nav-bar">
-      <button class="btn btn-outline" onclick="goTo(&#39;screen-menu&#39;)">← Inicio</button>
+      <button class="btn btn-outline" onclick="goTo('screen-menu')">← Inicio</button>
     </div>
     <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;width:100%;text-align:center;">
       <div class="reveal reveal-1">
@@ -1273,15 +1281,15 @@
         <div class="spacer-sm"></div>
         <p class="body-text" style="font-size:0.85rem;">El viernes 27 de febrero a las 11:30<br>sabrás exactamente en qué consiste.</p>
       </div>
-      <div class="reveal reveal-5" id="success-countdown-wrapper" style="display: flex;">
+      <div class="reveal reveal-5" id="success-countdown-wrapper">
         <div class="countdown-wrapper">
-          <div class="countdown-unit"><span class="countdown-number" id="sctf-days">07</span><span class="countdown-label">días</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="sctf-days">--</span><span class="countdown-label">días</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="sctf-hours">21</span><span class="countdown-label">horas</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="sctf-hours">--</span><span class="countdown-label">horas</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="sctf-mins">00</span><span class="countdown-label">min</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="sctf-mins">--</span><span class="countdown-label">min</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="sctf-secs">46</span><span class="countdown-label">seg</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="sctf-secs">--</span><span class="countdown-label">seg</span></div>
         </div>
       </div>
       <div class="reveal reveal-6" id="success-save-btn">
@@ -1289,8 +1297,8 @@
       </div>
       <div id="success-after-save" style="display:none;flex-direction:column;align-items:center;gap:12px;" class="reveal reveal-1">
         <div class="spacer-sm"></div>
-        <button class="btn btn-ghost" onclick="goTo(&#39;screen-game&#39;)">Volver al juego 🔡</button>
-        <button class="btn btn-warm" onclick="goTo(&#39;screen-menu&#39;)">Ir al inicio</button>
+        <button class="btn btn-ghost" onclick="goTo('screen-game')">Volver al juego 🔡</button>
+        <button class="btn btn-warm" onclick="goTo('screen-menu')">Ir al inicio</button>
       </div>
     </div>
   </div>
@@ -1298,13 +1306,15 @@
   <!-- ===== SCREEN: GIFTS ===== -->
   <div class="screen" id="screen-gifts">
     <div class="nav-bar">
-      <button class="btn btn-outline" onclick="goTo(&#39;screen-menu&#39;)">← Inicio</button>
+      <button class="btn btn-outline" onclick="goTo('screen-menu')">← Inicio</button>
     </div>
     <div style="width:100%;text-align:center;" class="reveal reveal-1">
       <div class="section-title">Tus 18 semanas 🌱<br><em style="font-family:var(--font-accent);font-weight:400;font-size:0.75em;color:var(--text-muted);">hacia la libertad</em></div>
     </div>
     <div class="spacer-md"></div>
-    <div class="gifts-grid reveal reveal-2" id="gifts-grid"><div class="gift-card locked" data-week="1"><span class="gift-number">1</span></div><div class="gift-card locked" data-week="2"><span class="gift-number">2</span></div><div class="gift-card locked" data-week="3"><span class="gift-number">3</span></div><div class="gift-card locked" data-week="4"><span class="gift-number">4</span></div><div class="gift-card locked" data-week="5"><span class="gift-number">5</span></div><div class="gift-card locked" data-week="6"><span class="gift-number">6</span></div><div class="gift-card locked" data-week="7"><span class="gift-number">7</span></div><div class="gift-card locked" data-week="8"><span class="gift-number">8</span></div><div class="gift-card locked" data-week="9"><span class="gift-number">9</span></div><div class="gift-card locked" data-week="10"><span class="gift-number">10</span></div><div class="gift-card locked" data-week="11"><span class="gift-number">11</span></div><div class="gift-card locked" data-week="12"><span class="gift-number">12</span></div><div class="gift-card locked" data-week="13"><span class="gift-number">13</span></div><div class="gift-card locked" data-week="14"><span class="gift-number">14</span></div><div class="gift-card locked" data-week="15"><span class="gift-number">15</span></div><div class="gift-card locked" data-week="16"><span class="gift-number">16</span></div><div class="gift-card locked" data-week="17"><span class="gift-number">17</span></div><div class="gift-card locked" data-week="18"><span class="gift-number">18</span></div></div>
+    <div class="gifts-grid reveal reveal-2" id="gifts-grid">
+      <!-- Generated by JS -->
+    </div>
     <div class="spacer-sm"></div>
     <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:center;" class="reveal reveal-3">
       <div style="display:flex;align-items:center;gap:6px;"><div style="width:12px;height:12px;border-radius:3px;border:2px solid var(--gold);box-shadow:0 0 8px rgba(201,168,76,0.4);"></div><span style="font-size:0.7rem;color:var(--text-muted);">Pista disponible</span></div>
@@ -1315,8 +1325,8 @@
   <!-- ===== SCREEN: WEEK ===== -->
   <div class="screen" id="screen-week">
     <div class="nav-bar">
-      <button class="btn btn-outline" onclick="goTo(&#39;screen-gifts&#39;)">← Regalos</button>
-      <button class="btn btn-outline" onclick="goTo(&#39;screen-menu&#39;)">Inicio</button>
+      <button class="btn btn-outline" onclick="goTo('screen-gifts')">← Regalos</button>
+      <button class="btn btn-outline" onclick="goTo('screen-menu')">Inicio</button>
     </div>
     <div id="week-content" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:20px;">
       <!-- Injected by JS -->
@@ -1326,8 +1336,8 @@
   <!-- ===== SCREEN: SABER MÁS ===== -->
   <div class="screen" id="screen-sabermas">
     <div class="nav-bar">
-      <button class="btn btn-outline" onclick="goTo(&#39;screen-presentation&#39;)">← Volver</button>
-      <button class="btn btn-outline" onclick="goTo(&#39;screen-menu&#39;)">Inicio</button>
+      <button class="btn btn-outline" onclick="goTo('screen-presentation')">← Volver</button>
+      <button class="btn btn-outline" onclick="goTo('screen-menu')">Inicio</button>
     </div>
     <div style="width:100%;display:flex;flex-direction:column;gap:24px;">
       <div class="reveal reveal-1" style="text-align:center;">
@@ -1363,7 +1373,7 @@
       <div class="card reveal reveal-4" style="gap:10px;display:flex;flex-direction:column;">
         <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);font-family:var(--font-body);">4 · Notificaciones 🔔</div>
         <p class="body-text" style="text-align:justify;">Una vez que hayas añadido la página a tu pantalla de inicio y la abras desde allí, te pedirá permiso para enviarte notificaciones. Si lo aceptas, recibirás un aviso discreto cada vez que haya una novedad: una nueva pista, un regalo disponible… Sin ese permiso, tendrás que acordarte de entrar tú misma de vez en cuando.</p>
-        <button class="btn btn-ghost" style="margin-top:4px;" onclick="goTo(&#39;screen-notificaciones&#39;)">Instrucciones detalladas →</button>
+        <button class="btn btn-ghost" style="margin-top:4px;" onclick="goTo('screen-notificaciones')">Instrucciones detalladas →</button>
       </div>
 
       <!-- 5. Modo de visualización -->
@@ -1371,8 +1381,8 @@
         <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);font-family:var(--font-body);">5 · Apariencia 🌙</div>
         <p class="body-text" style="text-align:left;">Puedes elegir cómo quieres que se vea la página: con fondo claro o con fondo oscuro.</p>
         <div style="display:flex;gap:8px;margin-top:4px;">
-          <button class="btn btn-ghost" style="flex: 1 1 0%; font-size: 0.8rem; border-color: rgba(201, 168, 76, 0.5); color: var(--gold);" onclick="setTheme(&#39;light&#39;)" id="theme-btn-light">☀️ Modo claro</button>
-          <button class="btn btn-ghost" style="flex:1;font-size:0.8rem;" onclick="setTheme(&#39;dark&#39;)" id="theme-btn-dark">🌙 Modo oscuro</button>
+          <button class="btn btn-ghost" style="flex:1;font-size:0.8rem;" onclick="setTheme('light')" id="theme-btn-light">☀️ Modo claro</button>
+          <button class="btn btn-ghost" style="flex:1;font-size:0.8rem;" onclick="setTheme('dark')" id="theme-btn-dark">🌙 Modo oscuro</button>
         </div>
       </div>
 
@@ -1388,8 +1398,8 @@
   <!-- ===== SCREEN: NOTIFICACIONES ===== -->
   <div class="screen" id="screen-notificaciones">
     <div class="nav-bar">
-      <button class="btn btn-outline" onclick="goTo(&#39;screen-sabermas&#39;)">← Volver</button>
-      <button class="btn btn-outline" onclick="goTo(&#39;screen-menu&#39;)">Inicio</button>
+      <button class="btn btn-outline" onclick="goTo('screen-sabermas')">← Volver</button>
+      <button class="btn btn-outline" onclick="goTo('screen-menu')">Inicio</button>
     </div>
     <div style="width:100%;display:flex;flex-direction:column;gap:24px;">
       <div class="reveal reveal-1" style="text-align:center;">
@@ -1464,14 +1474,14 @@
       <div class="spacer-md"></div>
       <button class="btn btn-warm" style="width:100%;" onclick="activateAppPassword()">Activar contraseña</button>
       <div class="spacer-sm"></div>
-      <button class="btn btn-ghost" style="font-size:0.75rem;width:100%;" onclick="document.getElementById(&#39;modal-password&#39;).classList.add(&#39;hidden&#39;)">No activar</button>
+      <button class="btn btn-ghost" style="font-size:0.75rem;width:100%;" onclick="document.getElementById('modal-password').classList.add('hidden')">No activar</button>
     </div>
     <div id="modal-pw-deactivate-view" style="display:none;">
       <p class="body-text" style="font-size:0.88rem;">La contraseña de acceso está <strong style="color:#4ade80;">activa</strong>. La página está protegida.</p>
       <div class="spacer-md"></div>
       <button class="btn btn-ghost" style="width:100%;" onclick="deactivateAppPassword()">Desactivar contraseña</button>
       <div class="spacer-sm"></div>
-      <button class="btn btn-outline" style="font-size:0.75rem;width:100%;" onclick="document.getElementById(&#39;modal-password&#39;).classList.add(&#39;hidden&#39;)">Cerrar</button>
+      <button class="btn btn-outline" style="font-size:0.75rem;width:100%;" onclick="document.getElementById('modal-password').classList.add('hidden')">Cerrar</button>
     </div>
   </div>
 </div>
@@ -1480,7 +1490,7 @@
 <div class="modal-overlay hidden" id="app-lock-screen" style="z-index:500;">
   <div class="modal-box">
     <div class="notify-title" style="margin-bottom:16px;">Acceso privado</div>
-    <input class="pw-input" id="app-lock-input" type="password" placeholder="contraseña..." style="text-align:center;letter-spacing:0.2em;" onkeydown="if(event.key===&#39;Enter&#39;)checkAppLock()">
+    <input class="pw-input" id="app-lock-input" type="password" placeholder="contraseña..." style="text-align:center;letter-spacing:0.2em;" onkeydown="if(event.key==='Enter')checkAppLock()">
     <div class="spacer-sm"></div>
     <div id="app-lock-error" style="font-size:0.78rem;color:var(--rose);display:none;text-align:center;margin-bottom:8px;">Contraseña incorrecta</div>
     <button class="btn btn-primary" style="width:100%;margin-top:4px;" onclick="checkAppLock()">Entrar</button>
@@ -1496,17 +1506,17 @@
     <button class="btn btn-ghost" style="font-size:0.75rem;padding:8px 14px;" onclick="clearAdminDate()">Real</button>
   </div>
   <div class="admin-row" style="flex-wrap:wrap;gap:6px;">
-    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-21T23:00&#39;)">Feb 21</button>
-    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-22T01:00&#39;)">Dom 22</button>
-    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-23T01:00&#39;)">Lun 23</button>
-    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-24T01:00&#39;)">Mar 24</button>
-    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-24T12:30&#39;)">Mar 12:00</button>
-    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-25T01:00&#39;)">Mié 25</button>
-    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-26T01:00&#39;)">Jue 26</button>
-    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-27T01:00&#39;)">Vie 27 01h</button>
-    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-27T12:00&#39;)">Vie 27 12h</button>
-    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-03-02T01:00&#39;)">Lun 2 Mar</button>
-    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-03-08T01:00&#39;)">Dom 8 Mar</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate('2026-02-21T23:00')">Feb 21</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate('2026-02-22T01:00')">Dom 22</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate('2026-02-23T01:00')">Lun 23</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate('2026-02-24T01:00')">Mar 24</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate('2026-02-24T12:30')">Mar 12:00</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate('2026-02-25T01:00')">Mié 25</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate('2026-02-26T01:00')">Jue 26</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate('2026-02-27T01:00')">Vie 27 01h</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate('2026-02-27T12:00')">Vie 27 12h</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate('2026-03-02T01:00')">Lun 2 Mar</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate('2026-03-08T01:00')">Dom 8 Mar</button>
     <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;background:rgba(255,107,157,0.1);border-color:rgba(255,107,157,0.3);color:#FF6B9D;" onclick="adminReset()">⚠ Reset estado</button>
   </div>
   <div class="admin-row" id="adminResetConfirm" style="display:none;align-items:center;gap:6px;">
@@ -2430,6 +2440,5 @@ window.addEventListener('resize', () => {
   if (canvas) { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
 });
 </script>
-
-
-</body></html>
+</body>
+</html>
