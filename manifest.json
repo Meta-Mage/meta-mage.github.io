@@ -1,0 +1,22 @@
+{
+  "name": "Juntos llegamos más cerca",
+  "short_name": "Regalo",
+  "start_url": "/Sanaa/",
+  "scope": "/Sanaa/",
+  "display": "standalone",
+  "background_color": "#0F0A1E",
+  "theme_color": "#0F0A1E",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/Meta-Mage/Sanaa/main/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://raw.githubusercontent.com/Meta-Mage/Sanaa/main/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
