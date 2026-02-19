@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0051)file:///C:/Users/FX707/Downloads/18semanas_v10.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Juntos llegamos más cerca</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="manifest" href="/Sanaa/manifest.json">
-<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./index_files/css2" rel="stylesheet">
+<link rel="manifest" href="file:///C:/Sanaa/manifest.json">
+<script src="./index_files/OneSignalSDK.page.js.descargar" defer=""></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(async function(OneSignal) {
@@ -724,13 +724,126 @@
   }
 
   #nav-logo-svg {
-    animation: logoFloat 5s ease-in-out infinite;
+    display: none;
   }
 
   @keyframes logoFloat {
     0%, 100% { transform: translateY(0); }
-    30% { transform: translateY(-3px); }
-    70% { transform: translateY(1.5px); }
+  }
+
+  /* ===================== IDENTITY LOGO ===================== */
+  .identity-logo-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+
+  .identity-logo-svg {
+    animation: identityFloat 6s ease-in-out infinite;
+    filter: drop-shadow(0 4px 16px rgba(74,26,140,0.25));
+  }
+
+  @keyframes identityFloat {
+    0%, 100% { transform: translateY(0px); }
+    40%  { transform: translateY(-8px); }
+    70%  { transform: translateY(-3px); }
+  }
+
+  /* On light mode, use outline variant */
+  body.light-mode .identity-logo-path-left  { fill: none; stroke: rgba(155,114,207,0.7); stroke-width: 1.5; }
+  body.light-mode .identity-logo-path-right { fill: none; stroke: rgba(212,82,128,0.7); stroke-width: 1.5; }
+  body.light-mode .identity-logo-path-mid   { fill: none; }
+
+  /* On dark mode, use gradient variant */
+  body:not(.light-mode) .identity-logo-path-left  { fill: url(#ilogoGradA); opacity: 0.85; }
+  body:not(.light-mode) .identity-logo-path-right { fill: url(#ilogoGradB); opacity: 0.85; }
+  body:not(.light-mode) .identity-logo-path-mid   { fill: rgba(0,212,184,0.35); }
+
+  /* ===================== PROGRESS COUNTER ===================== */
+  .progress-counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 16px 0 4px;
+  }
+
+  .progress-label {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .progress-numbers {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .progress-numbers .num-done {
+    background: var(--grad-warm);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .progress-numbers .num-sep {
+    color: var(--text-muted);
+    font-weight: 300;
+    margin: 0 4px;
+  }
+
+  .progress-numbers .num-total {
+    color: var(--text-muted);
+    font-size: 0.65em;
+  }
+
+  .progress-bar-wrap {
+    width: 100%;
+    max-width: 220px;
+    height: 3px;
+    background: var(--border);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    border-radius: 99px;
+    background: var(--grad-warm);
+    transition: width 1s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  /* ===================== WEEK UNLOCK ANIMATION ===================== */
+  @keyframes unlockReveal {
+    0%   { opacity: 0; transform: scale(0.85) translateY(10px); }
+    60%  { opacity: 1; transform: scale(1.04) translateY(-3px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  .unlock-animate {
+    animation: unlockReveal 0.55s cubic-bezier(0.34,1.56,0.64,1) forwards;
+  }
+
+  @keyframes sparkle {
+    0%   { opacity: 0; transform: scale(0) rotate(0deg); }
+    50%  { opacity: 1; transform: scale(1.2) rotate(180deg); }
+    100% { opacity: 0; transform: scale(0) rotate(360deg); }
+  }
+
+  .sparkle-particle {
+    position: absolute;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: sparkle 0.7s ease forwards;
   }
 
   .nav-logo.revealed {
@@ -883,8 +996,8 @@
     color: var(--gold);
   }
 </style>
-</head>
-<body>
+<script src="./index_files/OneSignalSDK.page.es6.js.descargar" defer=""></script></head>
+<body class="light-mode">
 
 <!-- Background -->
 <div class="bg-canvas">
@@ -894,25 +1007,24 @@
   <div class="bg-orb bg-orb-4"></div>
   <svg class="bg-wave" viewBox="0 0 1200 800" preserveAspectRatio="none">
     <path d="M0,400 C200,300 400,500 600,400 C800,300 1000,500 1200,400 L1200,800 L0,800 Z" fill="url(#waveGrad)" opacity="0.4">
-      <animate attributeName="d" dur="12s" repeatCount="indefinite"
-        values="M0,400 C200,300 400,500 600,400 C800,300 1000,500 1200,400 L1200,800 L0,800 Z;
+      <animate attributeName="d" dur="12s" repeatCount="indefinite" values="M0,400 C200,300 400,500 600,400 C800,300 1000,500 1200,400 L1200,800 L0,800 Z;
                 M0,420 C200,340 400,480 600,420 C800,340 1000,480 1200,420 L1200,800 L0,800 Z;
-                M0,400 C200,300 400,500 600,400 C800,300 1000,500 1200,400 L1200,800 L0,800 Z"/>
+                M0,400 C200,300 400,500 600,400 C800,300 1000,500 1200,400 L1200,800 L0,800 Z"></animate>
     </path>
     <defs>
-      <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" style="stop-color:#5B2D8E;stop-opacity:1"/>
-        <stop offset="50%" style="stop-color:#1B4FD8;stop-opacity:1"/>
-        <stop offset="100%" style="stop-color:#00C9A7;stop-opacity:1"/>
-      </linearGradient>
+      <lineargradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:#5B2D8E;stop-opacity:1"></stop>
+        <stop offset="50%" style="stop-color:#1B4FD8;stop-opacity:1"></stop>
+        <stop offset="100%" style="stop-color:#00C9A7;stop-opacity:1"></stop>
+      </lineargradient>
     </defs>
   </svg>
 </div>
 
-<canvas id="confetti-canvas"></canvas>
+<canvas id="confetti-canvas" width="1912" height="948"></canvas>
 
 <!-- Admin Indicator -->
-<div class="admin-indicator" id="adminIndicator">⚙ ADMIN</div>
+<div class="admin-indicator" id="adminIndicator" style="display: block;">⚙ ADMIN</div>
 
 <!-- App -->
 <div id="app">
@@ -920,93 +1032,64 @@
   <!-- ===== SCREEN: MAIN MENU ===== -->
   <div class="screen active" id="screen-menu">
     <div class="nav-bar">
-      <span class="nav-logo" id="navLogo">
-        <svg id="nav-logo-svg" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="logoGradMain" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#9EF01A"/>
-              <stop offset="40%" stop-color="#00C9A7"/>
-              <stop offset="100%" stop-color="#1B4FD8"/>
-            </linearGradient>
-            <linearGradient id="logoGradWarm" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#5B2D8E"/>
-              <stop offset="50%" stop-color="#E040A0"/>
-              <stop offset="100%" stop-color="#C9A84C"/>
-            </linearGradient>
-          </defs>
-          <!-- Two organic forms intertwining — imperfect, fluid -->
-          <path d="M8 14 C8 8, 14 6, 16 11 C18 16, 14 20, 12 18 C10 16, 11 12, 14 13" 
-                stroke="url(#logoGradMain)" stroke-width="2" stroke-linecap="round" fill="none"
-                opacity="0.9"/>
-          <path d="M20 14 C20 20, 14 22, 12 17 C10 12, 14 8, 16 10 C18 12, 17 16, 14 15" 
-                stroke="url(#logoGradWarm)" stroke-width="2" stroke-linecap="round" fill="none"
-                opacity="0.9"/>
-          <!-- Two small nodes — the meeting points -->
-          <circle cx="14" cy="13.5" r="1.2" fill="url(#logoGradMain)" opacity="0.7"/>
-          <circle cx="14" cy="14.5" r="1.2" fill="url(#logoGradWarm)" opacity="0.7"/>
-          <animateTransform attributeName="transform" type="translate" 
-            values="0,0; 0,-0.6; 0,0; 0,0.4; 0,0" 
-            dur="5s" repeatCount="indefinite" calcMode="spline"
-            keySplines="0.4 0 0.6 1; 0.4 0 0.6 1; 0.4 0 0.6 1; 0.4 0 0.6 1"/>
-        </svg>
-      </span>
-      <span style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);" id="navDate"></span>
+      <span class="nav-logo" id="navLogo">❧</span>
+      <span style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);" id="navDate">viernes, 27 de febrero</span>
     </div>
 
     <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;width:100%;">
       
       <!-- State A: Before Sun 22 Feb 00:00 -->
-      <div id="menu-state-a" style="display:none;flex-direction:column;align-items:center;gap:24px;width:100%;">
+      <div id="menu-state-a" style="display: none; flex-direction: column; align-items: center; gap: 24px; width: 100%;">
         <div class="reveal reveal-1">
           <div class="title-sub">Algo está llegando…</div>
         </div>
         <div class="reveal reveal-2" style="text-align:center;">
           <div class="countdown-wrapper" id="countdown-to-sunday">
-            <div class="countdown-unit"><span class="countdown-number" id="ctd-days">--</span><span class="countdown-label">días</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctd-days">00</span><span class="countdown-label">días</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctd-hours">--</span><span class="countdown-label">horas</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctd-hours">00</span><span class="countdown-label">horas</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctd-mins">--</span><span class="countdown-label">min</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctd-mins">00</span><span class="countdown-label">min</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctd-secs">--</span><span class="countdown-label">seg</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctd-secs">00</span><span class="countdown-label">seg</span></div>
           </div>
           <div class="body-text" style="font-size:0.8rem;margin-top:8px;">hasta que se desvele</div>
         </div>
         <div class="reveal reveal-3">
-          <button class="btn btn-ghost" onclick="goTo('screen-presentation')">¿Qué es esto?</button>
+          <button class="btn btn-ghost" onclick="goTo(&#39;screen-presentation&#39;)">¿Qué es esto?</button>
         </div>
       </div>
 
       <!-- State B: After Sun 22, title not guessed -->
-      <div id="menu-state-b" style="display:none;flex-direction:column;align-items:center;gap:24px;width:100%;">
+      <div id="menu-state-b" style="display: none; flex-direction: column; align-items: center; gap: 24px; width: 100%;">
         <div class="reveal reveal-1">
           <div class="title-sub">un regalo espera</div>
         </div>
         <div class="reveal reveal-2">
-          <button class="btn btn-primary btn-lg" onclick="goTo('screen-game')">
+          <button class="btn btn-primary btn-lg" onclick="goTo(&#39;screen-game&#39;)">
             Averigua el título del regalo
           </button>
         </div>
         <div class="reveal reveal-3" style="width:100%;text-align:center;">
           <div class="body-text" style="font-size:0.75rem;margin-bottom:8px;">El regalo se desvela el</div>
           <div class="countdown-wrapper" id="countdown-to-friday">
-            <div class="countdown-unit"><span class="countdown-number" id="ctf-days">--</span><span class="countdown-label">días</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctf-days">00</span><span class="countdown-label">días</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctf-hours">--</span><span class="countdown-label">horas</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctf-hours">00</span><span class="countdown-label">horas</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctf-mins">--</span><span class="countdown-label">min</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctf-mins">00</span><span class="countdown-label">min</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctf-secs">--</span><span class="countdown-label">seg</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctf-secs">00</span><span class="countdown-label">seg</span></div>
           </div>
           <div class="body-text" style="font-size:0.75rem;margin-top:8px;">viernes 27 · 11:30</div>
         </div>
         <div class="reveal reveal-4" style="display:flex;flex-direction:column;gap:10px;align-items:center;">
-          <button class="btn btn-ghost" onclick="goTo('screen-presentation')">¿Qué es esto? 🤔</button>
+          <button class="btn btn-ghost" onclick="goTo(&#39;screen-presentation&#39;)">¿Qué es esto? 🤔</button>
         </div>
       </div>
 
       <!-- State C: Title guessed, before Fri 27 11:30 -->
-      <div id="menu-state-c" style="display:none;flex-direction:column;align-items:center;gap:24px;width:100%;">
+      <div id="menu-state-c" style="display: none; flex-direction: column; align-items: center; gap: 24px; width: 100%;">
         <div class="reveal reveal-1">
           <div class="title-main" id="main-title-c">18 Semanas</div>
         </div>
@@ -1014,43 +1097,66 @@
         <div class="reveal reveal-3" style="text-align:center;">
           <div class="body-text">El viernes descubrirás en qué consiste</div>
           <div class="countdown-wrapper" style="margin-top:16px;" id="countdown-to-friday-c">
-            <div class="countdown-unit"><span class="countdown-number" id="ctfc-days">--</span><span class="countdown-label">días</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctfc-days">00</span><span class="countdown-label">días</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctfc-hours">--</span><span class="countdown-label">horas</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctfc-hours">00</span><span class="countdown-label">horas</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctfc-mins">--</span><span class="countdown-label">min</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctfc-mins">00</span><span class="countdown-label">min</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctfc-secs">--</span><span class="countdown-label">seg</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctfc-secs">00</span><span class="countdown-label">seg</span></div>
           </div>
           <div class="body-text" style="font-size:0.75rem;margin-top:8px;">viernes 27 · 11:30</div>
         </div>
         <div class="reveal reveal-4" style="display:flex;flex-direction:column;gap:10px;align-items:center;">
-          <button class="btn btn-primary" onclick="goTo('screen-success')">Ver mi progreso ✦</button>
-          <button class="btn btn-ghost" onclick="goTo('screen-presentation')">¿Qué es esto? 🤔</button>
+          <button class="btn btn-primary" onclick="goTo(&#39;screen-success&#39;)">Volver al juego ✦</button>
+          <button class="btn btn-ghost" onclick="goTo(&#39;screen-presentation&#39;)">¿Qué es esto? 🤔</button>
         </div>
       </div>
 
       <!-- State D: After Fri 27 11:30 — full menu -->
-      <div id="menu-state-d" style="display:none;flex-direction:column;align-items:center;gap:24px;width:100%;">
+      <div id="menu-state-d" style="display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%;">
         <div class="reveal reveal-1">
-          <div class="title-main">18 Semanas ✨</div>
+          <div class="title-main">18 Semanas</div>
           <div class="title-sub">tu proceso hacia la libertad</div>
         </div>
-        <div class="ornament reveal reveal-2"></div>
+        <div class="reveal reveal-2 identity-logo-wrap">
+          <svg class="identity-logo-svg" width="48" height="60" viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <lineargradient id="ilogoGradA" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#9EF01A"></stop>
+                <stop offset="40%" stop-color="#2D3A8C"></stop>
+                <stop offset="100%" stop-color="#4A1A8C"></stop>
+              </lineargradient>
+              <lineargradient id="ilogoGradB" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#4A1A8C"></stop>
+                <stop offset="50%" stop-color="#D45280"></stop>
+                <stop offset="100%" stop-color="#C49A3C"></stop>
+              </lineargradient>
+            </defs>
+            <path class="identity-logo-path-left" d="M 80 10 C 40 10, 15 50, 15 100 C 15 150, 40 190, 80 190 C 55 170, 40 140, 40 100 C 40 60, 55 30, 80 10 Z"></path>
+            <path class="identity-logo-path-right" d="M 80 10 C 120 10, 145 50, 145 100 C 145 150, 120 190, 80 190 C 105 170, 120 140, 120 100 C 120 60, 105 30, 80 10 Z"></path>
+            <path class="identity-logo-path-mid" d="M 80 10 C 55 30, 40 60, 40 100 C 40 140, 55 170, 80 190 C 105 170, 120 140, 120 100 C 120 60, 105 30, 80 10 Z"></path>
+          </svg>
+        </div>
         <div class="reveal reveal-3" style="width:100%;display:flex;flex-direction:column;gap:10px;align-items:center;">
-          <button class="btn btn-warm btn-lg" style="width:100%;max-width:280px;" onclick="goTo('screen-gifts')">
+          <button class="btn btn-warm btn-lg" style="width:100%;max-width:280px;" onclick="goTo(&#39;screen-gifts&#39;)">
             Tus regalos 🎁
           </button>
-          <button class="btn btn-ghost" style="width:100%;max-width:280px;" onclick="goTo('screen-presentation')">
+          <button class="btn btn-ghost" style="width:100%;max-width:280px;" onclick="goTo(&#39;screen-presentation&#39;)">
             ¿Qué es esto? 🤔
           </button>
-          <button class="btn btn-outline" style="width:100%;max-width:280px;font-size:0.75rem;" onclick="goTo('screen-success')">
+          <button class="btn btn-outline" style="width:100%;max-width:280px;font-size:0.75rem;" onclick="goTo(&#39;screen-success&#39;)">
             El título 🔤
           </button>
         </div>
-        <div class="reveal reveal-4" id="menu-next-gift" style="text-align:center;width:100%;">
-          <!-- Next gift countdown injected here -->
-        </div>
+        <div class="reveal reveal-4" id="menu-next-gift" style="text-align:center;width:100%;"><div class="body-text" style="font-size:0.75rem;margin-bottom:8px;">Próximo regalo en</div>
+      <div class="countdown-wrapper">
+        <div class="countdown-unit"><span class="countdown-number" id="mnext-d">02</span><span class="countdown-label">días</span></div>
+        <div class="countdown-sep">·</div>
+        <div class="countdown-unit"><span class="countdown-number" id="mnext-h">12</span><span class="countdown-label">horas</span></div>
+        <div class="countdown-sep">·</div>
+        <div class="countdown-unit"><span class="countdown-number" id="mnext-m">00</span><span class="countdown-label">min</span></div>
+      </div></div>
       </div>
 
     </div>
@@ -1059,11 +1165,11 @@
   <!-- ===== SCREEN: PRESENTATION ===== -->
   <div class="screen" id="screen-presentation">
     <div class="nav-bar">
-      <button class="btn btn-outline" onclick="goTo('screen-menu')">← Inicio</button>
+      <button class="btn btn-outline" onclick="goTo(&#39;screen-menu&#39;)">← Inicio</button>
     </div>
 
     <!-- Before Sun 22 -->
-    <div id="pres-state-a" style="display:none;flex-direction:column;align-items:center;gap:24px;width:100%;text-align:center;">
+    <div id="pres-state-a" style="display: none; flex-direction: column; align-items: center; gap: 24px; width: 100%; text-align: center;">
       <div class="reveal reveal-1">
         <div class="section-title">¿Qué es esto? 🤔</div>
       </div>
@@ -1075,23 +1181,23 @@
       </div>
       <div class="reveal reveal-4">
         <div class="countdown-wrapper">
-          <div class="countdown-unit"><span class="countdown-number" id="pctd-days">--</span><span class="countdown-label">días</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctd-days">00</span><span class="countdown-label">días</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctd-hours">--</span><span class="countdown-label">horas</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctd-hours">00</span><span class="countdown-label">horas</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctd-mins">--</span><span class="countdown-label">min</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctd-mins">00</span><span class="countdown-label">min</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctd-secs">--</span><span class="countdown-label">seg</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctd-secs">00</span><span class="countdown-label">seg</span></div>
         </div>
       </div>
       <div class="ornament reveal reveal-5"></div>
       <div class="reveal reveal-5">
-        <button class="btn btn-outline" onclick="goTo('screen-sabermas')">Saber más 💬</button>
+        <button class="btn btn-outline" onclick="goTo(&#39;screen-sabermas&#39;)">Saber más 💬</button>
       </div>
     </div>
 
     <!-- After Sun 22, before guessing -->
-    <div id="pres-state-b" style="display:none;flex-direction:column;align-items:center;gap:24px;width:100%;text-align:center;">
+    <div id="pres-state-b" style="display: none; flex-direction: column; align-items: center; gap: 24px; width: 100%; text-align: center;">
       <div class="reveal reveal-1">
         <div class="section-title">Presentación</div>
       </div>
@@ -1102,16 +1208,16 @@
         <p class="body-text" style="font-size:0.85rem;">Pulsa el botón de abajo para intentar adivinarlo.</p>
       </div>
       <div class="reveal reveal-4">
-        <button class="btn btn-primary" onclick="goTo('screen-game')">Descubrir el título</button>
+        <button class="btn btn-primary" onclick="goTo(&#39;screen-game&#39;)">Descubrir el título</button>
       </div>
       <div class="ornament reveal reveal-5"></div>
       <div class="reveal reveal-5">
-        <button class="btn btn-outline" onclick="goTo('screen-sabermas')">Saber más 💬</button>
+        <button class="btn btn-outline" onclick="goTo(&#39;screen-sabermas&#39;)">Saber más 💬</button>
       </div>
     </div>
 
     <!-- After guessing, before Fri 27 -->
-    <div id="pres-state-c" style="display:none;flex-direction:column;align-items:center;gap:24px;width:100%;text-align:center;">
+    <div id="pres-state-c" style="display: none; flex-direction: column; align-items: center; gap: 24px; width: 100%; text-align: center;">
       <div class="reveal reveal-1">
         <div class="section-title">Presentación</div>
       </div>
@@ -1123,24 +1229,24 @@
       </div>
       <div class="reveal reveal-4">
         <div class="countdown-wrapper">
-          <div class="countdown-unit"><span class="countdown-number" id="pctf-days">--</span><span class="countdown-label">días</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctf-days">00</span><span class="countdown-label">días</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctf-hours">--</span><span class="countdown-label">horas</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctf-hours">00</span><span class="countdown-label">horas</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctf-mins">--</span><span class="countdown-label">min</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctf-mins">00</span><span class="countdown-label">min</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctf-secs">--</span><span class="countdown-label">seg</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctf-secs">00</span><span class="countdown-label">seg</span></div>
         </div>
         <div class="body-text" style="margin-top:8px;font-size:0.75rem;">viernes 27 · 11:30</div>
       </div>
       <div class="ornament reveal reveal-5"></div>
       <div class="reveal reveal-5">
-        <button class="btn btn-outline" onclick="goTo('screen-sabermas')">Saber más 💬</button>
+        <button class="btn btn-outline" onclick="goTo(&#39;screen-sabermas&#39;)">Saber más 💬</button>
       </div>
     </div>
 
     <!-- After Fri 27 11:30 -->
-    <div id="pres-state-d" style="display:none;flex-direction:column;align-items:center;gap:20px;width:100%;">
+    <div id="pres-state-d" style="display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%;">
       <div class="reveal reveal-1" style="text-align:center;">
         <div class="section-title">Presentación 💛</div>
         <div class="spacer-sm"></div>
@@ -1155,15 +1261,15 @@
         <p>No sé exactamente qué va a pasar en estas 18 semanas. Pero sé que voy a estar aquí, que estoy muy emocionado por nuestra situación actual, y que cada lunes va a haber algo esperándote. Semana a semana, un paso más hacia ti 💙 <em>Juntos llegamos más cerca.</em></p>
       </div>
       <div class="ornament reveal reveal-4"></div>
-      <div class="reveal reveal-5" id="pres-start-btn-wrapper">
+      <div class="reveal reveal-5" id="pres-start-btn-wrapper" style="display: none;">
         <button class="btn btn-warm btn-lg" onclick="unlockGiftsScreen()">Estoy lista ✦</button>
       </div>
-      <div class="reveal reveal-6" id="pres-gifts-btn-wrapper" style="display:none;">
-        <button class="btn btn-primary" onclick="goTo('screen-gifts')">Ver mis regalos 🎁</button>
+      <div class="reveal reveal-6" id="pres-gifts-btn-wrapper" style="display: flex;">
+        <button class="btn btn-primary" onclick="goTo(&#39;screen-gifts&#39;)">Ver mis regalos 🎁</button>
       </div>
       <div class="spacer-sm"></div>
       <div class="reveal reveal-6">
-        <button class="btn btn-outline" onclick="goTo('screen-sabermas')">Saber más 💬</button>
+        <button class="btn btn-outline" onclick="goTo(&#39;screen-sabermas&#39;)">Saber más 💬</button>
       </div>
     </div>
 
@@ -1172,11 +1278,11 @@
   <!-- ===== SCREEN: GAME ===== -->
   <div class="screen" id="screen-game">
     <div class="nav-bar">
-      <button class="btn btn-outline" onclick="goTo('screen-menu')">← Inicio</button>
+      <button class="btn btn-outline" onclick="goTo(&#39;screen-menu&#39;)">← Inicio</button>
     </div>
 
     <!-- Before title guessed -->
-    <div id="game-active" style="display:none;flex-direction:column;align-items:center;gap:20px;width:100%;">
+    <div id="game-active" style="display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%;">
       <div class="reveal reveal-1" style="text-align:center;">
         <div class="section-title">Este regalo tiene un nombre 🔡</div>
         <div class="spacer-sm"></div>
@@ -1189,8 +1295,8 @@
         <div class="input-group">
           <span class="input-label">un número</span>
           <div class="char-inputs" id="inputs-number">
-            <input class="char-input" maxlength="1" data-group="number" data-index="0" type="text" inputmode="numeric" autocomplete="off">
-            <input class="char-input" maxlength="1" data-group="number" data-index="1" type="text" inputmode="numeric" autocomplete="off">
+            <input class="char-input correct" maxlength="1" data-group="number" data-index="0" type="text" inputmode="numeric" autocomplete="off">
+            <input class="char-input correct" maxlength="1" data-group="number" data-index="1" type="text" inputmode="numeric" autocomplete="off">
           </div>
         </div>
       </div>
@@ -1198,13 +1304,13 @@
       <div class="reveal reveal-4" style="width:100%;">
         <div class="input-group">
           <div class="char-inputs" id="inputs-word">
-            <input class="char-input" maxlength="1" data-group="word" data-index="0" type="text" autocomplete="off">
-            <input class="char-input" maxlength="1" data-group="word" data-index="1" type="text" autocomplete="off">
-            <input class="char-input" maxlength="1" data-group="word" data-index="2" type="text" autocomplete="off">
-            <input class="char-input" maxlength="1" data-group="word" data-index="3" type="text" autocomplete="off">
-            <input class="char-input" maxlength="1" data-group="word" data-index="4" type="text" autocomplete="off">
-            <input class="char-input" maxlength="1" data-group="word" data-index="5" type="text" autocomplete="off">
-            <input class="char-input" maxlength="1" data-group="word" data-index="6" type="text" autocomplete="off">
+            <input class="char-input correct" maxlength="1" data-group="word" data-index="0" type="text" autocomplete="off">
+            <input class="char-input correct" maxlength="1" data-group="word" data-index="1" type="text" autocomplete="off">
+            <input class="char-input correct" maxlength="1" data-group="word" data-index="2" type="text" autocomplete="off">
+            <input class="char-input correct" maxlength="1" data-group="word" data-index="3" type="text" autocomplete="off">
+            <input class="char-input correct" maxlength="1" data-group="word" data-index="4" type="text" autocomplete="off">
+            <input class="char-input correct" maxlength="1" data-group="word" data-index="5" type="text" autocomplete="off">
+            <input class="char-input correct" maxlength="1" data-group="word" data-index="6" type="text" autocomplete="off">
           </div>
           <span class="input-label">una palabra</span>
         </div>
@@ -1215,7 +1321,7 @@
         <button class="btn btn-primary" onclick="checkAnswer()">Comprobar</button>
       </div>
 
-      <div id="game-hints" class="hints-container reveal reveal-6"></div>
+      <div id="game-hints" class="hints-container reveal reveal-6"><div class="hint-item"><span class="hint-label">Pista 1</span>Son dos cifras y siete letras.</div><div class="hint-item"><span class="hint-label">Pista 2</span>La N es una de las letras.</div><div class="hint-item"><span class="hint-label">Pista 3</span>La última letra es una S.</div><div class="hint-item"><span class="hint-label">Pista 4</span>La tercera letra es una E.</div><div class="hint-item"><span class="hint-label">Pista 5</span>Hay una letra que se repite dos veces: la A.</div><div class="hint-item"><span class="hint-label">Pista 6</span>La palabra es una unidad de tiempo.</div><div class="hint-item"><span class="hint-label">Pista 7</span>Viene del latín: septem, que significa siete días.</div><div class="hint-item"><span class="hint-label">Pista 8</span>Piensa en cuántas semanas tienen 4 meses y medio.</div></div>
     </div>
 
     <!-- Before Sun 22 -->
@@ -1228,17 +1334,17 @@
       </div>
       <div class="reveal reveal-3">
         <div class="countdown-wrapper">
-          <div class="countdown-unit"><span class="countdown-number" id="gctd-days">--</span><span class="countdown-label">días</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="gctd-days">00</span><span class="countdown-label">días</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="gctd-hours">--</span><span class="countdown-label">horas</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="gctd-hours">00</span><span class="countdown-label">horas</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="gctd-mins">--</span><span class="countdown-label">min</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="gctd-mins">00</span><span class="countdown-label">min</span></div>
         </div>
       </div>
     </div>
 
     <!-- After guessing -->
-    <div id="game-success" style="display:none;flex-direction:column;align-items:center;gap:20px;width:100%;text-align:center;">
+    <div id="game-success" style="display: none; flex-direction: column; align-items: center; gap: 20px; width: 100%; text-align: center;">
       <div class="reveal reveal-1">
         <div class="success-title">¡Ya lo adivinaste!</div>
         <div class="success-big">18<br>Semanas</div>
@@ -1266,7 +1372,7 @@
   <!-- ===== SCREEN: SUCCESS ===== -->
   <div class="screen" id="screen-success">
     <div class="nav-bar">
-      <button class="btn btn-outline" onclick="goTo('screen-menu')">← Inicio</button>
+      <button class="btn btn-outline" onclick="goTo(&#39;screen-menu&#39;)">← Inicio</button>
     </div>
     <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;width:100%;text-align:center;">
       <div class="reveal reveal-1">
@@ -1281,24 +1387,24 @@
         <div class="spacer-sm"></div>
         <p class="body-text" style="font-size:0.85rem;">El viernes 27 de febrero a las 11:30<br>sabrás exactamente en qué consiste.</p>
       </div>
-      <div class="reveal reveal-5" id="success-countdown-wrapper">
+      <div class="reveal reveal-5" id="success-countdown-wrapper" style="display: none;">
         <div class="countdown-wrapper">
-          <div class="countdown-unit"><span class="countdown-number" id="sctf-days">--</span><span class="countdown-label">días</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="sctf-days">00</span><span class="countdown-label">días</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="sctf-hours">--</span><span class="countdown-label">horas</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="sctf-hours">00</span><span class="countdown-label">horas</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="sctf-mins">--</span><span class="countdown-label">min</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="sctf-mins">00</span><span class="countdown-label">min</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="sctf-secs">--</span><span class="countdown-label">seg</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="sctf-secs">00</span><span class="countdown-label">seg</span></div>
         </div>
       </div>
-      <div class="reveal reveal-6" id="success-save-btn">
+      <div class="reveal reveal-6" id="success-save-btn" style="display: none;">
         <button class="btn btn-primary btn-lg" onclick="saveSuccess()">Guardar ✓</button>
       </div>
-      <div id="success-after-save" style="display:none;flex-direction:column;align-items:center;gap:12px;" class="reveal reveal-1">
+      <div id="success-after-save" style="display: flex; flex-direction: column; align-items: center; gap: 12px;" class="reveal reveal-1">
         <div class="spacer-sm"></div>
-        <button class="btn btn-ghost" onclick="goTo('screen-game')">Volver al juego 🔡</button>
-        <button class="btn btn-warm" onclick="goTo('screen-menu')">Ir al inicio</button>
+        <button class="btn btn-ghost" onclick="goTo(&#39;screen-game&#39;)">Volver al juego 🔡</button>
+        <button class="btn btn-warm" onclick="goTo(&#39;screen-menu&#39;)">Ir al inicio</button>
       </div>
     </div>
   </div>
@@ -1306,15 +1412,22 @@
   <!-- ===== SCREEN: GIFTS ===== -->
   <div class="screen" id="screen-gifts">
     <div class="nav-bar">
-      <button class="btn btn-outline" onclick="goTo('screen-menu')">← Inicio</button>
+      <button class="btn btn-outline" onclick="goTo(&#39;screen-menu&#39;)">← Inicio</button>
     </div>
     <div style="width:100%;text-align:center;" class="reveal reveal-1">
       <div class="section-title">Tus 18 semanas 🌱<br><em style="font-family:var(--font-accent);font-weight:400;font-size:0.75em;color:var(--text-muted);">hacia la libertad</em></div>
     </div>
-    <div class="spacer-md"></div>
-    <div class="gifts-grid reveal reveal-2" id="gifts-grid">
-      <!-- Generated by JS -->
+    <div class="progress-counter reveal reveal-2" id="gifts-progress-counter">
+      <div class="progress-label">semanas completadas</div>
+      <div class="progress-numbers">
+        <span class="num-done" id="progress-done">0</span><span class="num-sep">/</span><span class="num-total">18</span>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progress-bar" style="width: 0%;"></div>
+      </div>
     </div>
+    <div class="spacer-sm"></div>
+    <div class="gifts-grid reveal reveal-2" id="gifts-grid"><div class="gift-card locked" data-week="1"><span class="gift-number">1</span></div><div class="gift-card locked" data-week="2"><span class="gift-number">2</span></div><div class="gift-card locked" data-week="3"><span class="gift-number">3</span></div><div class="gift-card locked" data-week="4"><span class="gift-number">4</span></div><div class="gift-card locked" data-week="5"><span class="gift-number">5</span></div><div class="gift-card locked" data-week="6"><span class="gift-number">6</span></div><div class="gift-card locked" data-week="7"><span class="gift-number">7</span></div><div class="gift-card locked" data-week="8"><span class="gift-number">8</span></div><div class="gift-card locked" data-week="9"><span class="gift-number">9</span></div><div class="gift-card locked" data-week="10"><span class="gift-number">10</span></div><div class="gift-card locked" data-week="11"><span class="gift-number">11</span></div><div class="gift-card locked" data-week="12"><span class="gift-number">12</span></div><div class="gift-card locked" data-week="13"><span class="gift-number">13</span></div><div class="gift-card locked" data-week="14"><span class="gift-number">14</span></div><div class="gift-card locked" data-week="15"><span class="gift-number">15</span></div><div class="gift-card locked" data-week="16"><span class="gift-number">16</span></div><div class="gift-card locked" data-week="17"><span class="gift-number">17</span></div><div class="gift-card locked" data-week="18"><span class="gift-number">18</span></div></div>
     <div class="spacer-sm"></div>
     <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:center;" class="reveal reveal-3">
       <div style="display:flex;align-items:center;gap:6px;"><div style="width:12px;height:12px;border-radius:3px;border:2px solid var(--gold);box-shadow:0 0 8px rgba(201,168,76,0.4);"></div><span style="font-size:0.7rem;color:var(--text-muted);">Pista disponible</span></div>
@@ -1325,8 +1438,8 @@
   <!-- ===== SCREEN: WEEK ===== -->
   <div class="screen" id="screen-week">
     <div class="nav-bar">
-      <button class="btn btn-outline" onclick="goTo('screen-gifts')">← Regalos</button>
-      <button class="btn btn-outline" onclick="goTo('screen-menu')">Inicio</button>
+      <button class="btn btn-outline" onclick="goTo(&#39;screen-gifts&#39;)">← Regalos</button>
+      <button class="btn btn-outline" onclick="goTo(&#39;screen-menu&#39;)">Inicio</button>
     </div>
     <div id="week-content" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:20px;">
       <!-- Injected by JS -->
@@ -1336,8 +1449,8 @@
   <!-- ===== SCREEN: SABER MÁS ===== -->
   <div class="screen" id="screen-sabermas">
     <div class="nav-bar">
-      <button class="btn btn-outline" onclick="goTo('screen-presentation')">← Volver</button>
-      <button class="btn btn-outline" onclick="goTo('screen-menu')">Inicio</button>
+      <button class="btn btn-outline" onclick="goTo(&#39;screen-presentation&#39;)">← Volver</button>
+      <button class="btn btn-outline" onclick="goTo(&#39;screen-menu&#39;)">Inicio</button>
     </div>
     <div style="width:100%;display:flex;flex-direction:column;gap:24px;">
       <div class="reveal reveal-1" style="text-align:center;">
@@ -1360,7 +1473,7 @@
       <div class="card reveal reveal-3" style="gap:10px;display:flex;flex-direction:column;">
         <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);font-family:var(--font-body);">2 · Seguridad 🔒</div>
         <p class="body-text" style="text-align:justify;">He pensado que tener esto en tu móvil podría llegar a ser preocupante o arriesgado por tu situación familiar. Si tú también piensas lo mismo, pulsa el botón de abajo para establecer una contraseña y que solamente tú y yo podamos usar la página.</p>
-        <button class="btn btn-ghost" style="margin-top:4px;" id="security-btn-open" onclick="openPasswordModal()">Activar contraseña 🔑</button>
+        <button class="btn btn-ghost" style="margin-top: 4px;" id="security-btn-open" onclick="openPasswordModal()">Activar contraseña 🔑</button>
       </div>
 
       <!-- 3. Accesibilidad -->
@@ -1373,7 +1486,7 @@
       <div class="card reveal reveal-4" style="gap:10px;display:flex;flex-direction:column;">
         <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);font-family:var(--font-body);">4 · Notificaciones 🔔</div>
         <p class="body-text" style="text-align:justify;">Una vez que hayas añadido la página a tu pantalla de inicio y la abras desde allí, te pedirá permiso para enviarte notificaciones. Si lo aceptas, recibirás un aviso discreto cada vez que haya una novedad: una nueva pista, un regalo disponible… Sin ese permiso, tendrás que acordarte de entrar tú misma de vez en cuando.</p>
-        <button class="btn btn-ghost" style="margin-top:4px;" onclick="goTo('screen-notificaciones')">Instrucciones detalladas →</button>
+        <button class="btn btn-ghost" style="margin-top:4px;" onclick="goTo(&#39;screen-notificaciones&#39;)">Instrucciones detalladas →</button>
       </div>
 
       <!-- 5. Modo de visualización -->
@@ -1381,8 +1494,8 @@
         <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);font-family:var(--font-body);">5 · Apariencia 🌙</div>
         <p class="body-text" style="text-align:left;">Puedes elegir cómo quieres que se vea la página: con fondo claro o con fondo oscuro.</p>
         <div style="display:flex;gap:8px;margin-top:4px;">
-          <button class="btn btn-ghost" style="flex:1;font-size:0.8rem;" onclick="setTheme('light')" id="theme-btn-light">☀️ Modo claro</button>
-          <button class="btn btn-ghost" style="flex:1;font-size:0.8rem;" onclick="setTheme('dark')" id="theme-btn-dark">🌙 Modo oscuro</button>
+          <button class="btn btn-ghost" style="flex: 1 1 0%; font-size: 0.8rem; border-color: rgba(201, 168, 76, 0.5); color: var(--gold);" onclick="setTheme(&#39;light&#39;)" id="theme-btn-light">☀️ Modo claro</button>
+          <button class="btn btn-ghost" style="flex: 1 1 0%; font-size: 0.8rem;" onclick="setTheme(&#39;dark&#39;)" id="theme-btn-dark">🌙 Modo oscuro</button>
         </div>
       </div>
 
@@ -1398,8 +1511,8 @@
   <!-- ===== SCREEN: NOTIFICACIONES ===== -->
   <div class="screen" id="screen-notificaciones">
     <div class="nav-bar">
-      <button class="btn btn-outline" onclick="goTo('screen-sabermas')">← Volver</button>
-      <button class="btn btn-outline" onclick="goTo('screen-menu')">Inicio</button>
+      <button class="btn btn-outline" onclick="goTo(&#39;screen-sabermas&#39;)">← Volver</button>
+      <button class="btn btn-outline" onclick="goTo(&#39;screen-menu&#39;)">Inicio</button>
     </div>
     <div style="width:100%;display:flex;flex-direction:column;gap:24px;">
       <div class="reveal reveal-1" style="text-align:center;">
@@ -1429,6 +1542,13 @@
       <div class="card reveal reveal-5" style="gap:14px;display:flex;flex-direction:column;background:linear-gradient(135deg,rgba(91,45,142,0.06),rgba(224,64,160,0.04));">
         <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);font-family:var(--font-body);">Requisito · iOS 16.4 o superior</div>
         <p class="body-text" style="text-align:justify;">Esta función solo está disponible en iPhones con iOS 16.4 o más reciente. Si tienes el móvil actualizado, no debería haber ningún problema. Si tras seguir los pasos las notificaciones no llegan, puedes seguir revisando la página manualmente de vez en cuando.</p>
+      </div>
+
+      <div class="card reveal reveal-6" style="gap:14px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);font-family:var(--font-body);">Activar ahora</div>
+        <p class="body-text" style="text-align:center;font-size:0.88rem;">Si ya has añadido la página a tu pantalla de inicio y la estás abriendo desde ahí, puedes activar las notificaciones directamente aquí.</p>
+        <button class="btn btn-warm" id="notif-permission-btn" onclick="requestNotifPermission()" style="width:100%;max-width:240px;">Activar notificaciones 🔔</button>
+        <div id="notif-permission-status" style="font-size:0.78rem;color:var(--text-muted);display:none;"></div>
       </div>
 
       <div class="spacer-sm"></div>
@@ -1469,19 +1589,19 @@
     <div style="font-size:1.8rem;margin-bottom:12px;">🌻</div>
     <div class="notify-title">Contraseña de acceso</div>
     <div class="spacer-sm"></div>
-    <div id="modal-pw-activate-view">
+    <div id="modal-pw-activate-view" style="display: none;">
       <p class="body-text" style="font-size:0.88rem;">Si activas esta opción, cada vez que entres en la app tendrás que introducir una contraseña para acceder. Solo tú y yo la sabremos.</p>
       <div class="spacer-md"></div>
       <button class="btn btn-warm" style="width:100%;" onclick="activateAppPassword()">Activar contraseña</button>
       <div class="spacer-sm"></div>
-      <button class="btn btn-ghost" style="font-size:0.75rem;width:100%;" onclick="document.getElementById('modal-password').classList.add('hidden')">No activar</button>
+      <button class="btn btn-ghost" style="font-size:0.75rem;width:100%;" onclick="document.getElementById(&#39;modal-password&#39;).classList.add(&#39;hidden&#39;)">No activar</button>
     </div>
-    <div id="modal-pw-deactivate-view" style="display:none;">
+    <div id="modal-pw-deactivate-view" style="display: block;">
       <p class="body-text" style="font-size:0.88rem;">La contraseña de acceso está <strong style="color:#4ade80;">activa</strong>. La página está protegida.</p>
       <div class="spacer-md"></div>
       <button class="btn btn-ghost" style="width:100%;" onclick="deactivateAppPassword()">Desactivar contraseña</button>
       <div class="spacer-sm"></div>
-      <button class="btn btn-outline" style="font-size:0.75rem;width:100%;" onclick="document.getElementById('modal-password').classList.add('hidden')">Cerrar</button>
+      <button class="btn btn-outline" style="font-size:0.75rem;width:100%;" onclick="document.getElementById(&#39;modal-password&#39;).classList.add(&#39;hidden&#39;)">Cerrar</button>
     </div>
   </div>
 </div>
@@ -1490,7 +1610,7 @@
 <div class="modal-overlay hidden" id="app-lock-screen" style="z-index:500;">
   <div class="modal-box">
     <div class="notify-title" style="margin-bottom:16px;">Acceso privado</div>
-    <input class="pw-input" id="app-lock-input" type="password" placeholder="contraseña..." style="text-align:center;letter-spacing:0.2em;" onkeydown="if(event.key==='Enter')checkAppLock()">
+    <input class="pw-input" id="app-lock-input" type="password" placeholder="contraseña..." style="text-align:center;letter-spacing:0.2em;" onkeydown="if(event.key===&#39;Enter&#39;)checkAppLock()">
     <div class="spacer-sm"></div>
     <div id="app-lock-error" style="font-size:0.78rem;color:var(--rose);display:none;text-align:center;margin-bottom:8px;">Contraseña incorrecta</div>
     <button class="btn btn-primary" style="width:100%;margin-top:4px;" onclick="checkAppLock()">Entrar</button>
@@ -1506,25 +1626,25 @@
     <button class="btn btn-ghost" style="font-size:0.75rem;padding:8px 14px;" onclick="clearAdminDate()">Real</button>
   </div>
   <div class="admin-row" style="flex-wrap:wrap;gap:6px;">
-    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate('2026-02-21T23:00')">Feb 21</button>
-    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate('2026-02-22T01:00')">Dom 22</button>
-    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate('2026-02-23T01:00')">Lun 23</button>
-    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate('2026-02-24T01:00')">Mar 24</button>
-    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate('2026-02-24T12:30')">Mar 12:00</button>
-    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate('2026-02-25T01:00')">Mié 25</button>
-    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate('2026-02-26T01:00')">Jue 26</button>
-    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate('2026-02-27T01:00')">Vie 27 01h</button>
-    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate('2026-02-27T12:00')">Vie 27 12h</button>
-    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate('2026-03-02T01:00')">Lun 2 Mar</button>
-    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate('2026-03-08T01:00')">Dom 8 Mar</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-21T23:00&#39;)">Feb 21</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-22T01:00&#39;)">Dom 22</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-23T01:00&#39;)">Lun 23</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-24T01:00&#39;)">Mar 24</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-24T12:30&#39;)">Mar 12:00</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-25T01:00&#39;)">Mié 25</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-26T01:00&#39;)">Jue 26</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-27T01:00&#39;)">Vie 27 01h</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-02-27T12:00&#39;)">Vie 27 12h</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-03-02T01:00&#39;)">Lun 2 Mar</button>
+    <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-03-08T01:00&#39;)">Dom 8 Mar</button>
     <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;background:rgba(255,107,157,0.1);border-color:rgba(255,107,157,0.3);color:#FF6B9D;" onclick="adminReset()">⚠ Reset estado</button>
   </div>
-  <div class="admin-row" id="adminResetConfirm" style="display:none;align-items:center;gap:6px;">
+  <div class="admin-row" id="adminResetConfirm" style="display: none; align-items: center; gap: 6px;">
     <span style="font-size:0.75rem;color:#4ade80;">✓ Estado reseteado correctamente</span>
   </div>
   <div class="admin-row">
-    <span style="font-size:0.7rem;color:var(--text-muted);">Fecha activa: <strong id="adminCurrentDate" style="color:var(--text-light);">real</strong></span>
-    <span style="font-size:0.65rem;color:var(--text-muted);margin-left:4px;" id="adminStateDebug"></span>
+    <span style="font-size:0.7rem;color:var(--text-muted);">Fecha activa: <strong id="adminCurrentDate" style="color:var(--text-light);">27/2/2026, 12:00:00</strong></span>
+    <span style="font-size:0.65rem;color:var(--text-muted);margin-left:4px;" id="adminStateDebug">| estado: título=✓ regalos=✗ | menú=d</span>
     <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;margin-left:auto;" onclick="closeAdmin()">Cerrar</button>
   </div>
 </div>
@@ -1785,23 +1905,7 @@ function refreshMenu() {
     logo.innerHTML = '18 Semanas';
     logo.classList.add('revealed');
   } else {
-    // Restore SVG if it was replaced
-    if (!logo.querySelector('svg')) {
-      logo.innerHTML = `<svg id="nav-logo-svg" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="logoGradMain2" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#9EF01A"/><stop offset="40%" stop-color="#00C9A7"/><stop offset="100%" stop-color="#1B4FD8"/>
-          </linearGradient>
-          <linearGradient id="logoGradWarm2" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#5B2D8E"/><stop offset="50%" stop-color="#E040A0"/><stop offset="100%" stop-color="#C9A84C"/>
-          </linearGradient>
-        </defs>
-        <path d="M8 14 C8 8, 14 6, 16 11 C18 16, 14 20, 12 18 C10 16, 11 12, 14 13" stroke="url(#logoGradMain2)" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.9"/>
-        <path d="M20 14 C20 20, 14 22, 12 17 C10 12, 14 8, 16 10 C18 12, 17 16, 14 15" stroke="url(#logoGradWarm2)" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.9"/>
-        <circle cx="14" cy="13.5" r="1.2" fill="url(#logoGradMain2)" opacity="0.7"/>
-        <circle cx="14" cy="14.5" r="1.2" fill="url(#logoGradWarm2)" opacity="0.7"/>
-      </svg>`;
-    }
+    logo.innerHTML = '❧';
     logo.classList.remove('revealed');
   }
 
@@ -1922,6 +2026,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Update security button state
   updateSecurityBtn();
+
+  // Update notification permission button state
+  updateNotifBtn();
 });
 
 function setupCharInputs() {
@@ -2044,6 +2151,21 @@ function buildGiftsGrid() {
     grid.appendChild(card);
   }
   updateGiftCards();
+  updateProgressCounter();
+}
+
+function updateProgressCounter() {
+  const now = getNow();
+  let completed = 0;
+  for (let i = 1; i <= 18; i++) {
+    const week = DATES.weeks[i-1];
+    // A week counts as completed if its password has been entered
+    if (localStorage.getItem(`week-pw-${i}`)) completed++;
+  }
+  const doneEl = document.getElementById('progress-done');
+  const barEl  = document.getElementById('progress-bar');
+  if (doneEl) doneEl.textContent = completed;
+  if (barEl)  barEl.style.width  = `${(completed / 18) * 100}%`;
 }
 
 function updateGiftCards() {
@@ -2074,6 +2196,7 @@ function updateGiftCards() {
 
 function refreshGifts() {
   updateGiftCards();
+  updateProgressCounter();
 }
 
 // ===================== WEEK DATA =====================
@@ -2131,7 +2254,7 @@ function openWeek(num) {
       <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Pista de la semana</div>
       <p class="body-text">Tu regalo estará disponible el lunes ${formatDayMonth(week.monday)}.</p>
       <div style="margin-top:12px;padding:14px 16px;background:rgba(201,168,76,0.08);border-radius:var(--radius-sm);border:1px solid rgba(201,168,76,0.2);">
-        <p class="body-text" style="font-size:0.88rem;text-align:left;line-height:1.75;">${hintText}</p>
+        <p class="body-text" style="font-size:0.88rem;text-align:justify;line-height:1.75;">${hintText}</p>
       </div>
     `;
   } else {
@@ -2154,7 +2277,7 @@ function openWeek(num) {
       pwDiv.innerHTML = `
         <div class="card">
           <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Explicación desbloqueada</div>
-          <p class="body-text" style="font-size:0.88rem;text-align:left;">Ya has recibido este regalo. ¡Espero que te haya gustado! 🌿</p>
+          <p class="body-text" style="font-size:0.88rem;text-align:justify;">Ya has recibido este regalo. ¡Espero que te haya gustado! 🌿</p>
         </div>
       `;
     } else {
@@ -2184,12 +2307,30 @@ function checkWeekPassword(num) {
     const section = document.getElementById(`week-pw-section-${num}`);
     if (section) {
       const explanation = weekData ? weekData.explanation : '<p>¡Espero que te haya gustado! 🌿</p>';
-      section.innerHTML = `
-        <div class="card" style="border-color:rgba(201,168,76,0.3);background:linear-gradient(135deg,rgba(201,168,76,0.05),rgba(224,64,160,0.04));">
-          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Explicación desbloqueada ✨</div>
-          <div class="body-text" style="font-size:0.88rem;text-align:left;line-height:1.8;">${explanation}</div>
-        </div>
+      const card = document.createElement('div');
+      card.className = 'card unlock-animate';
+      card.style.cssText = 'border-color:rgba(201,168,76,0.3);background:linear-gradient(135deg,rgba(201,168,76,0.05),rgba(224,64,160,0.04));position:relative;overflow:visible;';
+      card.innerHTML = `
+        <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Explicación desbloqueada ✨</div>
+        <div class="body-text" style="font-size:0.88rem;text-align:justify;line-height:1.8;">${explanation}</div>
       `;
+      section.innerHTML = '';
+      section.appendChild(card);
+      // Sparkle particles
+      const colors = ['#C9A84C','#E040A0','#00C9A7','#9EF01A','#5B2D8E'];
+      for (let i = 0; i < 8; i++) {
+        const p = document.createElement('div');
+        p.className = 'sparkle-particle';
+        p.style.cssText = `
+          background: ${colors[i % colors.length]};
+          left: ${20 + Math.random() * 60}%;
+          top: ${10 + Math.random() * 40}%;
+          animation-delay: ${Math.random() * 0.3}s;
+        `;
+        card.appendChild(p);
+      }
+      // Update counter
+      updateProgressCounter();
     }
   } else {
     const err = document.getElementById(`pw-error-${num}`);
@@ -2199,7 +2340,74 @@ function checkWeekPassword(num) {
   }
 }
 
-// ===================== NOTIFICATION =====================
+// ===================== NOTIFICATION PERMISSION =====================
+function requestNotifPermission() {
+  const btn = document.getElementById('notif-permission-btn');
+  const status = document.getElementById('notif-permission-status');
+
+  // Check if notifications are supported
+  if (!('Notification' in window)) {
+    if (status) { status.textContent = 'Tu navegador no soporta notificaciones. Asegúrate de abrir la página desde el icono de tu pantalla de inicio.'; status.style.display = 'block'; status.style.color = 'var(--rose)'; }
+    return;
+  }
+
+  // Already granted
+  if (Notification.permission === 'granted') {
+    if (status) { status.textContent = '✓ Las notificaciones ya están activadas.'; status.style.display = 'block'; status.style.color = '#4ade80'; }
+    if (btn) btn.style.display = 'none';
+    // Subscribe via OneSignal too
+    if (window.OneSignal) OneSignal.User.PushSubscription.optIn();
+    return;
+  }
+
+  // Denied
+  if (Notification.permission === 'denied') {
+    if (status) { status.textContent = 'Has bloqueado las notificaciones. Puedes activarlas en Ajustes > Safari > esta página web.'; status.style.display = 'block'; status.style.color = 'var(--rose)'; }
+    return;
+  }
+
+  // Request permission
+  if (window.OneSignalDeferred) {
+    window.OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.User.PushSubscription.optIn();
+      const granted = Notification.permission === 'granted';
+      if (status) {
+        status.textContent = granted ? '✓ ¡Notificaciones activadas! Te avisaremos cuando haya novedades.' : 'No se han podido activar. Inténtalo desde Ajustes si quieres activarlas más adelante.';
+        status.style.display = 'block';
+        status.style.color = granted ? '#4ade80' : 'var(--rose)';
+      }
+      if (granted && btn) btn.style.display = 'none';
+    });
+  } else {
+    Notification.requestPermission().then(permission => {
+      if (status) {
+        status.textContent = permission === 'granted' ? '✓ ¡Notificaciones activadas!' : 'No se han podido activar.';
+        status.style.display = 'block';
+        status.style.color = permission === 'granted' ? '#4ade80' : 'var(--rose)';
+      }
+      if (permission === 'granted' && btn) btn.style.display = 'none';
+    });
+  }
+}
+
+// On load: check and update notification button state
+function updateNotifBtn() {
+  const btn = document.getElementById('notif-permission-btn');
+  const status = document.getElementById('notif-permission-status');
+  if (!btn || !status) return;
+  if (!('Notification' in window)) {
+    btn.style.display = 'none';
+    status.textContent = 'Las notificaciones no están disponibles en este navegador. Ábrela desde el icono de tu pantalla de inicio.';
+    status.style.display = 'block';
+    return;
+  }
+  if (Notification.permission === 'granted') {
+    btn.style.display = 'none';
+    status.textContent = '✓ Las notificaciones ya están activadas.';
+    status.style.display = 'block';
+    status.style.color = '#4ade80';
+  }
+}
 function checkNotification() {
   // Use persistedState directly so modals don't re-appear on every refreshAll tick
   // In admin mode we always allow re-show (for testing)
@@ -2440,5 +2648,6 @@ window.addEventListener('resize', () => {
   if (canvas) { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
 });
 </script>
-</body>
-</html>
+
+
+</body></html>
