@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<!-- saved from url=(0051)file:///C:/Users/FX707/Downloads/18semanas_v10.html -->
-<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="es"><head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Juntos llegamos más cerca</title>
-<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link href="./index_files/css2" rel="stylesheet">
-<link rel="manifest" href="file:///C:/Sanaa/manifest.json">
-<script src="./index_files/OneSignalSDK.page.js.descargar" defer=""></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="manifest" href="/Sanaa/manifest.json">
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(async function(OneSignal) {
@@ -996,7 +995,7 @@
     color: var(--gold);
   }
 </style>
-<script src="./index_files/OneSignalSDK.page.es6.js.descargar" defer=""></script></head>
+</head>
 <body class="light-mode">
 
 <!-- Background -->
@@ -1021,10 +1020,10 @@
   </svg>
 </div>
 
-<canvas id="confetti-canvas" width="1912" height="948"></canvas>
+<canvas id="confetti-canvas"></canvas>
 
 <!-- Admin Indicator -->
-<div class="admin-indicator" id="adminIndicator" style="display: block;">⚙ ADMIN</div>
+<div class="admin-indicator" id="adminIndicator">⚙ ADMIN</div>
 
 <!-- App -->
 <div id="app">
@@ -1033,25 +1032,25 @@
   <div class="screen active" id="screen-menu">
     <div class="nav-bar">
       <span class="nav-logo" id="navLogo">❧</span>
-      <span style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);" id="navDate">viernes, 27 de febrero</span>
+      <span style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);" id="navDate">jueves, 19 de febrero</span>
     </div>
 
     <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;width:100%;">
       
       <!-- State A: Before Sun 22 Feb 00:00 -->
-      <div id="menu-state-a" style="display: none; flex-direction: column; align-items: center; gap: 24px; width: 100%;">
+      <div id="menu-state-a" style="display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%;">
         <div class="reveal reveal-1">
           <div class="title-sub">Algo está llegando…</div>
         </div>
         <div class="reveal reveal-2" style="text-align:center;">
           <div class="countdown-wrapper" id="countdown-to-sunday">
-            <div class="countdown-unit"><span class="countdown-number" id="ctd-days">00</span><span class="countdown-label">días</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctd-days">02</span><span class="countdown-label">días</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctd-hours">00</span><span class="countdown-label">horas</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctd-hours">09</span><span class="countdown-label">horas</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctd-mins">00</span><span class="countdown-label">min</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctd-mins">29</span><span class="countdown-label">min</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctd-secs">00</span><span class="countdown-label">seg</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctd-secs">26</span><span class="countdown-label">seg</span></div>
           </div>
           <div class="body-text" style="font-size:0.8rem;margin-top:8px;">hasta que se desvele</div>
         </div>
@@ -1061,7 +1060,7 @@
       </div>
 
       <!-- State B: After Sun 22, title not guessed -->
-      <div id="menu-state-b" style="display: none; flex-direction: column; align-items: center; gap: 24px; width: 100%;">
+      <div id="menu-state-b" style="display:none;flex-direction:column;align-items:center;gap:24px;width:100%;">
         <div class="reveal reveal-1">
           <div class="title-sub">un regalo espera</div>
         </div>
@@ -1073,13 +1072,13 @@
         <div class="reveal reveal-3" style="width:100%;text-align:center;">
           <div class="body-text" style="font-size:0.75rem;margin-bottom:8px;">El regalo se desvela el</div>
           <div class="countdown-wrapper" id="countdown-to-friday">
-            <div class="countdown-unit"><span class="countdown-number" id="ctf-days">00</span><span class="countdown-label">días</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctf-days">07</span><span class="countdown-label">días</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctf-hours">00</span><span class="countdown-label">horas</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctf-hours">20</span><span class="countdown-label">horas</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctf-mins">00</span><span class="countdown-label">min</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctf-mins">59</span><span class="countdown-label">min</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctf-secs">00</span><span class="countdown-label">seg</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctf-secs">26</span><span class="countdown-label">seg</span></div>
           </div>
           <div class="body-text" style="font-size:0.75rem;margin-top:8px;">viernes 27 · 11:30</div>
         </div>
@@ -1089,7 +1088,7 @@
       </div>
 
       <!-- State C: Title guessed, before Fri 27 11:30 -->
-      <div id="menu-state-c" style="display: none; flex-direction: column; align-items: center; gap: 24px; width: 100%;">
+      <div id="menu-state-c" style="display:none;flex-direction:column;align-items:center;gap:24px;width:100%;">
         <div class="reveal reveal-1">
           <div class="title-main" id="main-title-c">18 Semanas</div>
         </div>
@@ -1097,24 +1096,24 @@
         <div class="reveal reveal-3" style="text-align:center;">
           <div class="body-text">El viernes descubrirás en qué consiste</div>
           <div class="countdown-wrapper" style="margin-top:16px;" id="countdown-to-friday-c">
-            <div class="countdown-unit"><span class="countdown-number" id="ctfc-days">00</span><span class="countdown-label">días</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctfc-days">07</span><span class="countdown-label">días</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctfc-hours">00</span><span class="countdown-label">horas</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctfc-hours">20</span><span class="countdown-label">horas</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctfc-mins">00</span><span class="countdown-label">min</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctfc-mins">59</span><span class="countdown-label">min</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctfc-secs">00</span><span class="countdown-label">seg</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctfc-secs">26</span><span class="countdown-label">seg</span></div>
           </div>
           <div class="body-text" style="font-size:0.75rem;margin-top:8px;">viernes 27 · 11:30</div>
         </div>
         <div class="reveal reveal-4" style="display:flex;flex-direction:column;gap:10px;align-items:center;">
-          <button class="btn btn-primary" onclick="goTo(&#39;screen-success&#39;)">Volver al juego ✦</button>
+          <button class="btn btn-primary" onclick="goTo('screen-success')">Volver al juego ✦</button>
           <button class="btn btn-ghost" onclick="goTo(&#39;screen-presentation&#39;)">¿Qué es esto? 🤔</button>
         </div>
       </div>
 
       <!-- State D: After Fri 27 11:30 — full menu -->
-      <div id="menu-state-d" style="display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%;">
+      <div id="menu-state-d" style="display:none;flex-direction:column;align-items:center;gap:24px;width:100%;">
         <div class="reveal reveal-1">
           <div class="title-main">18 Semanas</div>
           <div class="title-sub">tu proceso hacia la libertad</div>
@@ -1122,20 +1121,20 @@
         <div class="reveal reveal-2 identity-logo-wrap">
           <svg class="identity-logo-svg" width="48" height="60" viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <lineargradient id="ilogoGradA" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#9EF01A"></stop>
-                <stop offset="40%" stop-color="#2D3A8C"></stop>
-                <stop offset="100%" stop-color="#4A1A8C"></stop>
-              </lineargradient>
-              <lineargradient id="ilogoGradB" x1="100%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#4A1A8C"></stop>
-                <stop offset="50%" stop-color="#D45280"></stop>
-                <stop offset="100%" stop-color="#C49A3C"></stop>
-              </lineargradient>
+              <linearGradient id="ilogoGradA" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#9EF01A"/>
+                <stop offset="40%" stop-color="#2D3A8C"/>
+                <stop offset="100%" stop-color="#4A1A8C"/>
+              </linearGradient>
+              <linearGradient id="ilogoGradB" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#4A1A8C"/>
+                <stop offset="50%" stop-color="#D45280"/>
+                <stop offset="100%" stop-color="#C49A3C"/>
+              </linearGradient>
             </defs>
-            <path class="identity-logo-path-left" d="M 80 10 C 40 10, 15 50, 15 100 C 15 150, 40 190, 80 190 C 55 170, 40 140, 40 100 C 40 60, 55 30, 80 10 Z"></path>
-            <path class="identity-logo-path-right" d="M 80 10 C 120 10, 145 50, 145 100 C 145 150, 120 190, 80 190 C 105 170, 120 140, 120 100 C 120 60, 105 30, 80 10 Z"></path>
-            <path class="identity-logo-path-mid" d="M 80 10 C 55 30, 40 60, 40 100 C 40 140, 55 170, 80 190 C 105 170, 120 140, 120 100 C 120 60, 105 30, 80 10 Z"></path>
+            <path class="identity-logo-path-left"  d="M 80 10 C 40 10, 15 50, 15 100 C 15 150, 40 190, 80 190 C 55 170, 40 140, 40 100 C 40 60, 55 30, 80 10 Z"/>
+            <path class="identity-logo-path-right" d="M 80 10 C 120 10, 145 50, 145 100 C 145 150, 120 190, 80 190 C 105 170, 120 140, 120 100 C 120 60, 105 30, 80 10 Z"/>
+            <path class="identity-logo-path-mid"   d="M 80 10 C 55 30, 40 60, 40 100 C 40 140, 55 170, 80 190 C 105 170, 120 140, 120 100 C 120 60, 105 30, 80 10 Z"/>
           </svg>
         </div>
         <div class="reveal reveal-3" style="width:100%;display:flex;flex-direction:column;gap:10px;align-items:center;">
@@ -1149,14 +1148,9 @@
             El título 🔤
           </button>
         </div>
-        <div class="reveal reveal-4" id="menu-next-gift" style="text-align:center;width:100%;"><div class="body-text" style="font-size:0.75rem;margin-bottom:8px;">Próximo regalo en</div>
-      <div class="countdown-wrapper">
-        <div class="countdown-unit"><span class="countdown-number" id="mnext-d">02</span><span class="countdown-label">días</span></div>
-        <div class="countdown-sep">·</div>
-        <div class="countdown-unit"><span class="countdown-number" id="mnext-h">12</span><span class="countdown-label">horas</span></div>
-        <div class="countdown-sep">·</div>
-        <div class="countdown-unit"><span class="countdown-number" id="mnext-m">00</span><span class="countdown-label">min</span></div>
-      </div></div>
+        <div class="reveal reveal-4" id="menu-next-gift" style="text-align:center;width:100%;">
+          <!-- Next gift countdown injected here -->
+        </div>
       </div>
 
     </div>
@@ -1169,7 +1163,7 @@
     </div>
 
     <!-- Before Sun 22 -->
-    <div id="pres-state-a" style="display: none; flex-direction: column; align-items: center; gap: 24px; width: 100%; text-align: center;">
+    <div id="pres-state-a" style="display:none;flex-direction:column;align-items:center;gap:24px;width:100%;text-align:center;">
       <div class="reveal reveal-1">
         <div class="section-title">¿Qué es esto? 🤔</div>
       </div>
@@ -1181,13 +1175,13 @@
       </div>
       <div class="reveal reveal-4">
         <div class="countdown-wrapper">
-          <div class="countdown-unit"><span class="countdown-number" id="pctd-days">00</span><span class="countdown-label">días</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctd-days">02</span><span class="countdown-label">días</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctd-hours">00</span><span class="countdown-label">horas</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctd-hours">09</span><span class="countdown-label">horas</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctd-mins">00</span><span class="countdown-label">min</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctd-mins">29</span><span class="countdown-label">min</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctd-secs">00</span><span class="countdown-label">seg</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctd-secs">26</span><span class="countdown-label">seg</span></div>
         </div>
       </div>
       <div class="ornament reveal reveal-5"></div>
@@ -1197,7 +1191,7 @@
     </div>
 
     <!-- After Sun 22, before guessing -->
-    <div id="pres-state-b" style="display: none; flex-direction: column; align-items: center; gap: 24px; width: 100%; text-align: center;">
+    <div id="pres-state-b" style="display:none;flex-direction:column;align-items:center;gap:24px;width:100%;text-align:center;">
       <div class="reveal reveal-1">
         <div class="section-title">Presentación</div>
       </div>
@@ -1217,7 +1211,7 @@
     </div>
 
     <!-- After guessing, before Fri 27 -->
-    <div id="pres-state-c" style="display: none; flex-direction: column; align-items: center; gap: 24px; width: 100%; text-align: center;">
+    <div id="pres-state-c" style="display:none;flex-direction:column;align-items:center;gap:24px;width:100%;text-align:center;">
       <div class="reveal reveal-1">
         <div class="section-title">Presentación</div>
       </div>
@@ -1229,13 +1223,13 @@
       </div>
       <div class="reveal reveal-4">
         <div class="countdown-wrapper">
-          <div class="countdown-unit"><span class="countdown-number" id="pctf-days">00</span><span class="countdown-label">días</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctf-days">07</span><span class="countdown-label">días</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctf-hours">00</span><span class="countdown-label">horas</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctf-hours">20</span><span class="countdown-label">horas</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctf-mins">00</span><span class="countdown-label">min</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctf-mins">59</span><span class="countdown-label">min</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctf-secs">00</span><span class="countdown-label">seg</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctf-secs">26</span><span class="countdown-label">seg</span></div>
         </div>
         <div class="body-text" style="margin-top:8px;font-size:0.75rem;">viernes 27 · 11:30</div>
       </div>
@@ -1246,7 +1240,7 @@
     </div>
 
     <!-- After Fri 27 11:30 -->
-    <div id="pres-state-d" style="display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%;">
+    <div id="pres-state-d" style="display:none;flex-direction:column;align-items:center;gap:20px;width:100%;">
       <div class="reveal reveal-1" style="text-align:center;">
         <div class="section-title">Presentación 💛</div>
         <div class="spacer-sm"></div>
@@ -1261,10 +1255,10 @@
         <p>No sé exactamente qué va a pasar en estas 18 semanas. Pero sé que voy a estar aquí, que estoy muy emocionado por nuestra situación actual, y que cada lunes va a haber algo esperándote. Semana a semana, un paso más hacia ti 💙 <em>Juntos llegamos más cerca.</em></p>
       </div>
       <div class="ornament reveal reveal-4"></div>
-      <div class="reveal reveal-5" id="pres-start-btn-wrapper" style="display: none;">
+      <div class="reveal reveal-5" id="pres-start-btn-wrapper">
         <button class="btn btn-warm btn-lg" onclick="unlockGiftsScreen()">Estoy lista ✦</button>
       </div>
-      <div class="reveal reveal-6" id="pres-gifts-btn-wrapper" style="display: flex;">
+      <div class="reveal reveal-6" id="pres-gifts-btn-wrapper" style="display:none;">
         <button class="btn btn-primary" onclick="goTo(&#39;screen-gifts&#39;)">Ver mis regalos 🎁</button>
       </div>
       <div class="spacer-sm"></div>
@@ -1282,7 +1276,7 @@
     </div>
 
     <!-- Before title guessed -->
-    <div id="game-active" style="display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%;">
+    <div id="game-active" style="display:none;flex-direction:column;align-items:center;gap:20px;width:100%;">
       <div class="reveal reveal-1" style="text-align:center;">
         <div class="section-title">Este regalo tiene un nombre 🔡</div>
         <div class="spacer-sm"></div>
@@ -1295,8 +1289,8 @@
         <div class="input-group">
           <span class="input-label">un número</span>
           <div class="char-inputs" id="inputs-number">
-            <input class="char-input correct" maxlength="1" data-group="number" data-index="0" type="text" inputmode="numeric" autocomplete="off">
-            <input class="char-input correct" maxlength="1" data-group="number" data-index="1" type="text" inputmode="numeric" autocomplete="off">
+            <input class="char-input" maxlength="1" data-group="number" data-index="0" type="text" inputmode="numeric" autocomplete="off">
+            <input class="char-input" maxlength="1" data-group="number" data-index="1" type="text" inputmode="numeric" autocomplete="off">
           </div>
         </div>
       </div>
@@ -1304,13 +1298,13 @@
       <div class="reveal reveal-4" style="width:100%;">
         <div class="input-group">
           <div class="char-inputs" id="inputs-word">
-            <input class="char-input correct" maxlength="1" data-group="word" data-index="0" type="text" autocomplete="off">
-            <input class="char-input correct" maxlength="1" data-group="word" data-index="1" type="text" autocomplete="off">
-            <input class="char-input correct" maxlength="1" data-group="word" data-index="2" type="text" autocomplete="off">
-            <input class="char-input correct" maxlength="1" data-group="word" data-index="3" type="text" autocomplete="off">
-            <input class="char-input correct" maxlength="1" data-group="word" data-index="4" type="text" autocomplete="off">
-            <input class="char-input correct" maxlength="1" data-group="word" data-index="5" type="text" autocomplete="off">
-            <input class="char-input correct" maxlength="1" data-group="word" data-index="6" type="text" autocomplete="off">
+            <input class="char-input" maxlength="1" data-group="word" data-index="0" type="text" autocomplete="off">
+            <input class="char-input" maxlength="1" data-group="word" data-index="1" type="text" autocomplete="off">
+            <input class="char-input" maxlength="1" data-group="word" data-index="2" type="text" autocomplete="off">
+            <input class="char-input" maxlength="1" data-group="word" data-index="3" type="text" autocomplete="off">
+            <input class="char-input" maxlength="1" data-group="word" data-index="4" type="text" autocomplete="off">
+            <input class="char-input" maxlength="1" data-group="word" data-index="5" type="text" autocomplete="off">
+            <input class="char-input" maxlength="1" data-group="word" data-index="6" type="text" autocomplete="off">
           </div>
           <span class="input-label">una palabra</span>
         </div>
@@ -1321,7 +1315,7 @@
         <button class="btn btn-primary" onclick="checkAnswer()">Comprobar</button>
       </div>
 
-      <div id="game-hints" class="hints-container reveal reveal-6"><div class="hint-item"><span class="hint-label">Pista 1</span>Son dos cifras y siete letras.</div><div class="hint-item"><span class="hint-label">Pista 2</span>La N es una de las letras.</div><div class="hint-item"><span class="hint-label">Pista 3</span>La última letra es una S.</div><div class="hint-item"><span class="hint-label">Pista 4</span>La tercera letra es una E.</div><div class="hint-item"><span class="hint-label">Pista 5</span>Hay una letra que se repite dos veces: la A.</div><div class="hint-item"><span class="hint-label">Pista 6</span>La palabra es una unidad de tiempo.</div><div class="hint-item"><span class="hint-label">Pista 7</span>Viene del latín: septem, que significa siete días.</div><div class="hint-item"><span class="hint-label">Pista 8</span>Piensa en cuántas semanas tienen 4 meses y medio.</div></div>
+      <div id="game-hints" class="hints-container reveal reveal-6"></div>
     </div>
 
     <!-- Before Sun 22 -->
@@ -1334,17 +1328,17 @@
       </div>
       <div class="reveal reveal-3">
         <div class="countdown-wrapper">
-          <div class="countdown-unit"><span class="countdown-number" id="gctd-days">00</span><span class="countdown-label">días</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="gctd-days">02</span><span class="countdown-label">días</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="gctd-hours">00</span><span class="countdown-label">horas</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="gctd-hours">09</span><span class="countdown-label">horas</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="gctd-mins">00</span><span class="countdown-label">min</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="gctd-mins">29</span><span class="countdown-label">min</span></div>
         </div>
       </div>
     </div>
 
     <!-- After guessing -->
-    <div id="game-success" style="display: none; flex-direction: column; align-items: center; gap: 20px; width: 100%; text-align: center;">
+    <div id="game-success" style="display:none;flex-direction:column;align-items:center;gap:20px;width:100%;text-align:center;">
       <div class="reveal reveal-1">
         <div class="success-title">¡Ya lo adivinaste!</div>
         <div class="success-big">18<br>Semanas</div>
@@ -1387,21 +1381,21 @@
         <div class="spacer-sm"></div>
         <p class="body-text" style="font-size:0.85rem;">El viernes 27 de febrero a las 11:30<br>sabrás exactamente en qué consiste.</p>
       </div>
-      <div class="reveal reveal-5" id="success-countdown-wrapper" style="display: none;">
+      <div class="reveal reveal-5" id="success-countdown-wrapper" style="display: flex;">
         <div class="countdown-wrapper">
-          <div class="countdown-unit"><span class="countdown-number" id="sctf-days">00</span><span class="countdown-label">días</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="sctf-days">07</span><span class="countdown-label">días</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="sctf-hours">00</span><span class="countdown-label">horas</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="sctf-hours">20</span><span class="countdown-label">horas</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="sctf-mins">00</span><span class="countdown-label">min</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="sctf-mins">59</span><span class="countdown-label">min</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="sctf-secs">00</span><span class="countdown-label">seg</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="sctf-secs">26</span><span class="countdown-label">seg</span></div>
         </div>
       </div>
-      <div class="reveal reveal-6" id="success-save-btn" style="display: none;">
+      <div class="reveal reveal-6" id="success-save-btn">
         <button class="btn btn-primary btn-lg" onclick="saveSuccess()">Guardar ✓</button>
       </div>
-      <div id="success-after-save" style="display: flex; flex-direction: column; align-items: center; gap: 12px;" class="reveal reveal-1">
+      <div id="success-after-save" style="display:none;flex-direction:column;align-items:center;gap:12px;" class="reveal reveal-1">
         <div class="spacer-sm"></div>
         <button class="btn btn-ghost" onclick="goTo(&#39;screen-game&#39;)">Volver al juego 🔡</button>
         <button class="btn btn-warm" onclick="goTo(&#39;screen-menu&#39;)">Ir al inicio</button>
@@ -1423,7 +1417,7 @@
         <span class="num-done" id="progress-done">0</span><span class="num-sep">/</span><span class="num-total">18</span>
       </div>
       <div class="progress-bar-wrap">
-        <div class="progress-bar-fill" id="progress-bar" style="width: 0%;"></div>
+        <div class="progress-bar-fill" id="progress-bar" style="width:0%"></div>
       </div>
     </div>
     <div class="spacer-sm"></div>
@@ -1473,7 +1467,7 @@
       <div class="card reveal reveal-3" style="gap:10px;display:flex;flex-direction:column;">
         <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);font-family:var(--font-body);">2 · Seguridad 🔒</div>
         <p class="body-text" style="text-align:justify;">He pensado que tener esto en tu móvil podría llegar a ser preocupante o arriesgado por tu situación familiar. Si tú también piensas lo mismo, pulsa el botón de abajo para establecer una contraseña y que solamente tú y yo podamos usar la página.</p>
-        <button class="btn btn-ghost" style="margin-top: 4px;" id="security-btn-open" onclick="openPasswordModal()">Activar contraseña 🔑</button>
+        <button class="btn btn-ghost" style="margin-top:4px;" id="security-btn-open" onclick="openPasswordModal()">Activar contraseña 🔑</button>
       </div>
 
       <!-- 3. Accesibilidad -->
@@ -1494,8 +1488,8 @@
         <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);font-family:var(--font-body);">5 · Apariencia 🌙</div>
         <p class="body-text" style="text-align:left;">Puedes elegir cómo quieres que se vea la página: con fondo claro o con fondo oscuro.</p>
         <div style="display:flex;gap:8px;margin-top:4px;">
-          <button class="btn btn-ghost" style="flex: 1 1 0%; font-size: 0.8rem; border-color: rgba(201, 168, 76, 0.5); color: var(--gold);" onclick="setTheme(&#39;light&#39;)" id="theme-btn-light">☀️ Modo claro</button>
-          <button class="btn btn-ghost" style="flex: 1 1 0%; font-size: 0.8rem;" onclick="setTheme(&#39;dark&#39;)" id="theme-btn-dark">🌙 Modo oscuro</button>
+          <button class="btn btn-ghost" style="flex:1;font-size:0.8rem;" onclick="setTheme('light')" id="theme-btn-light">☀️ Modo claro</button>
+          <button class="btn btn-ghost" style="flex:1;font-size:0.8rem;" onclick="setTheme('dark')" id="theme-btn-dark">🌙 Modo oscuro</button>
         </div>
       </div>
 
@@ -1589,14 +1583,14 @@
     <div style="font-size:1.8rem;margin-bottom:12px;">🌻</div>
     <div class="notify-title">Contraseña de acceso</div>
     <div class="spacer-sm"></div>
-    <div id="modal-pw-activate-view" style="display: none;">
+    <div id="modal-pw-activate-view">
       <p class="body-text" style="font-size:0.88rem;">Si activas esta opción, cada vez que entres en la app tendrás que introducir una contraseña para acceder. Solo tú y yo la sabremos.</p>
       <div class="spacer-md"></div>
       <button class="btn btn-warm" style="width:100%;" onclick="activateAppPassword()">Activar contraseña</button>
       <div class="spacer-sm"></div>
       <button class="btn btn-ghost" style="font-size:0.75rem;width:100%;" onclick="document.getElementById(&#39;modal-password&#39;).classList.add(&#39;hidden&#39;)">No activar</button>
     </div>
-    <div id="modal-pw-deactivate-view" style="display: block;">
+    <div id="modal-pw-deactivate-view" style="display:none;">
       <p class="body-text" style="font-size:0.88rem;">La contraseña de acceso está <strong style="color:#4ade80;">activa</strong>. La página está protegida.</p>
       <div class="spacer-md"></div>
       <button class="btn btn-ghost" style="width:100%;" onclick="deactivateAppPassword()">Desactivar contraseña</button>
@@ -1639,12 +1633,12 @@
     <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;" onclick="adminSetDate(&#39;2026-03-08T01:00&#39;)">Dom 8 Mar</button>
     <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;background:rgba(255,107,157,0.1);border-color:rgba(255,107,157,0.3);color:#FF6B9D;" onclick="adminReset()">⚠ Reset estado</button>
   </div>
-  <div class="admin-row" id="adminResetConfirm" style="display: none; align-items: center; gap: 6px;">
+  <div class="admin-row" id="adminResetConfirm" style="display:none;align-items:center;gap:6px;">
     <span style="font-size:0.75rem;color:#4ade80;">✓ Estado reseteado correctamente</span>
   </div>
   <div class="admin-row">
-    <span style="font-size:0.7rem;color:var(--text-muted);">Fecha activa: <strong id="adminCurrentDate" style="color:var(--text-light);">27/2/2026, 12:00:00</strong></span>
-    <span style="font-size:0.65rem;color:var(--text-muted);margin-left:4px;" id="adminStateDebug">| estado: título=✓ regalos=✗ | menú=d</span>
+    <span style="font-size:0.7rem;color:var(--text-muted);">Fecha activa: <strong id="adminCurrentDate" style="color:var(--text-light);">real</strong></span>
+    <span style="font-size:0.65rem;color:var(--text-muted);margin-left:4px;" id="adminStateDebug"></span>
     <button class="btn btn-ghost" style="font-size:0.7rem;padding:6px 10px;margin-left:auto;" onclick="closeAdmin()">Cerrar</button>
   </div>
 </div>
