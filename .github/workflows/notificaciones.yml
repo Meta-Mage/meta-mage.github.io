@@ -1,0 +1,215 @@
+name: Notificaciones 18 Semanas
+
+on:
+  schedule:
+    # ===================== MINIJUEGO — PISTAS =====================
+    # Pista 1: Dom 22 Feb 00:00 (gameUnlock)
+    - cron: '0 0 22 2 0'   # domingo 22 feb 00:00 UTC
+    # Pista 2: Lun 23 Feb 00:00
+    - cron: '0 0 23 2 1'
+    # Pista 3: Mar 24 Feb 00:00
+    - cron: '0 0 24 2 2'
+    # Pista 4: Mar 24 Feb 12:00
+    - cron: '0 12 24 2 2'
+    # Pista 5: Mié 25 Feb 00:00
+    - cron: '0 0 25 2 3'
+    # Pista 6: Mié 25 Feb 12:00
+    - cron: '0 12 25 2 3'
+    # Pista 7: Jue 26 Feb 00:00
+    - cron: '0 0 26 2 4'
+    # Pista 8: Vie 27 Feb 00:00
+    - cron: '0 0 27 2 5'
+
+    # ===================== PRESENTACIÓN =====================
+    # Vie 27 Feb 11:30 — presUnlock
+    - cron: '30 11 27 2 5'
+
+    # ===================== PISTAS DE REGALOS (domingos 00:00) =====================
+    # Semana 1: Dom 1 Mar
+    - cron: '0 0 1 3 0'
+    # Semana 2: Dom 8 Mar
+    - cron: '0 0 8 3 0'
+    # Semana 3: Dom 15 Mar
+    - cron: '0 0 15 3 0'
+    # Semana 4: Dom 22 Mar
+    - cron: '0 0 22 3 0'
+    # Semana 5: Dom 29 Mar
+    - cron: '0 0 29 3 0'
+    # Semana 6: Dom 5 Abr
+    - cron: '0 0 5 4 0'
+    # Semana 7: Dom 12 Abr
+    - cron: '0 0 12 4 0'
+    # Semana 8: Dom 19 Abr
+    - cron: '0 0 19 4 0'
+    # Semana 9: Dom 26 Abr
+    - cron: '0 0 26 4 0'
+    # Semana 10: Dom 3 May
+    - cron: '0 0 3 5 0'
+    # Semana 11: Dom 10 May
+    - cron: '0 0 10 5 0'
+    # Semana 12: Dom 17 May
+    - cron: '0 0 17 5 0'
+    # Semana 13: Dom 24 May
+    - cron: '0 0 24 5 0'
+    # Semana 14: Dom 31 May
+    - cron: '0 0 31 5 0'
+    # Semana 15: Dom 7 Jun
+    - cron: '0 0 7 6 0'
+    # Semana 16: Dom 14 Jun
+    - cron: '0 0 14 6 0'
+    # Semana 17: Dom 21 Jun
+    - cron: '0 0 21 6 0'
+    # Semana 18: Dom 28 Jun
+    - cron: '0 0 28 6 0'
+
+    # ===================== REGALOS DISPONIBLES (lunes 00:00) =====================
+    # Semana 1: Lun 2 Mar
+    - cron: '0 0 2 3 1'
+    # Semana 2: Lun 9 Mar
+    - cron: '0 0 9 3 1'
+    # Semana 3: Lun 16 Mar
+    - cron: '0 0 16 3 1'
+    # Semana 4: Lun 23 Mar
+    - cron: '0 0 23 3 1'
+    # Semana 5: Lun 30 Mar
+    - cron: '0 0 30 3 1'
+    # Semana 6: Lun 6 Abr
+    - cron: '0 0 6 4 1'
+    # Semana 7: Lun 13 Abr
+    - cron: '0 0 13 4 1'
+    # Semana 8: Lun 20 Abr
+    - cron: '0 0 20 4 1'
+    # Semana 9: Lun 27 Abr
+    - cron: '0 0 27 4 1'
+    # Semana 10: Lun 4 May
+    - cron: '0 0 4 5 1'
+    # Semana 11: Lun 11 May
+    - cron: '0 0 11 5 1'
+    # Semana 12: Lun 18 May
+    - cron: '0 0 18 5 1'
+    # Semana 13: Lun 25 May
+    - cron: '0 0 25 5 1'
+    # Semana 14: Lun 1 Jun
+    - cron: '0 0 1 6 1'
+    # Semana 15: Lun 8 Jun
+    - cron: '0 0 8 6 1'
+    # Semana 16: Lun 15 Jun
+    - cron: '0 0 15 6 1'
+    # Semana 17: Lun 22 Jun
+    - cron: '0 0 22 6 1'
+    # Semana 18: Lun 29 Jun
+    - cron: '0 0 29 6 1'
+
+  workflow_dispatch:
+    inputs:
+      tipo:
+        description: 'Tipo de notificación manual'
+        required: true
+        default: 'pista_juego'
+        type: choice
+        options:
+          - pista_juego
+          - pista_regalo
+          - regalo_disponible
+          - presentacion
+
+jobs:
+  enviar-notificacion:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Determinar tipo de notificación
+        id: tipo
+        run: |
+          NOW="${{ github.event.schedule }}"
+          MANUAL="${{ github.event.inputs.tipo }}"
+
+          # Pistas del minijuego (antes del 27 feb 11:30)
+          PISTAS_JUEGO=(
+            "0 0 22 2 0" "0 0 23 2 1" "0 0 24 2 2" "0 12 24 2 2"
+            "0 0 25 2 3" "0 12 25 2 3" "0 0 26 2 4" "0 0 27 2 5"
+          )
+          # Presentación
+          PRES="30 11 27 2 5"
+          # Pistas de regalos (domingos)
+          PISTAS_REGALO=(
+            "0 0 1 3 0" "0 0 8 3 0" "0 0 15 3 0" "0 0 22 3 0" "0 0 29 3 0"
+            "0 0 5 4 0" "0 0 12 4 0" "0 0 19 4 0" "0 0 26 4 0"
+            "0 0 3 5 0" "0 0 10 5 0" "0 0 17 5 0" "0 0 24 5 0" "0 0 31 5 0"
+            "0 0 7 6 0" "0 0 14 6 0" "0 0 21 6 0" "0 0 28 6 0"
+          )
+
+          if [ -n "$MANUAL" ]; then
+            echo "tipo=$MANUAL" >> $GITHUB_OUTPUT
+          elif [ "$NOW" = "$PRES" ]; then
+            echo "tipo=presentacion" >> $GITHUB_OUTPUT
+          elif [[ " ${PISTAS_JUEGO[@]} " =~ " ${NOW} " ]]; then
+            echo "tipo=pista_juego" >> $GITHUB_OUTPUT
+          elif [[ " ${PISTAS_REGALO[@]} " =~ " ${NOW} " ]]; then
+            echo "tipo=pista_regalo" >> $GITHUB_OUTPUT
+          else
+            echo "tipo=regalo_disponible" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Enviar notificación — Pista del minijuego
+        if: steps.tipo.outputs.tipo == 'pista_juego'
+        run: |
+          curl -s -X POST "https://onesignal.com/api/v1/notifications" \
+            -H "Authorization: Basic ${{ secrets.ONESIGNAL_REST_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "app_id": "73dafac1-0650-4dc1-b785-a3ce02cc14bf",
+              "included_segments": ["All"],
+              "headings": {"en": "🔡 Nueva pista disponible"},
+              "contents": {"en": "¡Hola, Sanaa! Tienes una nueva pista en tu regalo. Pulsa aquí para verla."},
+              "url": "https://meta-mage.github.io/Sanaa/#game",
+              "web_buttons": [{"id": "ver", "text": "Ver la pista →", "url": "https://meta-mage.github.io/Sanaa/#game"}],
+              "chrome_web_icon": "https://raw.githubusercontent.com/Meta-Mage/Sanaa/main/icon.png"
+            }'
+
+      - name: Enviar notificación — Pista de regalo
+        if: steps.tipo.outputs.tipo == 'pista_regalo'
+        run: |
+          curl -s -X POST "https://onesignal.com/api/v1/notifications" \
+            -H "Authorization: Basic ${{ secrets.ONESIGNAL_REST_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "app_id": "73dafac1-0650-4dc1-b785-a3ce02cc14bf",
+              "included_segments": ["All"],
+              "headings": {"en": "🌱 Nueva pista en 18 Semanas"},
+              "contents": {"en": "¡Hola, Sanaa! Tienes una nueva pista en 18 Semanas. Pulsa aquí para verla."},
+              "url": "https://meta-mage.github.io/Sanaa/#gifts",
+              "web_buttons": [{"id": "ver", "text": "Ver mis regalos →", "url": "https://meta-mage.github.io/Sanaa/#gifts"}],
+              "chrome_web_icon": "https://raw.githubusercontent.com/Meta-Mage/Sanaa/main/icon.png"
+            }'
+
+      - name: Enviar notificación — Regalo disponible
+        if: steps.tipo.outputs.tipo == 'regalo_disponible'
+        run: |
+          curl -s -X POST "https://onesignal.com/api/v1/notifications" \
+            -H "Authorization: Basic ${{ secrets.ONESIGNAL_REST_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "app_id": "73dafac1-0650-4dc1-b785-a3ce02cc14bf",
+              "included_segments": ["All"],
+              "headings": {"en": "🎁 ¡Nuevo regalo disponible!"},
+              "contents": {"en": "¡Hola, Sanaa! Tienes un nuevo regalo disponible, ¿has visto ya la pista?"},
+              "url": "https://meta-mage.github.io/Sanaa/#gifts",
+              "web_buttons": [{"id": "ver", "text": "Ver mis regalos →", "url": "https://meta-mage.github.io/Sanaa/#gifts"}],
+              "chrome_web_icon": "https://raw.githubusercontent.com/Meta-Mage/Sanaa/main/icon.png"
+            }'
+
+      - name: Enviar notificación — Presentación desbloqueada
+        if: steps.tipo.outputs.tipo == 'presentacion'
+        run: |
+          curl -s -X POST "https://onesignal.com/api/v1/notifications" \
+            -H "Authorization: Basic ${{ secrets.ONESIGNAL_REST_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "app_id": "73dafac1-0650-4dc1-b785-a3ce02cc14bf",
+              "included_segments": ["All"],
+              "headings": {"en": "💛 ¡Tu regalo ya tiene nombre y forma!"},
+              "contents": {"en": "Ya puedes leer la presentación oficial de tu regalo. Hay una novedad importante esperándote."},
+              "url": "https://meta-mage.github.io/Sanaa/",
+              "web_buttons": [{"id": "ver", "text": "Ver la presentación →", "url": "https://meta-mage.github.io/Sanaa/"}],
+              "chrome_web_icon": "https://raw.githubusercontent.com/Meta-Mage/Sanaa/main/icon.png"
+            }'
