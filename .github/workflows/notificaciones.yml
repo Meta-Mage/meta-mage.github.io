@@ -161,8 +161,8 @@ jobs:
               "included_segments": ["All"],
               "headings": {"en": "🔡 Nueva pista disponible"},
               "contents": {"en": "¡Hola, Sanaa! Tienes una nueva pista en tu regalo. Pulsa aquí para verla."},
-              "url": "https://meta-mage.github.io/Sanaa/#game",
-              "web_buttons": [{"id": "ver", "text": "Ver la pista →", "url": "https://meta-mage.github.io/Sanaa/#game"}],
+              "url": "https://meta-mage.github.io/#game",
+              "web_buttons": [{"id": "ver", "text": "Ver la pista →", "url": "https://meta-mage.github.io/#game"}],
               "chrome_web_icon": "https://raw.githubusercontent.com/Meta-Mage/Sanaa/main/icon.png"
             }'
 
@@ -177,8 +177,8 @@ jobs:
               "included_segments": ["All"],
               "headings": {"en": "🌱 Nueva pista en 18 Semanas"},
               "contents": {"en": "¡Hola, Sanaa! Tienes una nueva pista en 18 Semanas. Pulsa aquí para verla."},
-              "url": "https://meta-mage.github.io/Sanaa/#gifts",
-              "web_buttons": [{"id": "ver", "text": "Ver mis regalos →", "url": "https://meta-mage.github.io/Sanaa/#gifts"}],
+              "url": "https://meta-mage.github.io/#gifts",
+              "web_buttons": [{"id": "ver", "text": "Ver mis regalos →", "url": "https://meta-mage.github.io/#gifts"}],
               "chrome_web_icon": "https://raw.githubusercontent.com/Meta-Mage/Sanaa/main/icon.png"
             }'
 
@@ -193,8 +193,8 @@ jobs:
               "included_segments": ["All"],
               "headings": {"en": "🎁 ¡Nuevo regalo disponible!"},
               "contents": {"en": "¡Hola, Sanaa! Tienes un nuevo regalo disponible, ¿has visto ya la pista?"},
-              "url": "https://meta-mage.github.io/Sanaa/#gifts",
-              "web_buttons": [{"id": "ver", "text": "Ver mis regalos →", "url": "https://meta-mage.github.io/Sanaa/#gifts"}],
+              "url": "https://meta-mage.github.io/#gifts",
+              "web_buttons": [{"id": "ver", "text": "Ver mis regalos →", "url": "https://meta-mage.github.io/#gifts"}],
               "chrome_web_icon": "https://raw.githubusercontent.com/Meta-Mage/Sanaa/main/icon.png"
             }'
 
@@ -209,7 +209,7 @@ jobs:
               "included_segments": ["All"],
               "headings": {"en": "💛 ¡Tu regalo ya tiene nombre y forma!"},
               "contents": {"en": "Ya puedes leer la presentación oficial de tu regalo. Hay una novedad importante esperándote."},
-              "url": "https://meta-mage.github.io/Sanaa/",
-              "web_buttons": [{"id": "ver", "text": "Ver la presentación →", "url": "https://meta-mage.github.io/Sanaa/"}],
+              "url": "https://meta-mage.github.io/",
+              "web_buttons": [{"id": "ver", "text": "Ver la presentación →", "url": "https://meta-mage.github.io/"}],
               "chrome_web_icon": "https://raw.githubusercontent.com/Meta-Mage/Sanaa/main/icon.png"
             }'
