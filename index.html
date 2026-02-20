@@ -750,10 +750,10 @@
     70%  { transform: translateY(-3px); }
   }
 
-  /* On light mode, use outline variant */
-  body.light-mode .identity-logo-path-left  { fill: none; stroke: rgba(155,114,207,0.7); stroke-width: 1.5; }
-  body.light-mode .identity-logo-path-right { fill: none; stroke: rgba(212,82,128,0.7); stroke-width: 1.5; }
-  body.light-mode .identity-logo-path-mid   { fill: none; }
+  /* On light mode: filled with soft color + subtle stroke for visibility */
+  body.light-mode .identity-logo-path-left  { fill: rgba(155,114,207,0.18); stroke: rgba(155,114,207,0.65); stroke-width: 1.2; }
+  body.light-mode .identity-logo-path-right { fill: rgba(212,82,128,0.14); stroke: rgba(212,82,128,0.6); stroke-width: 1.2; }
+  body.light-mode .identity-logo-path-mid   { fill: rgba(0,180,160,0.12); }
 
   /* On dark mode, use gradient variant */
   body:not(.light-mode) .identity-logo-path-left  { fill: url(#ilogoGradA); opacity: 0.85; }
@@ -1031,7 +1031,26 @@
   <!-- ===== SCREEN: MAIN MENU ===== -->
   <div class="screen active" id="screen-menu">
     <div class="nav-bar">
-      <span class="nav-logo" id="navLogo">❧</span>
+      <div class="nav-logo" id="navLogo" style="display:flex;align-items:center;gap:10px;">
+        <svg id="nav-identity-logo" width="22" height="28" viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;animation:identityFloat 6s ease-in-out infinite;">
+          <defs>
+            <linearGradient id="nlGradA" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#9EF01A"/>
+              <stop offset="40%" stop-color="#2D3A8C"/>
+              <stop offset="100%" stop-color="#4A1A8C"/>
+            </linearGradient>
+            <linearGradient id="nlGradB" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#4A1A8C"/>
+              <stop offset="50%" stop-color="#D45280"/>
+              <stop offset="100%" stop-color="#C49A3C"/>
+            </linearGradient>
+          </defs>
+          <path class="identity-logo-path-left"  d="M 80 10 C 40 10, 15 50, 15 100 C 15 150, 40 190, 80 190 C 55 170, 40 140, 40 100 C 40 60, 55 30, 80 10 Z"/>
+          <path class="identity-logo-path-right" d="M 80 10 C 120 10, 145 50, 145 100 C 145 150, 120 190, 80 190 C 105 170, 120 140, 120 100 C 120 60, 105 30, 80 10 Z"/>
+          <path class="identity-logo-path-mid"   d="M 80 10 C 55 30, 40 60, 40 100 C 40 140, 55 170, 80 190 C 105 170, 120 140, 120 100 C 120 60, 105 30, 80 10 Z"/>
+        </svg>
+        <span id="navLogoTitle" style="display:none;font-family:var(--font-display);font-size:1rem;font-weight:700;letter-spacing:-0.02em;background:var(--grad-warm);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">18 Semanas</span>
+      </div>
       <span style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);" id="navDate">jueves, 19 de febrero</span>
     </div>
 
@@ -1062,7 +1081,7 @@
       <!-- State B: After Sun 22, title not guessed -->
       <div id="menu-state-b" style="display:none;flex-direction:column;align-items:center;gap:24px;width:100%;">
         <div class="reveal reveal-1">
-          <div class="title-sub">un regalo espera</div>
+          <div class="title-sub">Un regalo espera</div>
         </div>
         <div class="reveal reveal-2">
           <button class="btn btn-primary btn-lg" onclick="goTo(&#39;screen-game&#39;)">
@@ -1070,7 +1089,7 @@
           </button>
         </div>
         <div class="reveal reveal-3" style="width:100%;text-align:center;">
-          <div class="body-text" style="font-size:0.75rem;margin-bottom:8px;">El regalo se desvela el</div>
+          <div class="body-text" style="font-size:0.75rem;margin-bottom:8px;">el regalo se desvelará en…</div>
           <div class="countdown-wrapper" id="countdown-to-friday">
             <div class="countdown-unit"><span class="countdown-number" id="ctf-days">07</span><span class="countdown-label">días</span></div>
             <div class="countdown-sep">·</div>
@@ -1249,9 +1268,9 @@
       <div class="ornament reveal reveal-2"></div>
       <div class="reveal reveal-3 prose" style="text-align:justify;">
         <p class="salutation">Hola.</p>
-        <p>La intención de este regalo es acompañarte durante tu proceso de independencia. He estimado que, según lo que tú me has contado, durará <strong style="color:var(--text-light);">18 semanas</strong> —es decir, hasta después de las últimas recuperaciones.</p>
+        <p>La intención de este regalo es acompañarte durante tu proceso de independencia. He estimado que, según lo que tú me has contado, durará <strong style="color:var(--text-light);">18 semanas</strong> (es decir, hasta después de las últimas recuperaciones).</p>
         <p>En cada una de estas semanas recibirás un pequeño regalo o detalle simbólico relacionado con tu avance hacia la libertad 🌱 Cada detalle estará esperándote en tu cajón de mi habitación a partir del lunes de la semana correspondiente.</p>
-        <p>El domingo anterior a cada semana recibirás una pista sobre lo que te espera. No será fácil: tendrás que tener paciencia, exactamente igual que en tu progreso hacia la independencia. Parto de la idea de que paulatinamente irás pasando más tiempo en mi casa y estarás más cerca de tener tu nueva habitación, y los regalos van en ese sentido —pero no me gustaría que se interpretaran en ningún caso como un elemento de presión. Todo es simbólico y, si por cualquier motivo acabas por no mudarte, este regalo no tendrá menos sentido.</p>
+        <p>El domingo anterior a cada semana recibirás una pista sobre lo que te espera. No será fácil: tendrás que tener paciencia, exactamente igual que en tu progreso hacia la independencia. Parto de la idea de que paulatinamente irás pasando más tiempo en mi casa y estarás más cerca de tener tu nueva habitación, y los regalos van en ese sentido, pero no me gustaría que se interpretaran en ningún caso como un elemento de presión. Todo es simbólico y, si por cualquier motivo acabas por no mudarte, este regalo no tendrá menos sentido.</p>
         <p>No sé exactamente qué va a pasar en estas 18 semanas. Pero sé que voy a estar aquí, que estoy muy emocionado por nuestra situación actual, y que cada lunes va a haber algo esperándote. Semana a semana, un paso más hacia ti 💙 <em>Juntos llegamos más cerca.</em></p>
       </div>
       <div class="ornament reveal reveal-4"></div>
@@ -1473,13 +1492,13 @@
       <!-- 3. Accesibilidad -->
       <div class="card reveal reveal-4" style="gap:10px;display:flex;flex-direction:column;">
         <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);font-family:var(--font-body);">3 · Accesibilidad 🔖</div>
-        <p class="body-text" style="text-align:justify;">Para acceder fácilmente a la página y poder recibir notificaciones, te recomiendo que la añadas a tu pantalla de inicio. Ábrela en Safari, pulsa el botón de compartir en la barra inferior —el icono con una flecha hacia arriba— y selecciona <strong style="color:var(--text-light);">"Añadir a pantalla de inicio"</strong>. A partir de entonces, ábrela siempre desde ese icono y no desde el navegador.</p>
+        <p class="body-text" style="text-align:justify;">Para acceder fácilmente a la página y poder recibir notificaciones, te recomiendo que la añadas a tu pantalla de inicio. Ábrela en Safari, pulsa el botón de compartir en la barra inferior (el icono con una flecha hacia arriba) y selecciona <strong style="color:var(--text-light);">"Añadir a pantalla de inicio"</strong>. A partir de entonces, ábrela siempre desde ese icono y no desde el navegador.</p>
       </div>
 
       <!-- 4. Notificaciones -->
       <div class="card reveal reveal-4" style="gap:10px;display:flex;flex-direction:column;">
         <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);font-family:var(--font-body);">4 · Notificaciones 🔔</div>
-        <p class="body-text" style="text-align:justify;">Una vez que hayas añadido la página a tu pantalla de inicio y la abras desde allí, te pedirá permiso para enviarte notificaciones. Si lo aceptas, recibirás un aviso discreto cada vez que haya una novedad: una nueva pista, un regalo disponible… Sin ese permiso, tendrás que acordarte de entrar tú misma de vez en cuando.</p>
+        <p class="body-text" style="text-align:justify;">Una vez que hayas añadido la página a tu pantalla de inicio y la abras desde allí, te pedirá permiso para enviarte notificaciones. Si lo aceptas, recibirás un aviso discreto cada vez que haya alguna novedad. Sin ese permiso, tendrás que acordarte de entrar tú misma de vez en cuando.</p>
         <button class="btn btn-ghost" style="margin-top:4px;" onclick="goTo(&#39;screen-notificaciones&#39;)">Instrucciones detalladas →</button>
       </div>
 
@@ -1487,9 +1506,9 @@
       <div class="card reveal reveal-5" style="gap:10px;display:flex;flex-direction:column;">
         <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);font-family:var(--font-body);">5 · Apariencia 🌙</div>
         <p class="body-text" style="text-align:left;">Puedes elegir cómo quieres que se vea la página: con fondo claro o con fondo oscuro.</p>
-        <div style="display:flex;gap:8px;margin-top:4px;">
-          <button class="btn btn-ghost" style="flex:1;font-size:0.8rem;" onclick="setTheme('light')" id="theme-btn-light">☀️ Modo claro</button>
-          <button class="btn btn-ghost" style="flex:1;font-size:0.8rem;" onclick="setTheme('dark')" id="theme-btn-dark">🌙 Modo oscuro</button>
+        <div style="display:flex;gap:8px;margin-top:4px;flex-wrap:wrap;">
+          <button class="btn btn-ghost" style="flex:1;min-width:120px;font-size:0.8rem;" onclick="setTheme('light')" id="theme-btn-light">☀️ Modo claro</button>
+          <button class="btn btn-ghost" style="flex:1;min-width:120px;font-size:0.8rem;" onclick="setTheme('dark')" id="theme-btn-dark">🌙 Modo oscuro</button>
         </div>
       </div>
 
@@ -1525,12 +1544,12 @@
 
       <div class="card reveal reveal-4" style="gap:14px;display:flex;flex-direction:column;">
         <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);font-family:var(--font-body);">Paso 2 · Añadir a la pantalla de inicio</div>
-        <p class="body-text" style="text-align:justify;">Pulsa el botón de compartir —el icono con una flecha hacia arriba que aparece en la barra inferior de Safari— y selecciona <strong style="color:var(--text-light);">"Añadir a pantalla de inicio"</strong>. Ponle el nombre que quieras y pulsa <strong style="color:var(--text-light);">"Añadir"</strong>.</p>
+        <p class="body-text" style="text-align:justify;">Pulsa el botón de compartir (el icono con una flecha hacia arriba que aparece en la barra inferior de Safari) y selecciona <strong style="color:var(--text-light);">"Añadir a pantalla de inicio"</strong>. Ponle el nombre que quieras y pulsa <strong style="color:var(--text-light);">"Añadir"</strong>.</p>
       </div>
 
       <div class="card reveal reveal-4" style="gap:14px;display:flex;flex-direction:column;">
         <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);font-family:var(--font-body);">Paso 3 · Abrir siempre desde ahí</div>
-        <p class="body-text" style="text-align:justify;">A partir de ese momento, abre siempre la página desde el icono de tu pantalla de inicio, <strong style="color:var(--text-light);">no desde Safari directamente</strong>. La primera vez que lo hagas, te pedirá permiso para enviarte notificaciones — acéptalo.</p>
+        <p class="body-text" style="text-align:justify;">A partir de ese momento, abre siempre la página desde el icono de tu pantalla de inicio, <strong style="color:var(--text-light);">no desde Safari directamente</strong>. La primera vez que lo hagas, te pedirá permiso para enviarte notificaciones, acéptalo.</p>
       </div>
 
       <div class="card reveal reveal-5" style="gap:14px;display:flex;flex-direction:column;background:linear-gradient(135deg,rgba(91,45,142,0.06),rgba(224,64,160,0.04));">
@@ -1676,7 +1695,7 @@ function generateWeeks() {
     weeks.push({
       number: i + 1,
       monday, sunday, hintSunday,
-      label: `${formatDayMonth(monday)} — ${formatDayMonth(sunday)}`
+      label: `${formatDayMonth(monday)} · ${formatDayMonth(sunday)}`
     });
   }
   return weeks;
@@ -1892,15 +1911,11 @@ function refreshMenu() {
     if (el) el.style.display = (s === x) ? 'flex' : 'none';
   });
 
-  // Update nav logo — only show title after Sanaa has explicitly saved (no spoilers)
-  const logo = document.getElementById('navLogo');
+  // Update nav logo — show title next to logo once Sanaa has saved
+  const logoTitle = document.getElementById('navLogoTitle');
   const successSaved = localStorage.getItem('successSaved') === 'true';
-  if (state.titleGuessed && successSaved) {
-    logo.innerHTML = '18 Semanas';
-    logo.classList.add('revealed');
-  } else {
-    logo.innerHTML = '❧';
-    logo.classList.remove('revealed');
+  if (logoTitle) {
+    logoTitle.style.display = (state.titleGuessed && successSaved) ? 'inline' : 'none';
   }
 
   // Next gift countdown in state D
@@ -2562,7 +2577,7 @@ function updateSecurityBtn() {
   const btn = document.getElementById('security-btn-open');
   if (!btn) return;
   const isActive = localStorage.getItem('appPasswordActive') === 'true';
-  btn.textContent = isActive ? 'Contraseña activa — configurar 🔑' : 'Activar contraseña 🔑';
+  btn.textContent = isActive ? 'Contraseña activa · configurar 🔑' : 'Activar contraseña 🔑';
   btn.style.borderColor = isActive ? 'rgba(74,222,128,0.4)' : '';
   btn.style.color = isActive ? '#4ade80' : '';
 }
