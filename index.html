@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="es"><head>
-<meta charset="UTF-8">
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Juntos llegamos más cerca</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="manifest" href="/manifest.json">
-<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./index_files/css2" rel="stylesheet">
+<link rel="manifest" href="file:///C:/manifest.json">
+<script src="./index_files/OneSignalSDK.page.js.descargar" defer=""></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(async function(OneSignal) {
@@ -995,7 +994,7 @@
     color: var(--gold);
   }
 </style>
-</head>
+<script src="./index_files/OneSignalSDK.page.es6.js.descargar" defer=""></script></head>
 <body class="light-mode">
 
 <!-- Background -->
@@ -1020,7 +1019,7 @@
   </svg>
 </div>
 
-<canvas id="confetti-canvas"></canvas>
+<canvas id="confetti-canvas" width="1912" height="948"></canvas>
 
 <!-- Admin Indicator -->
 <div class="admin-indicator" id="adminIndicator">⚙ ADMIN</div>
@@ -1034,42 +1033,42 @@
       <div class="nav-logo" id="navLogo" style="display:flex;align-items:center;gap:10px;">
         <svg id="nav-identity-logo" width="22" height="28" viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;animation:identityFloat 6s ease-in-out infinite;">
           <defs>
-            <linearGradient id="nlGradA" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#9EF01A"/>
-              <stop offset="40%" stop-color="#2D3A8C"/>
-              <stop offset="100%" stop-color="#4A1A8C"/>
-            </linearGradient>
-            <linearGradient id="nlGradB" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#4A1A8C"/>
-              <stop offset="50%" stop-color="#D45280"/>
-              <stop offset="100%" stop-color="#C49A3C"/>
-            </linearGradient>
+            <lineargradient id="nlGradA" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#9EF01A"></stop>
+              <stop offset="40%" stop-color="#2D3A8C"></stop>
+              <stop offset="100%" stop-color="#4A1A8C"></stop>
+            </lineargradient>
+            <lineargradient id="nlGradB" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#4A1A8C"></stop>
+              <stop offset="50%" stop-color="#D45280"></stop>
+              <stop offset="100%" stop-color="#C49A3C"></stop>
+            </lineargradient>
           </defs>
-          <path class="identity-logo-path-left"  d="M 80 10 C 40 10, 15 50, 15 100 C 15 150, 40 190, 80 190 C 55 170, 40 140, 40 100 C 40 60, 55 30, 80 10 Z"/>
-          <path class="identity-logo-path-right" d="M 80 10 C 120 10, 145 50, 145 100 C 145 150, 120 190, 80 190 C 105 170, 120 140, 120 100 C 120 60, 105 30, 80 10 Z"/>
-          <path class="identity-logo-path-mid"   d="M 80 10 C 55 30, 40 60, 40 100 C 40 140, 55 170, 80 190 C 105 170, 120 140, 120 100 C 120 60, 105 30, 80 10 Z"/>
+          <path class="identity-logo-path-left" d="M 80 10 C 40 10, 15 50, 15 100 C 15 150, 40 190, 80 190 C 55 170, 40 140, 40 100 C 40 60, 55 30, 80 10 Z"></path>
+          <path class="identity-logo-path-right" d="M 80 10 C 120 10, 145 50, 145 100 C 145 150, 120 190, 80 190 C 105 170, 120 140, 120 100 C 120 60, 105 30, 80 10 Z"></path>
+          <path class="identity-logo-path-mid" d="M 80 10 C 55 30, 40 60, 40 100 C 40 140, 55 170, 80 190 C 105 170, 120 140, 120 100 C 120 60, 105 30, 80 10 Z"></path>
         </svg>
         <span id="navLogoTitle" style="display:none;font-family:var(--font-display);font-size:1rem;font-weight:700;letter-spacing:-0.02em;background:var(--grad-warm);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">18 Semanas</span>
       </div>
-      <span style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);" id="navDate">jueves, 19 de febrero</span>
+      <span style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);" id="navDate">sábado, 7 de marzo</span>
     </div>
 
     <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;width:100%;">
       
       <!-- State A: Before Sun 22 Feb 00:00 -->
-      <div id="menu-state-a" style="display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%;">
+      <div id="menu-state-a" style="display: none; flex-direction: column; align-items: center; gap: 24px; width: 100%;">
         <div class="reveal reveal-1">
           <div class="title-sub">Algo está llegando…</div>
         </div>
         <div class="reveal reveal-2" style="text-align:center;">
           <div class="countdown-wrapper" id="countdown-to-sunday">
-            <div class="countdown-unit"><span class="countdown-number" id="ctd-days">02</span><span class="countdown-label">días</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctd-days">00</span><span class="countdown-label">días</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctd-hours">09</span><span class="countdown-label">horas</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctd-hours">00</span><span class="countdown-label">horas</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctd-mins">29</span><span class="countdown-label">min</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctd-mins">00</span><span class="countdown-label">min</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctd-secs">26</span><span class="countdown-label">seg</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctd-secs">00</span><span class="countdown-label">seg</span></div>
           </div>
           <div class="body-text" style="font-size:0.8rem;margin-top:8px;">hasta que se desvele</div>
         </div>
@@ -1091,13 +1090,13 @@
         <div class="reveal reveal-3" style="width:100%;text-align:center;">
           <div class="body-text" style="font-size:0.75rem;margin-bottom:8px;">el regalo se desvelará en…</div>
           <div class="countdown-wrapper" id="countdown-to-friday">
-            <div class="countdown-unit"><span class="countdown-number" id="ctf-days">07</span><span class="countdown-label">días</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctf-days">00</span><span class="countdown-label">días</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctf-hours">20</span><span class="countdown-label">horas</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctf-hours">00</span><span class="countdown-label">horas</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctf-mins">59</span><span class="countdown-label">min</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctf-mins">00</span><span class="countdown-label">min</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctf-secs">26</span><span class="countdown-label">seg</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctf-secs">00</span><span class="countdown-label">seg</span></div>
           </div>
           <div class="body-text" style="font-size:0.75rem;margin-top:8px;">viernes 27 · 11:30</div>
         </div>
@@ -1115,24 +1114,24 @@
         <div class="reveal reveal-3" style="text-align:center;">
           <div class="body-text">El viernes descubrirás en qué consiste</div>
           <div class="countdown-wrapper" style="margin-top:16px;" id="countdown-to-friday-c">
-            <div class="countdown-unit"><span class="countdown-number" id="ctfc-days">07</span><span class="countdown-label">días</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctfc-days">00</span><span class="countdown-label">días</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctfc-hours">20</span><span class="countdown-label">horas</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctfc-hours">00</span><span class="countdown-label">horas</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctfc-mins">59</span><span class="countdown-label">min</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctfc-mins">00</span><span class="countdown-label">min</span></div>
             <div class="countdown-sep">·</div>
-            <div class="countdown-unit"><span class="countdown-number" id="ctfc-secs">26</span><span class="countdown-label">seg</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="ctfc-secs">00</span><span class="countdown-label">seg</span></div>
           </div>
           <div class="body-text" style="font-size:0.75rem;margin-top:8px;">viernes 27 · 11:30</div>
         </div>
         <div class="reveal reveal-4" style="display:flex;flex-direction:column;gap:10px;align-items:center;">
-          <button class="btn btn-primary" onclick="goTo('screen-success')">Volver al juego ✦</button>
+          <button class="btn btn-primary" onclick="goTo(&#39;screen-success&#39;)">Volver al juego ✦</button>
           <button class="btn btn-ghost" onclick="goTo(&#39;screen-presentation&#39;)">¿Qué es esto? 🤔</button>
         </div>
       </div>
 
       <!-- State D: After Fri 27 11:30 — full menu -->
-      <div id="menu-state-d" style="display:none;flex-direction:column;align-items:center;gap:24px;width:100%;">
+      <div id="menu-state-d" style="display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%;">
         <div class="reveal reveal-1">
           <div class="title-main">18 Semanas</div>
           <div class="title-sub">tu proceso hacia la libertad</div>
@@ -1140,20 +1139,20 @@
         <div class="reveal reveal-2 identity-logo-wrap">
           <svg class="identity-logo-svg" width="48" height="60" viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="ilogoGradA" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#9EF01A"/>
-                <stop offset="40%" stop-color="#2D3A8C"/>
-                <stop offset="100%" stop-color="#4A1A8C"/>
-              </linearGradient>
-              <linearGradient id="ilogoGradB" x1="100%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#4A1A8C"/>
-                <stop offset="50%" stop-color="#D45280"/>
-                <stop offset="100%" stop-color="#C49A3C"/>
-              </linearGradient>
+              <lineargradient id="ilogoGradA" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#9EF01A"></stop>
+                <stop offset="40%" stop-color="#2D3A8C"></stop>
+                <stop offset="100%" stop-color="#4A1A8C"></stop>
+              </lineargradient>
+              <lineargradient id="ilogoGradB" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#4A1A8C"></stop>
+                <stop offset="50%" stop-color="#D45280"></stop>
+                <stop offset="100%" stop-color="#C49A3C"></stop>
+              </lineargradient>
             </defs>
-            <path class="identity-logo-path-left"  d="M 80 10 C 40 10, 15 50, 15 100 C 15 150, 40 190, 80 190 C 55 170, 40 140, 40 100 C 40 60, 55 30, 80 10 Z"/>
-            <path class="identity-logo-path-right" d="M 80 10 C 120 10, 145 50, 145 100 C 145 150, 120 190, 80 190 C 105 170, 120 140, 120 100 C 120 60, 105 30, 80 10 Z"/>
-            <path class="identity-logo-path-mid"   d="M 80 10 C 55 30, 40 60, 40 100 C 40 140, 55 170, 80 190 C 105 170, 120 140, 120 100 C 120 60, 105 30, 80 10 Z"/>
+            <path class="identity-logo-path-left" d="M 80 10 C 40 10, 15 50, 15 100 C 15 150, 40 190, 80 190 C 55 170, 40 140, 40 100 C 40 60, 55 30, 80 10 Z"></path>
+            <path class="identity-logo-path-right" d="M 80 10 C 120 10, 145 50, 145 100 C 145 150, 120 190, 80 190 C 105 170, 120 140, 120 100 C 120 60, 105 30, 80 10 Z"></path>
+            <path class="identity-logo-path-mid" d="M 80 10 C 55 30, 40 60, 40 100 C 40 140, 55 170, 80 190 C 105 170, 120 140, 120 100 C 120 60, 105 30, 80 10 Z"></path>
           </svg>
         </div>
         <div class="reveal reveal-3" style="width:100%;display:flex;flex-direction:column;gap:10px;align-items:center;">
@@ -1167,9 +1166,14 @@
             El título 🔤
           </button>
         </div>
-        <div class="reveal reveal-4" id="menu-next-gift" style="text-align:center;width:100%;">
-          <!-- Next gift countdown injected here -->
-        </div>
+        <div class="reveal reveal-4" id="menu-next-gift" style="text-align:center;width:100%;"><div class="body-text" style="font-size:0.75rem;margin-bottom:8px;">Próximo regalo en</div>
+      <div class="countdown-wrapper">
+        <div class="countdown-unit"><span class="countdown-number" id="mnext-d">01</span><span class="countdown-label">días</span></div>
+        <div class="countdown-sep">·</div>
+        <div class="countdown-unit"><span class="countdown-number" id="mnext-h">00</span><span class="countdown-label">horas</span></div>
+        <div class="countdown-sep">·</div>
+        <div class="countdown-unit"><span class="countdown-number" id="mnext-m">27</span><span class="countdown-label">min</span></div>
+      </div></div>
       </div>
 
     </div>
@@ -1194,13 +1198,13 @@
       </div>
       <div class="reveal reveal-4">
         <div class="countdown-wrapper">
-          <div class="countdown-unit"><span class="countdown-number" id="pctd-days">02</span><span class="countdown-label">días</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctd-days">00</span><span class="countdown-label">días</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctd-hours">09</span><span class="countdown-label">horas</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctd-hours">00</span><span class="countdown-label">horas</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctd-mins">29</span><span class="countdown-label">min</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctd-mins">00</span><span class="countdown-label">min</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctd-secs">26</span><span class="countdown-label">seg</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctd-secs">00</span><span class="countdown-label">seg</span></div>
         </div>
       </div>
       <div class="ornament reveal reveal-5"></div>
@@ -1242,13 +1246,13 @@
       </div>
       <div class="reveal reveal-4">
         <div class="countdown-wrapper">
-          <div class="countdown-unit"><span class="countdown-number" id="pctf-days">07</span><span class="countdown-label">días</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctf-days">00</span><span class="countdown-label">días</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctf-hours">20</span><span class="countdown-label">horas</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctf-hours">00</span><span class="countdown-label">horas</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctf-mins">59</span><span class="countdown-label">min</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctf-mins">00</span><span class="countdown-label">min</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="pctf-secs">26</span><span class="countdown-label">seg</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="pctf-secs">00</span><span class="countdown-label">seg</span></div>
         </div>
         <div class="body-text" style="margin-top:8px;font-size:0.75rem;">viernes 27 · 11:30</div>
       </div>
@@ -1347,11 +1351,11 @@
       </div>
       <div class="reveal reveal-3">
         <div class="countdown-wrapper">
-          <div class="countdown-unit"><span class="countdown-number" id="gctd-days">02</span><span class="countdown-label">días</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="gctd-days">00</span><span class="countdown-label">días</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="gctd-hours">09</span><span class="countdown-label">horas</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="gctd-hours">00</span><span class="countdown-label">horas</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="gctd-mins">29</span><span class="countdown-label">min</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="gctd-mins">00</span><span class="countdown-label">min</span></div>
         </div>
       </div>
     </div>
@@ -1400,15 +1404,15 @@
         <div class="spacer-sm"></div>
         <p class="body-text" style="font-size:0.85rem;">El viernes 27 de febrero a las 11:30<br>sabrás exactamente en qué consiste.</p>
       </div>
-      <div class="reveal reveal-5" id="success-countdown-wrapper" style="display: flex;">
+      <div class="reveal reveal-5" id="success-countdown-wrapper" style="display: none;">
         <div class="countdown-wrapper">
-          <div class="countdown-unit"><span class="countdown-number" id="sctf-days">07</span><span class="countdown-label">días</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="sctf-days">00</span><span class="countdown-label">días</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="sctf-hours">20</span><span class="countdown-label">horas</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="sctf-hours">00</span><span class="countdown-label">horas</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="sctf-mins">59</span><span class="countdown-label">min</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="sctf-mins">00</span><span class="countdown-label">min</span></div>
           <div class="countdown-sep">·</div>
-          <div class="countdown-unit"><span class="countdown-number" id="sctf-secs">26</span><span class="countdown-label">seg</span></div>
+          <div class="countdown-unit"><span class="countdown-number" id="sctf-secs">00</span><span class="countdown-label">seg</span></div>
         </div>
       </div>
       <div class="reveal reveal-6" id="success-save-btn">
@@ -1440,7 +1444,7 @@
       </div>
     </div>
     <div class="spacer-sm"></div>
-    <div class="gifts-grid reveal reveal-2" id="gifts-grid"><div class="gift-card locked" data-week="1"><span class="gift-number">1</span></div><div class="gift-card locked" data-week="2"><span class="gift-number">2</span></div><div class="gift-card locked" data-week="3"><span class="gift-number">3</span></div><div class="gift-card locked" data-week="4"><span class="gift-number">4</span></div><div class="gift-card locked" data-week="5"><span class="gift-number">5</span></div><div class="gift-card locked" data-week="6"><span class="gift-number">6</span></div><div class="gift-card locked" data-week="7"><span class="gift-number">7</span></div><div class="gift-card locked" data-week="8"><span class="gift-number">8</span></div><div class="gift-card locked" data-week="9"><span class="gift-number">9</span></div><div class="gift-card locked" data-week="10"><span class="gift-number">10</span></div><div class="gift-card locked" data-week="11"><span class="gift-number">11</span></div><div class="gift-card locked" data-week="12"><span class="gift-number">12</span></div><div class="gift-card locked" data-week="13"><span class="gift-number">13</span></div><div class="gift-card locked" data-week="14"><span class="gift-number">14</span></div><div class="gift-card locked" data-week="15"><span class="gift-number">15</span></div><div class="gift-card locked" data-week="16"><span class="gift-number">16</span></div><div class="gift-card locked" data-week="17"><span class="gift-number">17</span></div><div class="gift-card locked" data-week="18"><span class="gift-number">18</span></div></div>
+    <div class="gifts-grid reveal reveal-2" id="gifts-grid"><div class="gift-card week-active" data-week="1"><span class="gift-number">1</span></div><div class="gift-card locked" data-week="2"><span class="gift-number">2</span></div><div class="gift-card locked" data-week="3"><span class="gift-number">3</span></div><div class="gift-card locked" data-week="4"><span class="gift-number">4</span></div><div class="gift-card locked" data-week="5"><span class="gift-number">5</span></div><div class="gift-card locked" data-week="6"><span class="gift-number">6</span></div><div class="gift-card locked" data-week="7"><span class="gift-number">7</span></div><div class="gift-card locked" data-week="8"><span class="gift-number">8</span></div><div class="gift-card locked" data-week="9"><span class="gift-number">9</span></div><div class="gift-card locked" data-week="10"><span class="gift-number">10</span></div><div class="gift-card locked" data-week="11"><span class="gift-number">11</span></div><div class="gift-card locked" data-week="12"><span class="gift-number">12</span></div><div class="gift-card locked" data-week="13"><span class="gift-number">13</span></div><div class="gift-card locked" data-week="14"><span class="gift-number">14</span></div><div class="gift-card locked" data-week="15"><span class="gift-number">15</span></div><div class="gift-card locked" data-week="16"><span class="gift-number">16</span></div><div class="gift-card locked" data-week="17"><span class="gift-number">17</span></div><div class="gift-card locked" data-week="18"><span class="gift-number">18</span></div></div>
     <div class="spacer-sm"></div>
     <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:center;" class="reveal reveal-3">
       <div style="display:flex;align-items:center;gap:6px;"><div style="width:12px;height:12px;border-radius:3px;border:2px solid var(--gold);box-shadow:0 0 8px rgba(201,168,76,0.4);"></div><span style="font-size:0.7rem;color:var(--text-muted);">Pista disponible</span></div>
@@ -1507,8 +1511,8 @@
         <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);font-family:var(--font-body);">5 · Apariencia 🌙</div>
         <p class="body-text" style="text-align:left;">Puedes elegir cómo quieres que se vea la página: con fondo claro o con fondo oscuro.</p>
         <div style="display:flex;gap:8px;margin-top:4px;flex-wrap:wrap;">
-          <button class="btn btn-ghost" style="flex:1;min-width:120px;font-size:0.8rem;" onclick="setTheme('light')" id="theme-btn-light">☀️ Modo claro</button>
-          <button class="btn btn-ghost" style="flex:1;min-width:120px;font-size:0.8rem;" onclick="setTheme('dark')" id="theme-btn-dark">🌙 Modo oscuro</button>
+          <button class="btn btn-ghost" style="flex: 1 1 0%; min-width: 120px; font-size: 0.8rem; border-color: rgba(201, 168, 76, 0.5); color: var(--gold);" onclick="setTheme(&#39;light&#39;)" id="theme-btn-light">☀️ Modo claro</button>
+          <button class="btn btn-ghost" style="flex:1;min-width:120px;font-size:0.8rem;" onclick="setTheme(&#39;dark&#39;)" id="theme-btn-dark">🌙 Modo oscuro</button>
         </div>
       </div>
 
@@ -1579,6 +1583,18 @@
     <button class="btn btn-primary" onclick="closeNotifyGameGo()">Descubrir el título</button>
     <div class="spacer-sm"></div>
     <button class="btn btn-ghost" style="font-size:0.75rem;" onclick="closeNotifyGame()">Más tarde</button>
+  </div>
+</div>
+
+<!-- Modal: Update notice (Mar 2026) -->
+<div class="modal-overlay hidden" id="modal-update">
+  <div class="modal-box">
+    <div style="font-size:1.8rem;margin-bottom:12px;">✨</div>
+    <div class="notify-title">¡Hay una novedad!</div>
+    <div class="spacer-sm"></div>
+    <p class="body-text" style="font-size:0.88rem;">He hecho algunos cambios en la app. Ahora puedes seguir viendo la pista y la explicación del regalo de la semana 1 aunque ya haya pasado.</p>
+    <div class="spacer-md"></div>
+    <button class="btn btn-warm" onclick="closeUpdateModal()">¡Entendido! 💛</button>
   </div>
 </div>
 
@@ -1673,8 +1689,8 @@ const DATES = {
     { date: new Date('2026-02-22T00:00:00'), text: 'Son dos cifras y siete letras.' },
     { date: new Date('2026-02-23T00:00:00'), text: 'La N es una de las letras.' },
     { date: new Date('2026-02-24T00:00:00'), text: 'La última letra es una S.' },
-    { date: new Date('2026-02-24T12:00:00'), text: 'La segunda letra es una E.' },
-    { date: new Date('2026-02-25T00:00:00'), text: 'Hay una letra que se aparece dos veces: la A.' },
+    { date: new Date('2026-02-24T12:00:00'), text: 'La tercera letra es una E.' },
+    { date: new Date('2026-02-25T00:00:00'), text: 'Hay una letra que se repite dos veces: la A.' },
     { date: new Date('2026-02-25T12:00:00'), text: 'La palabra es una unidad de tiempo.' },
     { date: new Date('2026-02-26T00:00:00'), text: 'Viene del latín: septem, que significa siete días.' },
     { date: new Date('2026-02-27T00:00:00'), text: 'Piensa en cuántas semanas tienen 4 meses y medio.' },
@@ -2029,6 +2045,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Check notification on load
   setTimeout(checkNotification, 500);
+  // Check update modal on load
+  setTimeout(checkUpdateModal, 800);
 
   // Check app lock (after a brief moment)
   setTimeout(checkAppLockOnLoad, 200);
@@ -2211,13 +2229,20 @@ function refreshGifts() {
 // ===================== WEEK DATA =====================
 const WEEK_DATA = {
   1: {
-    hint: 'Hemos demostrado recientemente que este regalo no es necesario del todo, pero a mí me hace ilusión que lo tengas y socialmente no está muy aceptado no tenerlo. Además, sin él, sería posible que no pudiéramos hacer algo juntos en el futuro.',
+    hint: 'Hemos demostrado recientemente que este regalo no es necesario del todo, pero a mí me hace ilusión que lo tengas y socialmente no está muy aceptado no tenerlo. Además, sin él, sería posible que no pudiéramos hacer algo juntos en el futuro 🔴',
     password: 'ORAL-B',
     explanation: `<p style="margin-bottom:12px;">No sé si este era el tipo de regalos que te esperabas. Si es así, ¡me alegro! 😄; si no es así, tranquila, porque habrá regalos de todos los tipos.</p>
     <p style="margin-bottom:12px;">Aunque a lo mejor no lo vayas a usar mucho, he decidido que este fuera el primer regalo porque llevo queriéndolo comprar desde hace meses. La idea inicial era comprar dos cepillos normales a juego, pero como ahora tengo un eléctrico pensé que quedaría mal que yo tenga ese y tú uno normal, cuando todo se puede arreglar cambiando de cabezal.</p>
     <p>Por si no has pillado la pista: si compartimos cepillo no podremos donar sangre juntos 🩸</p>`
+  },
+  2: {
+    hint: 'Este regalo es muy fácil de adivinar, así que no me puedo extender mucho. Solo diré que no creo que lo usemos muy a menudo, pero cuando lo hagamos nos vendrá genial. Tiene que ver con la luna 🌙',
+    password: 'TAMPAX',
+    explanation: `<p style="margin-bottom:12px;">Como sabes, el regalo de esta semana iba a ser el cargador de tu móvil, pero no me pude resistir y te lo di por adelantado. Hoy toca un segundo detalle, y tiene que ver con la higiene femenina. Por si no lo has pillado, el ciclo lunar dura exactamente lo mismo que el ciclo menstrual 🌕</p>
+    <p style="margin-bottom:12px;">Sé que es un regalo pequeño, pero tranquila, los regalos irán siendo más arriesgados e interesantes cuanto más nos acerquemos a la semana 18. En mi casa creo que los habrás usado unas cuatro o cinco veces, pero ahora, la próxima vez que lo necesites, podrás coger los tuyos propios. Además, serían un elemento imprescindible si algún día te independizas.</p>
+    <p>Son muy cómodos y nos permiten hacer cosas que de otra forma no podríamos, como ir juntos a la piscina o a la playa sin preocupaciones 🏊‍♀️🌊🩱</p>`
   }
-  // Semanas 2–18 se irán añadiendo aquí
+  // Semanas 3–18 se irán añadiendo aquí
 };
 
 // ===================== WEEK =====================
@@ -2253,23 +2278,29 @@ function openWeek(num) {
   const statusDiv = document.createElement('div');
   statusDiv.className = 'week-status-box reveal reveal-3';
 
+  const weekData2 = WEEK_DATA[num];
+  const hintText2 = weekData2 && weekData2.hint
+    ? weekData2.hint
+    : 'La pista de esta semana está esperándote. Pronto podrás descubrir qué hay en tu cajón.';
+
   if (!giftAvailable) {
-    // Hint phase
-    const weekData = WEEK_DATA[num];
-    const hintText = weekData && weekData.hint 
-      ? weekData.hint 
-      : 'La pista de esta semana está esperándote. Pronto podrás descubrir qué hay en tu cajón.';
+    // Hint phase only
     statusDiv.innerHTML = `
       <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Pista de la semana</div>
       <p class="body-text">Tu regalo estará disponible el lunes ${formatDayMonth(week.monday)}.</p>
       <div style="margin-top:12px;padding:14px 16px;background:rgba(201,168,76,0.08);border-radius:var(--radius-sm);border:1px solid rgba(201,168,76,0.2);">
-        <p class="body-text" style="font-size:0.88rem;text-align:justify;line-height:1.75;">${hintText}</p>
+        <p class="body-text" style="font-size:0.88rem;text-align:justify;line-height:1.75;">${hintText2}</p>
       </div>
     `;
   } else {
+    // Gift available or past — always show hint + active status
     statusDiv.innerHTML = `
       <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Semana activa 🌟</div>
       <p class="body-text">Tu regalo te espera en <strong style="color:var(--text-light);">tu cajón de mi habitación</strong>.</p>
+      <div style="margin-top:16px;padding:14px 16px;background:rgba(201,168,76,0.08);border-radius:var(--radius-sm);border:1px solid rgba(201,168,76,0.2);">
+        <div style="font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Pista de la semana</div>
+        <p class="body-text" style="font-size:0.88rem;text-align:justify;line-height:1.75;">${hintText2}</p>
+      </div>
     `;
   }
   content.appendChild(statusDiv);
@@ -2283,10 +2314,12 @@ function openWeek(num) {
 
     const savedPw = localStorage.getItem(`week-pw-${num}`);
     if (savedPw) {
+      const weekDataEx = WEEK_DATA[num];
+      const explanationText = weekDataEx ? weekDataEx.explanation : '<p>¡Espero que te haya gustado! 🌿</p>';
       pwDiv.innerHTML = `
-        <div class="card">
-          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Explicación desbloqueada</div>
-          <p class="body-text" style="font-size:0.88rem;text-align:justify;">Ya has recibido este regalo. ¡Espero que te haya gustado! 🌿</p>
+        <div class="card" style="border-color:rgba(201,168,76,0.3);background:linear-gradient(135deg,rgba(201,168,76,0.05),rgba(224,64,160,0.04));">
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Explicación desbloqueada ✨</div>
+          <div class="body-text" style="font-size:0.88rem;text-align:justify;line-height:1.8;">${explanationText}</div>
         </div>
       `;
     } else {
@@ -2438,6 +2471,18 @@ function showModal(id) {
   document.querySelectorAll('.modal-overlay').forEach(m => m.classList.add('hidden'));
   const el = document.getElementById(id);
   if (el) el.classList.remove('hidden');
+}
+
+function closeUpdateModal() {
+  document.getElementById('modal-update').classList.add('hidden');
+  localStorage.setItem('updateModal_mar2026', 'true');
+}
+
+function checkUpdateModal() {
+  if (localStorage.getItem('updateModal_mar2026') === 'true') return;
+  // Only show if gifts are already unlocked (Sanaa is past the initial phase)
+  if (!persistedState.giftsUnlocked) return;
+  showModal('modal-update');
 }
 
 function closeNotifyGame() {
