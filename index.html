@@ -579,15 +579,6 @@
     transform: scale(1.04);
   }
  
-  .gift-card.suspended {
-    opacity: 0.18;
-    cursor: not-allowed;
-    filter: grayscale(1);
-    border-color: rgba(120,120,140,0.2);
-    background: var(--bg-surface);
-  }
-  .gift-card.suspended .gift-number { color: rgba(120,120,140,0.4); }
- 
   .gift-card.past-pending {
     border-color: rgba(201,168,76,0.25);
     background: linear-gradient(135deg, rgba(201,168,76,0.04), rgba(91,45,142,0.03));
@@ -600,6 +591,23 @@
     border-color: rgba(0,201,167,0.3);
     background: linear-gradient(135deg, rgba(0,201,167,0.05), rgba(27,79,216,0.04));
     opacity: 0.85;
+  }
+ 
+  .gift-card.anniversary {
+    border-color: transparent;
+    background: linear-gradient(135deg, #9EF01A 0%, #00C9A7 20%, #1B4FD8 45%, #5B2D8E 65%, #E040A0 82%, #C9A84C 100%);
+    box-shadow: 0 0 30px rgba(224,64,160,0.6), 0 0 60px rgba(158,240,26,0.3), 0 0 0 3px rgba(201,168,76,0.4);
+    transform: scale(1.06);
+    animation: pulse-anniversary 2s ease-in-out infinite;
+  }
+  .gift-card.anniversary .gift-number {
+    color: white;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+  }
+  @keyframes pulse-anniversary {
+    0%, 100% { box-shadow: 0 0 30px rgba(224,64,160,0.6), 0 0 60px rgba(158,240,26,0.3), 0 0 0 3px rgba(201,168,76,0.4); transform: scale(1.06); }
+    50% { box-shadow: 0 0 50px rgba(224,64,160,0.9), 0 0 80px rgba(27,79,216,0.5), 0 0 0 5px rgba(158,240,26,0.5); transform: scale(1.08); }
   }
  
   @keyframes pulse-gold {
@@ -1183,8 +1191,8 @@
           <button class="btn btn-outline" style="width:100%;max-width:280px;font-size:0.75rem;" onclick="goTo(&#39;screen-success&#39;)">
             El título 🔤
           </button>
-          <button class="btn btn-outline" style="width:100%;max-width:280px;font-size:0.75rem;border-color:rgba(201,168,76,0.3);color:var(--gold);" onclick="goTo(&#39;screen-mantenimiento&#39;)" id="menu-btn-mantenimiento">
-            Parada de mantenimiento 🔧
+          <button class="btn btn-outline" style="width:100%;max-width:280px;font-size:0.75rem;border-color:rgba(0,201,167,0.3);color:var(--teal);" onclick="goTo(&#39;screen-mantenimiento&#39;)" id="menu-btn-actualizacion">
+            Actualización completada ✅
           </button>
         </div>
         <div class="reveal reveal-4" id="menu-next-gift" style="text-align:center;width:100%;">
@@ -1541,27 +1549,53 @@
     </div>
   </div>
  
-  <!-- ===== SCREEN: MANTENIMIENTO ===== -->
+    <!-- ===== SCREEN: ACTUALIZACIÓN ===== -->
   <div class="screen" id="screen-mantenimiento">
     <div class="nav-bar">
       <button class="btn btn-outline" onclick="goTo(&#39;screen-menu&#39;)">← Inicio</button>
     </div>
     <div style="width:100%;display:flex;flex-direction:column;gap:24px;">
       <div class="reveal reveal-1" style="text-align:center;">
-        <div class="section-title">Parada de mantenimiento 🔧</div>
-        <div class="title-sub" style="margin-top:8px;">Información</div>
+        <div class="section-title">Actualización completada ✅</div>
+        <div class="title-sub" style="margin-top:8px;">8 de junio de 2026</div>
       </div>
       <div class="ornament reveal reveal-2"></div>
       <div class="reveal reveal-3 prose" style="text-align:justify;">
         <p class="salutation">¡Hola, Sanaa! 💛</p>
-        <p>Como ves, he puesto 18 Semanas en pausa durante un tiempo para actualizarla, corregir algunas cosas y retomar los regalos lo antes posible.</p>
-        <p>En realidad, ya había estado pausada de facto, porque entre unas cosas y otras, y sobre todo con el estrés del periodo de exámenes, no he podido comprar los regalos ni organizar los nuevos. Lo que pasa es que durante estos días te han seguido llegando las notificaciones y se han ido desbloqueando semanas aunque estuvieran vacías. Ahora verás que todo lo que aún no está desbloqueado se ha congelado, incluidas las cuentas atrás ⏸️</p>
-        <p>Seguimos teniendo pendientes los regalos de las semanas 7 y 9, de los cuales ya conoces las pistas pero todavía no tienes los regalos físicos. ¡Dentro de poco tendrás más noticias y retomaremos todo! 🎁</p>
-        <p>Gracias por la paciencia y la comprensión. Ya sabes que este regalo es tan importante para mí como para ti.</p>
-        <p><em>Te quiero mucho,</em><br><strong style="color:var(--text-light);">Carlos 💙</strong></p>
+        <p>Como ya te expliqué, durante un tiempo 18 Semanas estuvo en pausa. Entre los exámenes y el agobio general, no pude mantener el ritmo de los regalos y preferí parar, reorganizarme y retomarlo bien. Gracias por la paciencia.</p>
+        <p>Estos son los cambios principales en la aplicación:</p>
       </div>
-      <div class="ornament reveal reveal-4"></div>
-      <div class="reveal reveal-5" style="text-align:center;">
+      <div class="card reveal reveal-3" style="gap:10px;display:flex;flex-direction:column;">
+        <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);font-family:var(--font-body);">📅 Nuevas fechas</div>
+        <p class="body-text" style="text-align:justify;">He reajustado el calendario para poder terminar el regalo este verano. Como agosto es complicado porque tú estarás en Marruecos, las semanas 17 y 18 se han movido a septiembre. El regalo terminará entre el 7 y el 13 de septiembre.</p>
+      </div>
+      <div class="card reveal reveal-4" style="gap:10px;display:flex;flex-direction:column;">
+        <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);font-family:var(--font-body);">🎁 Semanas 7 y 9 activas</div>
+        <p class="body-text" style="text-align:justify;">Estas dos semanas estaban pendientes desde antes de la pausa. A partir de hoy sus regalos están disponibles en el cajón.</p>
+      </div>
+      <div class="card reveal reveal-4" style="gap:10px;display:flex;flex-direction:column;">
+        <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);font-family:var(--font-body);">🌱 Semana 10 activa</div>
+        <p class="body-text" style="text-align:justify;">También desde hoy tienes disponible la pista y el regalo de la semana 10.</p>
+      </div>
+      <div class="card reveal reveal-5" style="gap:10px;display:flex;flex-direction:column;">
+        <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);font-family:var(--font-body);">⭐ Algo especial en junio</div>
+        <p class="body-text" style="text-align:justify;">Como te podrás imaginar, hay una semana de junio que tiene un regalo diferente al resto. Ya lo verás.</p>
+      </div>
+      <div class="card reveal reveal-5" style="gap:10px;display:flex;flex-direction:column;">
+        <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);font-family:var(--font-body);">📦 Un regalo a distancia</div>
+        <p class="body-text" style="text-align:justify;">Durante la semana del 29 de junio estaré en Galicia, así que ese regalo te llegará de una forma un poco diferente.</p>
+      </div>
+      <div class="ornament reveal reveal-6"></div>
+      <div class="reveal reveal-6 prose" style="text-align:justify;">
+        <p>Queda mucho regalo por delante y estoy muy contento de retomarlo, semana a semana 💙.</p>
+        <p><em>Te quiero mucho,</em><br><strong style="color:var(--text-light);">Carlos.</strong></p>
+      </div>
+      <div class="reveal reveal-6" style="text-align:center;padding-top:8px;">
+        <p style="font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;font-family:var(--font-body);">
+          <em>Pausa iniciada el 2 de junio de 2026 · Actualización completada el 8 de junio de 2026</em>
+        </p>
+      </div>
+      <div class="reveal reveal-6" style="text-align:center;">
         <button class="btn btn-warm" onclick="goTo(&#39;screen-menu&#39;)">Volver al inicio</button>
       </div>
       <div class="spacer-sm"></div>
@@ -1629,25 +1663,6 @@
   </div>
 </div>
  
-<!-- Modal: Pausa mantenimiento — sale siempre hasta que se desactive -->
-<div class="modal-overlay hidden" id="modal-pausa">
-  <div class="modal-box">
-    <div style="font-size:1.8rem;margin-bottom:12px;">🔧</div>
-    <div class="notify-title" style="margin-bottom:12px;">18 Semanas en pausa</div>
-    <p class="body-text" style="font-size:0.88rem;text-align:left;">En estos momentos, <strong style="color:var(--text-light);">18 Semanas</strong> se encuentra en una pausa por motivos de mantenimiento. Se están actualizando las fechas y algunos elementos de la aplicación para ponerla en marcha una vez superado el periodo de exámenes.</p>
-    <div class="spacer-sm"></div>
-    <p class="body-text" style="font-size:0.88rem;">Gracias por tu comprensión y tu paciencia 💛</p>
-    <div class="spacer-md"></div>
-    <div id="modal-pausa-first-time" style="display:none;margin-bottom:16px;">
-      <p class="body-text" style="font-size:0.85rem;color:var(--gold);">Se ha habilitado una nueva pestaña con más información sobre el proceso.</p>
-      <div class="spacer-sm"></div>
-      <button class="btn btn-primary" style="width:100%;" onclick="closePausaGoMantenimiento()">Ver información 🔧</button>
-      <div class="spacer-sm"></div>
-    </div>
-    <button class="btn btn-ghost" style="width:100%;" onclick="closeModalPausa()">Entendido</button>
-  </div>
-</div>
- 
 <!-- Modal: Update notice (Mar 2026) -->
 <div class="modal-overlay hidden" id="modal-update">
   <div class="modal-box">
@@ -1657,6 +1672,19 @@
     <p class="body-text" style="font-size:0.88rem;">He hecho algunos cambios en la app. Ahora puedes seguir viendo la pista y la explicación del regalo de la semana 1 aunque ya haya pasado.</p>
     <div class="spacer-md"></div>
     <button class="btn btn-warm" onclick="closeUpdateModal()">¡Entendido! 💛</button>
+  </div>
+</div>
+ 
+<!-- Modal: Bienvenida actualización junio 2026 -->
+<div class="modal-overlay hidden" id="modal-bienvenida-jun">
+  <div class="modal-box">
+    <div style="font-size:1.8rem;margin-bottom:12px;">🌱</div>
+    <div class="notify-title" style="margin-bottom:12px;">¡La pausa ha terminado!</div>
+    <p class="body-text" style="font-size:0.88rem;text-align:left;">¡Hola, Sanaa! Ya he terminado de hacer el mantenimiento de 18 Semanas, echa un vistazo a la sección de actualización para ver los cambios que ha habido 🌱</p>
+    <div class="spacer-md"></div>
+    <button class="btn btn-primary" style="width:100%;" onclick="closeBienvenidaGoActualizacion()">Ver novedades ✅</button>
+    <div class="spacer-sm"></div>
+    <button class="btn btn-ghost" style="font-size:0.75rem;width:100%;" onclick="closeBienvenidaJun()">Más tarde</button>
   </div>
 </div>
  
@@ -1762,18 +1790,38 @@ const DATES = {
  
 function generateWeeks() {
   const weeks = [];
+  // Semanas 1-9: calendario normal desde el 2 de marzo
   const startMonday = new Date('2026-03-02T00:00:00');
+  // Semanas 10-18: fechas reajustadas
+  const customDates = {
+    10: { monday: new Date('2026-06-08T00:00:00'), sunday: new Date('2026-06-14T00:00:00') },
+    11: { monday: new Date('2026-06-15T00:00:00'), sunday: new Date('2026-06-21T00:00:00') },
+    12: { monday: new Date('2026-06-22T00:00:00'), sunday: new Date('2026-06-28T00:00:00') },
+    13: { monday: new Date('2026-06-29T00:00:00'), sunday: new Date('2026-07-05T00:00:00') },
+    14: { monday: new Date('2026-07-06T00:00:00'), sunday: new Date('2026-07-12T00:00:00') },
+    15: { monday: new Date('2026-07-13T00:00:00'), sunday: new Date('2026-07-19T00:00:00') },
+    16: { monday: new Date('2026-07-20T00:00:00'), sunday: new Date('2026-07-26T00:00:00') },
+    17: { monday: new Date('2026-08-31T00:00:00'), sunday: new Date('2026-09-06T00:00:00') },
+    18: { monday: new Date('2026-09-07T00:00:00'), sunday: new Date('2026-09-13T00:00:00') }
+  };
   for (let i = 0; i < 18; i++) {
-    const monday = new Date(startMonday);
-    monday.setDate(monday.getDate() + i * 7);
-    const sunday = new Date(monday);
-    sunday.setDate(sunday.getDate() + 6);
+    const weekNum = i + 1;
+    let monday, sunday;
+    if (customDates[weekNum]) {
+      monday = customDates[weekNum].monday;
+      sunday = customDates[weekNum].sunday;
+    } else {
+      monday = new Date(startMonday);
+      monday.setDate(monday.getDate() + i * 7);
+      sunday = new Date(monday);
+      sunday.setDate(sunday.getDate() + 6);
+    }
     const hintSunday = new Date(monday);
     hintSunday.setDate(hintSunday.getDate() - 1);
     weeks.push({
-      number: i + 1,
+      number: weekNum,
       monday, sunday, hintSunday,
-      label: i >= 9 ? 'Fecha por determinar' : `${formatDayMonth(monday)} · ${formatDayMonth(sunday)}`
+      label: `${formatDayMonth(monday)} · ${formatDayMonth(sunday)}`
     });
   }
   return weeks;
@@ -2000,9 +2048,17 @@ function refreshMenu() {
   if (s === 'd') {
     const nextGift = getNextGiftDate();
     const el = document.getElementById('menu-next-gift');
-    if (el) {
-      el.innerHTML = `<div class="body-text" style="font-size:0.75rem;margin-bottom:8px;color:var(--text-muted);">Próximo regalo</div>
-      <div style="font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--text-muted);letter-spacing:0.04em;">Aún por determinar</div>`;
+    if (el && nextGift) {
+      el.innerHTML = `<div class="body-text" style="font-size:0.75rem;margin-bottom:8px;">Próximo regalo en</div>
+      <div class="countdown-wrapper">
+        <div class="countdown-unit"><span class="countdown-number" id="mnext-d">--</span><span class="countdown-label">días</span></div>
+        <div class="countdown-sep">·</div>
+        <div class="countdown-unit"><span class="countdown-number" id="mnext-h">--</span><span class="countdown-label">horas</span></div>
+        <div class="countdown-sep">·</div>
+        <div class="countdown-unit"><span class="countdown-number" id="mnext-m">--</span><span class="countdown-label">min</span></div>
+      </div>`;
+    } else if (el) {
+      el.innerHTML = '';
     }
   }
 }
@@ -2099,10 +2155,12 @@ document.addEventListener('DOMContentLoaded', () => {
  
   // Check notification on load
   setTimeout(checkNotification, 500);
+  // Check modal pausa (desactivado)
+  setTimeout(checkModalPausa, 1000);
+  // Check modal bienvenida junio
+  setTimeout(checkBienvenidaJun, 1200);
   // Check update modal on load
   setTimeout(checkUpdateModal, 800);
-  // Check modal pausa on load
-  setTimeout(checkModalPausa, 1000);
  
   // Check app lock (after a brief moment)
   setTimeout(checkAppLockOnLoad, 200);
@@ -2266,16 +2324,19 @@ function updateGiftCards() {
     const isNextWeek = !giftAvailable && hintAvailable;
  
     const isUnlocked = !!localStorage.getItem(`week-pw-${i}`);
-    const isSuspended = i >= 10; // PAUSA: semanas 10-18 congeladas
+    const isForceActive = (i === 7 || i === 9) && !isUnlocked;
+    const isAnniversaryWeek = i === 12 && !isUnlocked;
  
-    if (isSuspended) {
-      card.classList.add('suspended');
+    if (isForceActive) {
+      card.classList.add('week-active');
     } else if (!hintAvailable) {
       card.classList.add('locked');
     } else if (isUnlocked) {
       card.classList.add('completed');
     } else if (isNextWeek) {
       card.classList.add('hint-active');
+    } else if (isAnniversaryWeek && (isCurrentWeek || giftAvailable)) {
+      card.classList.add('anniversary');
     } else if (isCurrentWeek) {
       card.classList.add('week-active');
     } else if (weekPassed || giftAvailable) {
@@ -2309,49 +2370,18 @@ const WEEK_DATA = {
   3: {
     hint: 'Ha llegado el momento de retomar algo que una vez empezamos y nunca más repetimos, aunque esta vez será a menor escala. Además, ¿qué mejor momento del año que este para hacerlo? 🍷',
     password: '5JOTAS',
-    explanation: `<p style="margin-bottom:12px;">¡Me ha encantado el juego que ha dado esta pista! Es hora de revelar algunos misterios. ¡El plan que tengo entre manos es hacer una NUEVA TABLA MEDITERRÁNEA! 🫒🧀🥓</p>
-    <p style="margin-bottom:12px;">El resto de ingredientes no están incluidos en el regalo, pero creo que un buen jamón y lomo son un buen comienzo para armar una buena tabla mediterránea que, sin ser de las dimensiones de la primera que hicimos, puede salir muy rica. En realidad, el regalo como lo tenía pensado eran solamente cosas haram que no puedes comer en tu casa (ahí el sentido con la temática de la aplicación), pero me pareció bien orientarlo hacia esto.</p>
-    <p>¿Que por qué es el mejor momento del año? ☀️🌺 Hombre..., hacer un banquete de jamón en casa de tu novio es ya muy muy haram, ¡así que mejor hacerlo cuando ya no sea Ramadán! Espero que esté bueno... 😋🍷</p>`
+    explanation: `<p style="margin-bottom:12px;">ERROR 404</p>
+    <p style="font-size:0.8rem;color:var(--text-muted);">Explicación no encontrada. Es posible que el autor se haya comido el contenido junto con el regalo.</p>`
   }
   ,
-  4: {
-    hint: 'Espero que con este regalo te sientas aún más cómoda cuando estés en mi casa 🏡. Es algo que muchas personas utilizan todos los días. Hasta ahora, cuando lo has necesitado, hemos tenido que improvisar, pero eso se acabó. Dijiste que querías pistas más fáciles, así que voy más allá: he tenido muchos problemas para elegir el estilo de este regalo, porque las opciones que me gustaban eran de choni o de un contexto muy diferente al de casa. La última pista es que me gustaría que la situación no me hiciera querer regalarte esto, pero así es la vida... 🫧',
-    password: 'TOMJERRY',
-    explanation: `<p style="margin-bottom:12px;">🎉🎊 ¡SORPRESA! 🎊🎉 El regalo que acabas de recibir es el de la semana cinco, ¡no el de la cuatro! Las dinámicas del sistema-mundo han provocado que tu cuarto regalo esté ahora mismo sobrevolando el planeta, mientras que el quinto llegó mucho antes de lo esperado 🌍🛫✅. Afortunadamente, este incidente se produce con dos regalos que son complementarios (de hecho, la pista de la siguiente semana iba a ser solamente que este regalo es complementario del de la semana anterior). De este modo, la pista que ya has visto es del regalo que aún no has recibido, creo que ya te imaginarás lo que es…</p>
-    <p style="margin-bottom:12px;">En cuanto al pijama, ¡aquí está! Solo está tu parte, porque no había presupuesto para la mía, pero me hace mucha gracia que yo sea Tom y tú seas Jerry 🐈‍⬛🐭. He tenido algunos problemas con la elección que ahora te contaré, y tú me ayudarás a elegir mi pijama de Tom (hay muchos modelos). ¿Qué te parece, te lo pruebas? Espero que te guste 💛.</p>`
+  10: {
+    hint: 'Muchas personas considerarían que es un mal momento para hacer este regalo, porque de momento no lo vamos a poder utilizar 📦. Pensar en ello a veces da la misma sensación que cuando piensas en una hamburguesa justo después de haber comido 🍔, cuando estás lleno y no puedes más. Este regalo tiene que ver, en cierto modo, con el vapor de agua 💧',
+    password: 'IKEA',
+    explanation: `<p style="margin-bottom:12px;">Espero que usemos mucho este regalo, va a ser nuestra nueva nube ☁️. Siempre me ha dado mucha envidia que tú tuvieras una nube tan cómoda y yo no, y espero que mi cama, con los cambios que estoy haciendo e incluyendo este regalo, esté a la altura de las circunstancias ✨. Cuánto me encanta que vengas tanto a mi casa y que sea nuestro espacio, quiero que estés lo más cómoda posible aquí, también para descansar o echar la siesta y, algún día, quién sabe, pasar la noche 🌙💛</p>`
   }
-  ,
-  5: {
-    hint: '¡Esta pista ya la sabes… es la de la semana anterior! 🔄 La pista de hoy, es decir, la del pijama, iba a ser que es un complemento de tu anterior regalo ✨',
-    password: 'FLIP-FLOPS',
-    explanation: `<p style="margin-bottom:12px;">Este regalo se puede entender como complementario del pijama. En la pista decía que ojalá no lo necesitaras porque en un mundo ideal, la casa estaría tan limpia que podrías ir descalza 🦶 (para eso, al menos, tendremos la nueva alfombra). Tuve muchas dudas con el estilo, y las que escogí me parecieron un poco de choni que baja la basura en pijama 🗑️. Creo que habrían sido más bonitas, sexys y quizá hasta cómodas, unas chanclas de dedo, flip-flops 🩴. El problema es que quería coger unas zapatillas que fueran específicas de estar por casa, dada la temática del regalo. Seguro que son un buen apaño y espero que sean cómodas 👣✨.</p>`
-  }
-  ,
-  6: {
-    hint: 'Piensa en todas las cosas que se pueden hacer en mi casa… 🏡 Cada una necesita sus herramientas específicas 🛠️. Este regalo va a ser casi como una caja de los cinco sentidos, la clave es para qué 👁️👂👃👅✋',
-    password: 'CANDELA',
-    explanation: `<p style="margin-bottom:12px;">Según mis notas originales el regalo iba a ser una vela para estudiar 🕯️, pero como ni siquiera sabía si te gustan pensé en complementarla con más cosas que te ayuden. La idea es que cuanto más tiempo pases en mi casa, más necesitarás estudiar aquí, así que podrás tener aquí tu kit de estudio con material escolar por si necesitas reponer el tuyo ✏️, frutos secos para aumentar tu energía ⚡ y, sobre todo, una vela para concentrarte (en internet pone que es real, pero sobre todo en las páginas web de las tiendas de velas, así que no sé qué pensar…). Espero que podamos concentrarnos 🔬💛.</p>`
-  }
-  ,
-  7: {
-    hint: 'Este es uno de los primeros regalos que está claramente orientado a permanecer en tu futura nueva casa y no en tu cajón de mi habitación (aunque de momento tendrá que esperar) ⏳. En un proceso de mudanza se necesitan conseguir muchas cosas, y algunas de ellas no son lo primero en lo que piensas cuando planificas tu casa nueva pero, aun así, es conveniente tener alguna, incluso si las vas a usar menos de diez veces al año. Este regalo es un ejemplo. ¡Tiene que ver con la India! 🕌',
-    password: 'JAIPUR',
-    explanation: `<p style="margin-bottom:12px;">Todas las casas necesitan tener un juego de mesa. Sé que hemos tenido una relación complicada con ellos, pero seguimos intentándolo. Si te gusta jugar a las cartas en la uni también te puede gustar un juego de mesa 🃏. Con este, concretamente, he querido seleccionar uno para dos personas específicamente 👫, ya que de momento en el grupo solo somos tú y yo, y que funcionara a base de cartas. Nunca he jugado, así que tendremos que aprender juntos, podemos llevarlo a la piscina o a nuestros picnics, ¡espero que lo usemos de vez en cuando! 🏊‍♀️🧺.</p>`
-  }
-  ,
-  8: {
-    hint: 'Tengo la expectativa de que este regalo sea la solución (y hablo de expectativa porque no estoy seguro de si va a funcionar) a uno de nuestros mayores problemas como pareja. 😨',
-    password: 'DELIPLUS',
-    explanation: `<p style="margin-bottom:12px;">Este regalo no estaba incluido en la lista original, pero pensando y pensando llegué a la conclusión de que era muy necesario para que podamos tener nuestra vida sexual habitual con menos problemas ✅. Supuestamente, esto es muy protector 🛡️, así que ya no hace falta que nos bajemos de la cama para hacer ciertas cosas ni que pasemos toda la tarde limpiando pis. Todo es cuestión de probarlo, tenemos 20 intentos, ¿cuánto crees que nos durará? 💧😈</p>`
-  }
-  ,
-  9: {
-    hint: 'Podríamos decir que hemos entrado en una fase de las 18 semanas en las que muchos de los regalos son un \'kit u objeto para hacer cosas en casa de Carlos\' 🏠✨. Tú tuviste un acierto cuando mencionaste las dos cosas que se te ocurrió que se podían hacer en mi casa: estudiar y follar. La primera ya está cubierta con el kit 📚, la segunda podría tener que ver con este regalo, pero creo que te dejaste muchas más cosas que se pueden hacer y no mencionaste. ¡Piensa en ellas! 🤔💭',
-    password: 'ETSY',
-    explanation: `<p>ERROR 404</p><p style="font-size:0.8rem;color:var(--text-muted);">Explicación no encontrada. Es posible que el autor se haya comido el contenido junto con el regalo.</p>`
-  }
-  // Semanas 10–18 se irán añadiendo aquí
- };
+  // Semanas 11–18 se irán añadiendo aquí
+};
+ 
 // ===================== WEEK =====================
 function openWeek(num) {
   const week = DATES.weeks[num-1];
@@ -2359,10 +2389,9 @@ function openWeek(num) {
   const hintAvailable = now >= week.hintSunday;
   const giftAvailable = now >= week.monday;
  
-  // Check if suspended (pausa)
-  if (num >= 10) return;
-  // Check if locked
-  if (!hintAvailable) return;
+  // Semanas 7 y 9 siempre accesibles
+  const isForceActive = (num === 7 || num === 9) && !localStorage.getItem(`week-pw-${num}`);
+  if (!isForceActive && !hintAvailable) return;
  
   state.currentWeek = num;
   const content = document.getElementById('week-content');
@@ -2392,7 +2421,9 @@ function openWeek(num) {
     ? weekData2.hint
     : 'La pista de esta semana está esperándote. Pronto podrás descubrir qué hay en tu cajón.';
  
-  if (!giftAvailable) {
+  const forceActiveWeek = (num === 7 || num === 9) && !localStorage.getItem(`week-pw-${num}`);
+ 
+  if (!giftAvailable && !forceActiveWeek) {
     // Hint phase only
     statusDiv.innerHTML = `
       <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Pista de la semana</div>
@@ -2414,8 +2445,8 @@ function openWeek(num) {
   }
   content.appendChild(statusDiv);
  
-  // Password section
-  if (giftAvailable) {
+  // Password section — visible si el regalo está disponible O si es semana forzada
+  if (giftAvailable || forceActiveWeek) {
     const pwDiv = document.createElement('div');
     pwDiv.className = 'reveal reveal-4';
     pwDiv.style.width = '100%';
@@ -2582,30 +2613,25 @@ function showModal(id) {
   if (el) el.classList.remove('hidden');
 }
  
-function closeModalPausa() {
-  document.getElementById('modal-pausa').classList.add('hidden');
-}
- 
-function closePausaGoMantenimiento() {
-  closeModalPausa();
-  goTo('screen-mantenimiento');
-}
- 
-function checkModalPausa() {
-  // PAUSA ACTIVA — comentar estas dos líneas para desactivar
-  const firstTime = localStorage.getItem('pausaModalSeen') !== 'true';
-  if (firstTime) {
-    localStorage.setItem('pausaModalSeen', 'true');
-    const ft = document.getElementById('modal-pausa-first-time');
-    if (ft) ft.style.display = 'block';
-  }
-  showModal('modal-pausa');
-  // FIN PAUSA ACTIVA
-}
- 
 function closeUpdateModal() {
   document.getElementById('modal-update').classList.add('hidden');
   localStorage.setItem('updateModal_mar2026', 'true');
+}
+ 
+function closeBienvenidaJun() {
+  document.getElementById('modal-bienvenida-jun').classList.add('hidden');
+  localStorage.setItem('bienvenidaJun2026', 'true');
+}
+ 
+function closeBienvenidaGoActualizacion() {
+  closeBienvenidaJun();
+  goTo('screen-mantenimiento');
+}
+ 
+function checkBienvenidaJun() {
+  if (localStorage.getItem('bienvenidaJun2026') === 'true') return;
+  if (!persistedState.giftsUnlocked) return;
+  showModal('modal-bienvenida-jun');
 }
  
 function checkUpdateModal() {
@@ -2613,6 +2639,28 @@ function checkUpdateModal() {
   // Only show if gifts are already unlocked (Sanaa is past the initial phase)
   if (!persistedState.giftsUnlocked) return;
   showModal('modal-update');
+}
+ 
+function checkModalPausa() {
+  // PAUSA DESACTIVADA — para reactivar descomentar el bloque
+  /*
+  const firstTime = localStorage.getItem('pausaModalSeen') !== 'true';
+  if (firstTime) {
+    localStorage.setItem('pausaModalSeen', 'true');
+    const ft = document.getElementById('modal-pausa-first-time');
+    if (ft) ft.style.display = 'block';
+  }
+  showModal('modal-pausa');
+  */
+}
+ 
+function closeModalPausa() {
+  document.getElementById('modal-pausa') && document.getElementById('modal-pausa').classList.add('hidden');
+}
+ 
+function closePausaGoMantenimiento() {
+  closeModalPausa();
+  goTo('screen-mantenimiento');
 }
  
 function closeNotifyGame() {
@@ -2835,25 +2883,3 @@ window.addEventListener('resize', () => {
  
  
 </body></html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
