@@ -24,88 +24,58 @@ on:
     # Vie 27 Feb 10:30 UTC = 11:30 España (UTC+1)
     - cron: '30 10 27 2 *'
  
-    # ===================== PISTAS DE REGALOS =====================
-    # Semana 1: Dom 1 Mar 23:00 UTC = 00:00 España
-    - cron: '0 23 1 3 *'
-    # Semana 2: Dom 8 Mar 23:00 UTC
-    - cron: '0 23 8 3 *'
-    # Semana 3: Dom 15 Mar 23:00 UTC
-    - cron: '0 23 15 3 *'
-    # Semana 4: Dom 22 Mar 23:00 UTC
-    - cron: '0 23 22 3 *'
-    # Semana 5: Dom 29 Mar 22:00 UTC = 00:00 España (UTC+2 horario verano)
-    - cron: '0 22 29 3 *'
-    # Semana 6: Dom 5 Abr 22:00 UTC
-    - cron: '0 22 5 4 *'
-    # Semana 7: Dom 12 Abr 22:00 UTC
-    - cron: '0 22 12 4 *'
-    # Semana 8: Dom 19 Abr 22:00 UTC
-    - cron: '0 22 19 4 *'
-    # Semana 9: Dom 26 Abr 22:00 UTC
-    - cron: '0 22 26 4 *'
-    # Semana 10: Dom 3 May 22:00 UTC
-    # PAUSADO - cron: '0 22 3 5 *'
-    # Semana 11: Dom 10 May 22:00 UTC
-    # PAUSADO - cron: '0 22 10 5 *'
-    # Semana 12: Dom 17 May 22:00 UTC
-    # PAUSADO - cron: '0 22 17 5 *'
-    # Semana 13: Dom 24 May 22:00 UTC
-    # PAUSADO - cron: '0 22 24 5 *'
-    # Semana 14: Dom 31 May 22:00 UTC
-    # PAUSADO - cron: '0 22 31 5 *'
-    # Semana 15: Dom 7 Jun 22:00 UTC
-    # PAUSADO - cron: '0 22 7 6 *'
-    # Semana 16: Dom 14 Jun 22:00 UTC
-    # PAUSADO - cron: '0 22 14 6 *'
-    # Semana 17: Dom 21 Jun 22:00 UTC
-    # PAUSADO - cron: '0 22 21 6 *'
-    # Semana 18: Dom 28 Jun 22:00 UTC
-    # PAUSADO - cron: '0 22 28 6 *'
+    # ===================== SEMANAS 1-9 (ya pasadas) =====================
+    # Comentadas — ya no se necesitan
  
-    # ===================== REGALOS DISPONIBLES =====================
-    # Semana 1: Dom 1 Mar 23:30 UTC (30 min después de la pista)
-    # PAUSADO - cron: '30 23 1 3 *'
-    # Semana 2: Dom 8 Mar 23:30 UTC
-    # PAUSADO - cron: '30 23 8 3 *'
-    # Semana 3: Dom 15 Mar 23:30 UTC
-    # PAUSADO - cron: '30 23 15 3 *'
-    # Semana 4: Dom 22 Mar 23:30 UTC
-    # PAUSADO - cron: '30 23 22 3 *'
-    # Semana 5: Dom 29 Mar 22:30 UTC
-    # PAUSADO - cron: '30 22 29 3 *'
-    # Semana 6: Dom 5 Abr 22:30 UTC
-    # PAUSADO - cron: '30 22 5 4 *'
-    # Semana 7: Dom 12 Abr 22:30 UTC
-    # PAUSADO - cron: '30 22 12 4 *'
-    # Semana 8: Dom 19 Abr 22:30 UTC
-    # PAUSADO - cron: '30 22 19 4 *'
-    # Semana 9: Dom 26 Abr 22:30 UTC
-    # PAUSADO - cron: '30 22 26 4 *'
-    # Semana 10: Dom 3 May 22:30 UTC
-    # PAUSADO - cron: '30 22 3 5 *'
-    # Semana 11: Dom 10 May 22:30 UTC
-    # PAUSADO - cron: '30 22 10 5 *'
-    # Semana 12: Dom 17 May 22:30 UTC
-    # PAUSADO - cron: '30 22 17 5 *'
-    # Semana 13: Dom 24 May 22:30 UTC
-    # PAUSADO - cron: '30 22 24 5 *'
-    # Semana 14: Dom 31 May 22:30 UTC
-    # PAUSADO - cron: '30 22 31 5 *'
-    # Semana 15: Dom 7 Jun 22:30 UTC
-    # PAUSADO - cron: '30 22 7 6 *'
-    # Semana 16: Dom 14 Jun 22:30 UTC
-    # PAUSADO - cron: '30 22 14 6 *'
-    # Semana 17: Dom 21 Jun 22:30 UTC
-    # PAUSADO - cron: '30 22 21 6 *'
-    # Semana 18: Dom 28 Jun 22:30 UTC
-    # PAUSADO - cron: '30 22 28 6 *'
+    # ===================== PISTAS DE REGALOS (domingos) =====================
+    # España UTC+2 (verano): 00:00 España = 22:00 UTC día anterior
+ 
+    # Semana 10: dom 7 jun 22:00 UTC = lun 8 jun 00:00 España
+    - cron: '0 22 7 6 *'
+    # Semana 11: dom 14 jun 22:00 UTC
+    - cron: '0 22 14 6 *'
+    # Semana 12: dom 21 jun 22:00 UTC
+    - cron: '0 22 21 6 *'
+    # Semana 13: dom 28 jun 22:00 UTC
+    - cron: '0 22 28 6 *'
+    # Semana 14: dom 5 jul 22:00 UTC
+    - cron: '0 22 5 7 *'
+    # Semana 15: dom 12 jul 22:00 UTC
+    - cron: '0 22 12 7 *'
+    # Semana 16: dom 19 jul 22:00 UTC
+    - cron: '0 22 19 7 *'
+    # Semana 17: dom 30 ago 22:00 UTC
+    - cron: '0 22 30 8 *'
+    # Semana 18: dom 6 sep 22:00 UTC
+    - cron: '0 22 6 9 *'
+ 
+    # ===================== REGALOS DISPONIBLES (lunes) =====================
+    # Semana 10: lun 8 jun 22:00 UTC = mar 9 jun 00:00 España
+    # Nota: el regalo se activa el lunes, la notificación sale ese mismo lunes a medianoche
+    - cron: '0 22 8 6 *'
+    # Semana 11: lun 15 jun 22:00 UTC
+    - cron: '0 22 15 6 *'
+    # Semana 12: lun 22 jun 22:00 UTC
+    - cron: '0 22 22 6 *'
+    # Semana 13: lun 29 jun 22:00 UTC
+    - cron: '0 22 29 6 *'
+    # Semana 14: lun 6 jul 22:00 UTC
+    - cron: '0 22 6 7 *'
+    # Semana 15: lun 13 jul 22:00 UTC
+    - cron: '0 22 13 7 *'
+    # Semana 16: lun 20 jul 22:00 UTC
+    - cron: '0 22 20 7 *'
+    # Semana 17: lun 31 ago 22:00 UTC
+    - cron: '0 22 31 8 *'
+    # Semana 18: lun 7 sep 22:00 UTC
+    - cron: '0 22 7 9 *'
  
   workflow_dispatch:
     inputs:
       tipo:
         description: 'Tipo de notificación manual'
         required: true
-        default: 'pista_juego'
+        default: 'pista_regalo'
         type: choice
         options:
           - pista_juego
@@ -125,7 +95,8 @@ jobs:
  
           PISTAS_JUEGO=("0 0 22 2 *" "0 0 23 2 *" "0 0 24 2 *" "0 12 24 2 *" "0 0 25 2 *" "0 12 25 2 *" "0 0 26 2 *" "0 0 27 2 *")
           PRES="30 10 27 2 *"
-          PISTAS_REGALO=("0 23 1 3 *" "0 23 8 3 *" "0 23 15 3 *" "0 23 22 3 *" "0 22 29 3 *" "0 22 5 4 *" "0 22 12 4 *" "0 22 19 4 *" "0 22 26 4 *" "0 22 3 5 *" "0 22 10 5 *" "0 22 17 5 *" "0 22 24 5 *" "0 22 31 5 *" "0 22 7 6 *" "0 22 14 6 *" "0 22 21 6 *" "0 22 28 6 *")
+          PISTAS_REGALO=("0 22 7 6 *" "0 22 14 6 *" "0 22 21 6 *" "0 22 28 6 *" "0 22 5 7 *" "0 22 12 7 *" "0 22 19 7 *" "0 22 30 8 *" "0 22 6 9 *")
+          REGALOS_DISPONIBLES=("0 22 8 6 *" "0 22 15 6 *" "0 22 22 6 *" "0 22 29 6 *" "0 22 6 7 *" "0 22 13 7 *" "0 22 20 7 *" "0 22 31 8 *" "0 22 7 9 *")
  
           if [ -n "$MANUAL" ]; then
             echo "tipo=$MANUAL" >> $GITHUB_OUTPUT
@@ -135,7 +106,7 @@ jobs:
             echo "tipo=pista_juego" >> $GITHUB_OUTPUT
           elif [[ " ${PISTAS_REGALO[@]} " =~ " ${NOW} " ]]; then
             echo "tipo=pista_regalo" >> $GITHUB_OUTPUT
-          else
+          elif [[ " ${REGALOS_DISPONIBLES[@]} " =~ " ${NOW} " ]]; then
             echo "tipo=regalo_disponible" >> $GITHUB_OUTPUT
           fi
  
@@ -164,7 +135,7 @@ jobs:
               "app_id": "73dafac1-0650-4dc1-b785-a3ce02cc14bf",
               "included_segments": ["All"],
               "headings": {"en": "🌱 Nueva pista en 18 Semanas"},
-              "contents": {"en": "¡Hola, Sanaa! Tienes una nueva pista en 18 Semanas. Pulsa aquí para verla."},
+              "contents": {"en": "¡Hola, Sanaa! Tienes una nueva pista esta semana. Pulsa para verla."},
               "url": "https://meta-mage.github.io/#gifts",
               "chrome_web_icon": "https://meta-mage.github.io/icon-192.png"
             }'
@@ -179,7 +150,7 @@ jobs:
               "app_id": "73dafac1-0650-4dc1-b785-a3ce02cc14bf",
               "included_segments": ["All"],
               "headings": {"en": "🎁 ¡Nuevo regalo disponible!"},
-              "contents": {"en": "¡Hola, Sanaa! Tienes un nuevo regalo disponible, ¿has visto ya la pista?"},
+              "contents": {"en": "¡Hola, Sanaa! Ya tienes disponible tu nuevo regalo. ¿Has visto ya la pista?"},
               "url": "https://meta-mage.github.io/#gifts",
               "chrome_web_icon": "https://meta-mage.github.io/icon-192.png"
             }'
