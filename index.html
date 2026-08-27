@@ -177,7 +177,7 @@
   .notify-title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--gold); }
 
   /* ===== PORTAL (dos puertas) ===== */
-  .puerta { width: 100%; border-radius: var(--radius-lg); padding: 28px 24px; margin-bottom: 20px; cursor: pointer; border: none; text-align: left; transition: var(--transition); color: white; position: relative; overflow: hidden; }
+  .puerta { width: 100%; border-radius: var(--radius-lg); padding: 24px 22px; margin-bottom: 14px; cursor: pointer; border: none; text-align: left; transition: var(--transition); color: white; position: relative; overflow: hidden; }
   .puerta:active { transform: scale(0.98); }
   .puerta-muestras { background: var(--grad-warm); box-shadow: 0 8px 32px rgba(224,64,160,0.3); }
   .puerta-semanas { background: var(--grad-main); color: var(--deep); box-shadow: 0 8px 32px rgba(0,201,167,0.3); }
@@ -230,9 +230,9 @@
 <div id="app">
 
   <!-- ===== SCREEN: PORTAL ===== -->
-  <div class="screen active" id="screen-portal">
+  <div class="screen active" id="screen-portal" style="justify-content:center;">
     <div class="title-main" style="font-size:clamp(2rem,7vw,3rem);">Bienvenida</div>
-    <div class="title-sub" style="margin-bottom:36px;">elige a dónde quieres ir</div>
+    <div class="title-sub" style="margin-bottom:20px;">elige a dónde quieres ir</div>
     <button class="puerta puerta-muestras" onclick="goTo('screen-muestras')">
       <div class="puerta-titulo">31 MUESTRAS DE AMOR 🌷</div>
       <div class="puerta-sub">una nueva muestra cada día</div>
@@ -271,6 +271,9 @@
         <span id="navLogoTitle" style="display:none;font-family:var(--font-display);font-size:1rem;font-weight:700;letter-spacing:-0.02em;background:var(--grad-warm);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">18 Semanas</span>
       </div>
       <span style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);" id="navDate">jueves, 19 de febrero</span>
+    </div>
+    <div style="width:100%;display:flex;justify-content:flex-end;margin-top:-20px;margin-bottom:12px;">
+      <button class="btn btn-outline" style="font-size:0.7rem;padding:6px 14px;" onclick="goTo('screen-portal')">🌷 31 Muestras</button>
     </div>
 
     <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;width:100%;">
@@ -873,10 +876,25 @@ async function detectarPaginasMuestras() {
   return n;
 }
 
+// El contador de "muestras disponibles" representa cuántos días del
+// regalo han pasado (día 1 = 26/08/2026), no el número de páginas del
+// PDF — un día puede tener varias páginas de "andamiaje" (portada,
+// índice, introducción, "continuará...") además de las muestras en sí.
+function calcularDiaRegalo() {
+  const DIA_UNO = new Date('2026-08-26T00:00:00');
+  const hoy = new Date();
+  const diasPasados = Math.floor((hoy - DIA_UNO) / 86400000);
+  let dia = diasPasados + 1;
+  if (dia < 1) dia = 1;
+  if (dia > 31) dia = 31;
+  return dia;
+}
+
 async function inicializarMuestras() {
   muestrasDetectadas = await detectarPaginasMuestras();
+  const diaRegalo = calcularDiaRegalo();
   const contadorEl = document.getElementById('muestras-contador-actual');
-  if (contadorEl) contadorEl.textContent = muestrasDetectadas;
+  if (contadorEl) contadorEl.textContent = diaRegalo;
   const btn = document.getElementById('btn-abrir-muestras');
   if (btn && muestrasDetectadas === 0) {
     btn.disabled = true;
@@ -915,15 +933,25 @@ function abrirLibroMuestras() {
   vistaMuestraActual = 0;
   renderVistaMuestras();
   document.getElementById('libro-overlay-muestras').classList.add('activo');
-  const destino = vistasMuestras.length - 1;
+
+  // Nos detenemos en la vista que contiene la penúltima página real
+  // (la última suele ser el "Continuará mañana...", que no queremos
+  // revelar en el pase automático). Si por la forma de emparejar las
+  // páginas la penúltima comparte vista con la última, no hay forma
+  // de separarlas visualmente y se mostrarán juntas — caso raro, no
+  // bloquea nada.
+  const penultimaPagina = Math.max(1, muestrasDetectadas - 1);
+  let destino = vistasMuestras.findIndex(vista => vista.includes(penultimaPagina));
+  if (destino === -1) destino = Math.max(0, vistasMuestras.length - 2);
+
   const paso = () => {
     if (vistaMuestraActual < destino) {
       vistaMuestraActual++;
       renderVistaMuestras();
-      setTimeout(paso, 130);
+      setTimeout(paso, 380);
     }
   };
-  setTimeout(paso, 250);
+  setTimeout(paso, 500);
 }
 
 function cerrarLibroMuestras() {
