@@ -195,8 +195,8 @@
   .libro-overlay { display: none; position: fixed; inset: 0; background: #18122B; z-index: 60; flex-direction: column; align-items: center; justify-content: center; }
   .libro-overlay.activo { display: flex; }
   .libro-cerrar-top { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.1); border: none; color: white; border-radius: 20px; padding: 8px 16px; font-size: 0.8rem; cursor: pointer; }
-  .libro-paginas-real { display: flex; align-items: center; justify-content: center; max-width: 94vw; max-height: 72vh; }
-  .libro-paginas-real img { max-height: 72vh; max-width: 90vw; height: auto; display: block; box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+  .libro-paginas-real { display: flex; gap: 8px; align-items: center; justify-content: center; max-width: 94vw; max-height: 72vh; }
+  .libro-paginas-real img { height: auto; display: block; box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
   .libro-flechas-real { display: flex; gap: 40px; align-items: center; margin-top: 18px; }
   .flecha-real { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); border: none; color: white; font-size: 1.2rem; cursor: pointer; }
   .flecha-real:disabled { opacity: 0.2; cursor: default; }
@@ -890,6 +890,12 @@ function calcularDiaRegalo() {
   return dia;
 }
 
+// Pantallas anchas (tablet/ordenador): libro en spread de dos páginas.
+// Pantallas estrechas (móvil): una página a la vez, más legible.
+function esPantallaAncha() {
+  return window.innerWidth >= 700;
+}
+
 async function inicializarMuestras() {
   muestrasDetectadas = await detectarPaginasMuestras();
   const diaRegalo = calcularDiaRegalo();
@@ -902,7 +908,16 @@ async function inicializarMuestras() {
   }
 
   vistasMuestras = [];
-  for (let p = 1; p <= muestrasDetectadas; p++) vistasMuestras.push([p]);
+  if (muestrasDetectadas >= 1 && esPantallaAncha()) {
+    vistasMuestras.push([1]);
+    const resto = [];
+    for (let p = 2; p <= muestrasDetectadas; p++) resto.push(p);
+    while (resto.length) {
+      vistasMuestras.push(resto.length === 1 ? [resto.shift()] : [resto.shift(), resto.shift()]);
+    }
+  } else {
+    for (let p = 1; p <= muestrasDetectadas; p++) vistasMuestras.push([p]);
+  }
 }
 
 let vistaMuestraActual = 0;
@@ -910,9 +925,13 @@ let vistaMuestraActual = 0;
 function renderVistaMuestras() {
   const cont = document.getElementById('libro-paginas-muestras');
   cont.innerHTML = '';
-  vistasMuestras[vistaMuestraActual].forEach((n) => {
+  const paginasVista = vistasMuestras[vistaMuestraActual];
+  const enSpread = paginasVista.length === 2;
+  paginasVista.forEach((n) => {
     const img = document.createElement('img');
     img.src = `muestras/pagina-${n}.png`;
+    img.style.maxWidth = enSpread ? '44vw' : '90vw';
+    img.style.maxHeight = '72vh';
     cont.appendChild(img);
   });
   document.getElementById('flecha-izq-muestras').disabled = vistaMuestraActual === 0;
