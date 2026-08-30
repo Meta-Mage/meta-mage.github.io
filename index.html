@@ -869,7 +869,7 @@ function probarImagen(src) {
 async function detectarPaginasMuestras() {
   let n = 0;
   while (true) {
-    const existe = await probarImagen(`muestras/pagina-${n + 1}.png`);
+    const existe = await probarImagen(`muestras/pagina-${String(n + 1).padStart(2, '0')}.png`);
     if (!existe) break;
     n++;
   }
@@ -929,7 +929,7 @@ function renderVistaMuestras() {
   const enSpread = paginasVista.length === 2;
   paginasVista.forEach((n) => {
     const img = document.createElement('img');
-    img.src = `muestras/pagina-${n}.png`;
+    img.src = `muestras/pagina-${String(n).padStart(2, '0')}.png`;
     img.style.maxWidth = enSpread ? '44vw' : '90vw';
     img.style.maxHeight = '72vh';
     cont.appendChild(img);
